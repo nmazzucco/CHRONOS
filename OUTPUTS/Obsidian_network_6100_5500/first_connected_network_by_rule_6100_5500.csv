@@ -1,0 +1,4 @@
+"Network","Nodes","Edges","Components","Isolates","Largest_Component_Size","Connected_All_Sites","Rule_set","Distance_km","Allowed_connections"
+"Rule_A_550km",35,86,1,0,35,TRUE,"Rule_A",550,"4-3, 3-2, 3-1, 2-1"
+"Rule_B_550km",35,92,1,0,35,TRUE,"Rule_B",550,"4-3, 4-2, 3-2, 3-1, 2-1"
+"Rule_C_550km",35,60,1,0,35,TRUE,"Rule_C",550,"4-3, 3-2, 2-1"

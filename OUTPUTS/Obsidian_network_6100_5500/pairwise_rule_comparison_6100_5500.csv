@@ -1,0 +1,13 @@
+"Metric","Rule_1","Rule_2","Adjusted_P_value"
+"Edges","Rule_B","Rule_A",0.00366741823279006
+"Edges","Rule_C","Rule_A",0.00366741823279006
+"Edges","Rule_C","Rule_B",0.00146484375
+"Components","Rule_B","Rule_A",0.021776707751071
+"Components","Rule_C","Rule_A",0.021776707751071
+"Components","Rule_C","Rule_B",0.021776707751071
+"Isolates","Rule_B","Rule_A",0.0199065122489278
+"Isolates","Rule_C","Rule_A",0.0199065122489278
+"Isolates","Rule_C","Rule_B",0.0199065122489278
+"Largest_Component_Size","Rule_B","Rule_A",0.0320148572831348
+"Largest_Component_Size","Rule_C","Rule_A",0.0320148572831348
+"Largest_Component_Size","Rule_C","Rule_B",0.0320148572831348
