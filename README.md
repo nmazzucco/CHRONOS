@@ -314,6 +314,7 @@ CITATION.cff
 ```
 
 Licence
+
 Data, figures, documentation, and report are under Creative Commons Attribution 4.0 International (CC BY 4.0).
 
 Suggested wording:
