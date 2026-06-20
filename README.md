@@ -1,4 +1,3 @@
-CHRONOS
 CHRONOS is a reproducible R workflow for modelling the production, ranking, and circulation of obsidian in the Central Mediterranean during the Neolithic. The repository contains the input data structure, map files, analytical script, generated outputs, and an illustrated HTML report prepared for publication.
 The workflow combines technological quantification, production-score ranking, Brainerd–Robinson similarity/dissimilarity analysis, network modelling, distance-threshold sensitivity testing, source-filtered obsidian circulation networks, and publication-ready cartographic outputs.
 
@@ -26,7 +25,7 @@ CHRONOS/
 
 ---
 
-Project aims
+Project aims:
 CHRONOS was developed to explore how obsidian production and circulation changed across two chronological intervals:
 6100–5500 cal BC
 5500–4900 cal BC
@@ -35,7 +34,9 @@ How can archaeological sites be ranked according to their involvement in obsidia
 How do different connection rules and distance thresholds affect the structure of reconstructed exchange networks?
 Which network models provide the most parsimonious explanation for regional obsidian circulation?
 How do source-specific networks differ for Sardinian / Monte Arci, Lipari, and Palmarola obsidian?
+
 ---
+
 Main analytical workflow
 The R script performs the following steps.
 1. Data loading and cleaning
@@ -53,6 +54,7 @@ Sardegna
 Lipari
 Palmarola
 ```
+
 2. Production-score ranking
 For each technological category, the script calculates the percentage contribution of each site to the total amount of that category in the complete dataset.
 The production score is calculated as:
@@ -60,6 +62,7 @@ The production score is calculated as:
 Production_score =
 blade.PN + flake.PN + core.PN + by.products.waste.PN
 ```
+
 Sites are then assigned to three production ranks:
 Rank	Interpretation	Criterion
 Rank 1	Low production involvement / consumer sites	Below the 80th percentile
@@ -70,6 +73,7 @@ The three raw-material source nodes added by the script are:
 Monte Arci
 Lipari
 Palmarola
+
 3. Brainerd–Robinson diagnostic analysis
 The workflow calculates a Brainerd–Robinson-style similarity and dissimilarity matrix on production-contribution values. These matrices are used as diagnostic tools, not for assigning ranks.
 The diagnostic stage includes:
@@ -82,6 +86,7 @@ After ranks are calculated on the full dataset, they are attached to the two chr
 `obs_data_corr_6100_5500.xlsx`
 `obs_data_corr_5500_4900.xlsx`
 This ensures that site rank is defined consistently across both chronological phases.
+
 5. Network model construction
 For each chronological interval, the script builds directed networks using combinations of rule sets and distance thresholds.
 The three rule sets are:
@@ -96,6 +101,7 @@ network maps
 global metrics
 centrality measures
 rule-distance sensitivity summaries
+
 6. Model comparison
 The script evaluates how each rule set behaves across distance thresholds using:
 number of edges
@@ -105,21 +111,25 @@ largest component size
 first fully connected model for each rule set
 Friedman tests for repeated comparison across distance thresholds
 pairwise Wilcoxon signed-rank tests as post-hoc comparisons
+
 7. Source-confirmed networks
 The workflow extracts source-specific confirmed networks for:
 Sardegna / Monte Arci
 Lipari
 Palmarola
 Rule A is used as the preferred backbone because it is more parsimonious. If Rule A produces an uninformative source-confirmed graph, the script falls back to Rule B. The fallback decision is recorded in the output tables.
+
 8. Publication map
 The script also generates a numbered black-and-white map of all sites, together with a lookup table linking map IDs to site names and coordinates.
 ---
+
 Main outputs
 The script writes outputs to the `OUTPUTS/` folder and to the two chronological subfolders:
 ```text
 OUTPUTS/Obsidian_network_6100_5500/
 OUTPUTS/Obsidian_network_5500_4900/
 ```
+
 Key global output tables
 File	Description
 `production_contribution_PN_all_sites.csv`	Production-contribution matrix for all sites
@@ -133,6 +143,7 @@ File	Description
 `pcoa_BR_by_production_rank_all_sites.csv`	PCoA coordinates for the BR diagnostic plot
 `pcoa_site_code_lookup_all_sites.csv`	Short labels used in the PCoA figure
 `all_sites_numbered_map_lookup.csv`	Lookup table for the numbered publication map
+
 Key chronological output tables
 For each interval, the script produces:
 File type	Description
@@ -151,6 +162,7 @@ File type	Description
 `source_confirmed_metrics_<interval>.csv`	Metrics for source-confirmed networks
 `<source>_source_confirmed_edges_<interval>.csv`	Source-confirmed edge list
 `<source>_source_confirmed_vertices_<interval>.csv`	Source-confirmed vertex list
+
 Key figures
 The script generates several classes of figures:
 Figure type	Description
@@ -166,6 +178,7 @@ The complete illustrated discussion of figures and tables is provided in:
 CHRONOS_report.html
 ```
 ---
+
 Software requirements
 The workflow is written in R and uses the following packages:
 ```r
@@ -196,6 +209,7 @@ install.packages(c(
 ))
 ```
 ---
+
 Running the workflow
 The script expects the following folder structure:
 ```text
@@ -208,9 +222,13 @@ The path is automatically detected from the local OneDrive folder used during de
 ```r
 chronos_base <- file.path(one_drive_path, "R", "CHRONOS", "NEWCODE")
 ```
+
 Then run the full R script.
+
 All output folders are created automatically if they do not already exist.
+
 ---
+
 Viewing the report
 The main report is:
 ```text
@@ -232,12 +250,14 @@ the illustrated HTML report;
 a README file explaining repository structure and usage;
 a licence file;
 a citation file if the repository is archived through Zenodo.
+
 Recommended additional files:
 ```text
 LICENSE
 CITATION.cff
 .gitignore
 ```
+
 ---
 Suggested citation
 If this repository is archived with Zenodo, cite the archived version using the DOI generated by Zenodo.
@@ -245,11 +265,14 @@ Suggested provisional citation format:
 ```text
 Mazzucco, N. CHRONOS: Reproducible workflow for modelling Neolithic obsidian production and circulation in the Central Mediterranean. GitHub repository.
 ```
+
 ---
+
 Author
 Niccolò Mazzucco  
 University of Pisa  
 GitHub: `@nmazzucco`
+
 ---
 Licence
 Add a `LICENSE` file before publication. For open scientific code, a permissive licence such as MIT is commonly used. For data and figures, consider whether a Creative Commons licence is more appropriate.
