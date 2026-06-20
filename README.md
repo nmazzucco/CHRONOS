@@ -313,11 +313,8 @@ CITATION.cff
 .gitignore
 ```
 
-Licence recommendation
-For this repository, a dual licensing approach is recommended:
-Code (`CHRONOS.R`): use a software licence such as the MIT Licence.
-Data, figures, documentation, and report: use Creative Commons Attribution 4.0 International (CC BY 4.0), if you want others to reuse them with attribution.
-Creative Commons licences are excellent for documents, figures, and datasets, but they are not normally recommended for software code. For the R script itself, a standard software licence such as MIT is more appropriate.
+Licence
+Data, figures, documentation, and report are under Creative Commons Attribution 4.0 International (CC BY 4.0).
 
 Suggested wording:
 ```text
