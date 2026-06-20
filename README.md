@@ -256,7 +256,8 @@ install.packages(c(
 Running the workflow
 The script expects the following folder structure:
 ```text
-R/CHRONOS/NEWCODE/
+CHRONOS/
+├── CHRONOS.R
 ├── RAWDATA/
 ├── MAP/
 └── OUTPUTS/
