@@ -1,356 +1,1260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CHRONOS Report — Modelling Neolithic Obsidian Production and Circulation</title>
-  <style>
-    :root {
-      --ink: #1f2933;
-      --muted: #5f6b7a;
-      --line: #d7dee8;
-      --soft: #f6f8fb;
-      --accent: #355c7d;
-      --accent2: #7cae7a;
-      --warn: #9f580a;
-      --code: #0f172a;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.58;
-      color: var(--ink);
-      background: white;
-    }
-    header {
-      background: linear-gradient(135deg, #203a43 0%, #355c7d 55%, #6f9fe9 100%);
-      color: white;
-      padding: 4.5rem 8vw 4rem;
-    }
-    header h1 {
-      margin: 0 0 0.7rem;
-      font-size: clamp(2rem, 5vw, 4rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      max-width: 1100px;
-    }
-    header p { max-width: 900px; font-size: 1.15rem; margin: 0.5rem 0; opacity: 0.96; }
-    main { max-width: 1160px; margin: 0 auto; padding: 2rem 1.2rem 5rem; }
-    nav.toc {
-      background: var(--soft);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 1.1rem 1.4rem;
-      margin: -3.3rem auto 2rem;
-      box-shadow: 0 8px 22px rgba(31, 41, 51, 0.08);
-    }
-    nav.toc h2 { margin-top: 0; font-size: 1.05rem; }
-    nav.toc ul { columns: 2; margin: 0; padding-left: 1.1rem; }
-    a { color: #215a9a; text-decoration-thickness: 0.08em; }
-    section { margin: 2.2rem 0 3rem; }
-    h2 { border-bottom: 2px solid var(--line); padding-bottom: 0.4rem; margin-top: 2.5rem; font-size: 1.75rem; }
-    h3 { color: var(--accent); margin-top: 1.8rem; }
-    .lead { font-size: 1.1rem; color: #2f3c48; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 1rem; }
-    .card {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: white;
-      padding: 1rem 1.05rem;
-      box-shadow: 0 3px 12px rgba(31, 41, 51, 0.04);
-    }
-    .card h3 { margin-top: 0; color: var(--ink); }
-    .tag { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 999px; background: #e8eff8; color: #254d74; font-size: 0.82rem; margin: 0.15rem 0.2rem 0.15rem 0; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
-    th, td { border: 1px solid var(--line); padding: 0.62rem 0.7rem; vertical-align: top; }
-    th { background: var(--soft); text-align: left; color: #273849; }
-    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
-    code { background: #eef2f7; padding: 0.1rem 0.25rem; border-radius: 4px; }
-    pre { overflow-x: auto; padding: 1rem; background: var(--code); color: #f8fafc; border-radius: 12px; line-height: 1.45; }
-    .note { border-left: 5px solid var(--accent); background: #f4f8fc; padding: 0.9rem 1rem; border-radius: 0 10px 10px 0; margin: 1rem 0; }
-    .warning { border-left: 5px solid var(--warn); background: #fff8ed; padding: 0.9rem 1rem; border-radius: 0 10px 10px 0; margin: 1rem 0; }
-    .workflow { counter-reset: step; }
-    .step { position: relative; margin: 1rem 0 1rem 2.5rem; padding: 0.9rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: white; }
-    .step:before { counter-increment: step; content: counter(step); position: absolute; left: -2.5rem; top: 0.8rem; width: 1.7rem; height: 1.7rem; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: white; font-weight: 700; }
-    .small { font-size: 0.9rem; color: var(--muted); }
-    footer { border-top: 1px solid var(--line); margin-top: 4rem; padding-top: 1.2rem; color: var(--muted); font-size: 0.92rem; }
-    @media (max-width: 760px) { nav.toc ul { columns: 1; } header { padding: 3rem 1.2rem 4rem; } }
-    @media print { nav.toc { box-shadow: none; margin-top: 0; } a { color: inherit; } header { background: white; color: black; padding: 1rem 0; } main { max-width: none; } }
-  
-/* -------------------------------------------------------------------------
-   Accessibility/readability patch for GitHub Pages
-   ------------------------------------------------------------------------- */
+<meta charset="utf-8">
+<title>CHRONOS Report - Obsidian Production and Circulation Networks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+  --bg:#f6f8fb;
+  --paper:#ffffff;
+  --text:#1f2937;
+  --muted:#5b677a;
+  --line:#d8dee9;
+  --accent:#244f7a;
+  --accent2:#8a4b2a;
+}
+* { box-sizing: border-box; }
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height:1.62;
+}
+header {
+  background: linear-gradient(135deg, #203a55, #2f6f73);
+  color:white;
+  padding:48px 24px;
+}
+header .wrap, main {
+  max-width:1180px;
+  margin:0 auto;
+}
+header h1 {
+  margin:0 0 10px 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+header p { max-width:900px; font-size:1.1rem; }
+main {
+  background:var(--paper);
+  padding:32px 28px 60px;
+  box-shadow:0 8px 40px rgba(0,0,0,.08);
+}
+h2 {
+  margin-top:42px;
+  border-bottom:2px solid var(--line);
+  padding-bottom:8px;
+  color:var(--accent);
+}
+h3 { margin-top:30px; color:#30445c; }
+h4 { margin:0 0 10px; color:#24364b; }
+a { color:#0b63b6; }
+.notice {
+  background:#fff8e6;
+  border-left:5px solid #d9981e;
+  padding:14px 18px;
+  margin:20px 0;
+}
+.summary-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+  gap:14px;
+}
+.summary-card {
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:16px;
+  background:#fbfcfe;
+}
+.figure-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap:20px;
+}
+.fig-card {
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:14px;
+  background:#fff;
+  box-shadow:0 2px 12px rgba(0,0,0,.05);
+}
+.fig-card img {
+  width:100%;
+  height:auto;
+  border:1px solid #e5e7eb;
+  border-radius:8px;
+  background:#f3f4f6;
+}
+.fig-card p { margin:10px 0 0; }
+.path {
+  font-size:.82rem;
+  color:var(--muted);
+  overflow-wrap:anywhere;
+}
+.missing-note {
+  padding:14px;
+  border:1px dashed #c2410c;
+  background:#fff7ed;
+  color:#7c2d12;
+  border-radius:8px;
+  font-size:.9rem;
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0 24px;
+  font-size:.95rem;
+}
+th, td {
+  border:1px solid var(--line);
+  padding:9px 11px;
+  vertical-align:top;
+}
+th { background:#eef3f8; text-align:left; }
 pre, code {
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
+  font-family:"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
-
 pre {
-  background: #f6f8fa !important;
-  color: #24292f !important;
-  border: 1px solid #d0d7de !important;
-  border-radius: 8px !important;
-  padding: 16px 18px !important;
-  overflow-x: auto !important;
-  white-space: pre-wrap !important;
-  line-height: 1.55 !important;
+  background:#f6f8fa;
+  color:#24292f;
+  border:1px solid #d0d7de;
+  border-radius:8px;
+  padding:16px 18px;
+  overflow-x:auto;
+  white-space:pre-wrap;
 }
-
-pre code,
-pre code span,
-pre span,
-code span {
-  background: transparent !important;
-  color: #24292f !important;
-  text-shadow: none !important;
-}
-
 code {
-  background: #f6f8fa !important;
-  color: #24292f !important;
-  border-radius: 5px !important;
-  padding: 0.15em 0.35em !important;
+  background:#f6f8fa;
+  color:#24292f;
+  border-radius:5px;
+  padding:.15em .35em;
 }
-
-.code-block,
-.codebox,
-.code,
-pre.sourceCode,
-.sourceCode {
-  background: #f6f8fa !important;
-  color: #24292f !important;
-  border: 1px solid #d0d7de !important;
+.toc {
+  columns:2;
+  column-gap:36px;
 }
-
-.code-block *,
-.codebox *,
-pre.sourceCode *,
-.sourceCode * {
-  color: #24292f !important;
-  background: transparent !important;
+@media (max-width: 760px) {
+  main { padding:22px 16px 46px; }
+  .toc { columns:1; }
+  .figure-grid { grid-template-columns:1fr; }
 }
-
 </style>
 </head>
 <body>
 <header>
-  <h1>CHRONOS Report</h1>
-  <p><strong>Modelling Neolithic production and circulation of obsidian in the Central Mediterranean</strong></p>
-  <p>Technical report prepared from the CHRONOS R script for GitHub publication, reproducibility documentation, and methodological transparency.</p>
+  <div class="wrap">
+    <h1>CHRONOS Report</h1>
+    <p>Modelling Neolithic obsidian production and circulation in the Central Mediterranean</p>
+    <p>Illustrated technical report for GitHub publication, reproducibility documentation, and methodological transparency.</p>
+  </div>
 </header>
+
 <main>
-  <nav class="toc" aria-label="Table of contents">
-    <h2>Contents</h2>
-    <ul>
-      <li><a href="#summary">Executive summary</a></li>
-      <li><a href="#scope">Scope and research aims</a></li>
-      <li><a href="#inputs">Inputs and folder structure</a></li>
-      <li><a href="#workflow">Analytical workflow</a></li>
-      <li><a href="#ranking">Production-score ranking</a></li>
-      <li><a href="#network">Network modelling</a></li>
-      <li><a href="#source">Source-confirmed networks</a></li>
-      <li><a href="#outputs">Expected outputs</a></li>
-      <li><a href="#reproducibility">Reproducibility notes</a></li>
-      <li><a href="#publication">GitHub publication checklist</a></li>
-      <li><a href="#citation">Suggested citation</a></li>
-    </ul>
-  </nav>
+<section id="summary">
+<h2>Executive summary</h2>
+<p>The CHRONOS workflow classifies obsidian assemblages by technological production involvement and models potential circulation pathways across the Central Mediterranean during two Neolithic chronological intervals: <strong>6100–5500 cal BC</strong> and <strong>5500–4900 cal BC</strong>.</p>
+<div class="summary-grid">
+  <div class="summary-card"><strong>Input data</strong><br>Obsidian assemblage tables, coordinates, source-attribution columns, and a base map shapefile.</div>
+  <div class="summary-card"><strong>Ranking</strong><br>Sites are classified using a reproducible production-score method based on technological contribution values.</div>
+  <div class="summary-card"><strong>Networks</strong><br>Rule-distance models test different assumptions about obsidian circulation and connectivity thresholds.</div>
+  <div class="summary-card"><strong>Outputs</strong><br>90 PNG figures plus CSV tables documenting rankings, metrics, centrality, and source-confirmed networks.</div>
+</div>
+</section>
 
-  <section id="summary">
-    <h2>Executive summary</h2>
-    <p class="lead">The CHRONOS script implements a reproducible workflow for classifying obsidian assemblages by technological production involvement and modelling potential circulation pathways across the Central Mediterranean during two Neolithic chronological intervals: <strong>6100–5500 cal BCE</strong> and <strong>5500–4900 cal BCE</strong>.</p>
-    <div class="grid">
-      <div class="card"><h3>Primary objective</h3><p>Estimate site roles in obsidian production and circulation by combining technological composition, production-score ranking, geographic distance, rank-based interaction rules, and source attribution.</p></div>
-      <div class="card"><h3>Main analytical units</h3><p>Sites with coordinates, obsidian technological counts, total artefact counts, and source-presence information for Sardegna / Monte Arci, Lipari, and Palmarola.</p></div>
-      <div class="card"><h3>Main outputs</h3><p>Ranked site tables, Brainerd–Robinson diagnostic matrices, PCoA plots, rule–distance network sweeps, centrality tables, source-confirmed subnetworks, and publication-ready maps.</p></div>
-    </div>
-    <div class="note"><strong>Important:</strong> this HTML report documents the script and its expected workflow. It does not contain numerical results because the raw Excel datasets and shapefile were not executed here.</div>
-  </section>
+<section id="contents">
+<h2>Contents</h2>
+<ul>
+  <li><a href="#workflow">Analytical workflow</a></li>
+  <li><a href="#figures">Complete figure catalogue</a></li>
+  <li><a href="#tables">Output table catalogue</a></li>
+  <li><a href="#reproducibility">Reproducibility notes</a></li>
+</ul>
+</section>
 
-  <section id="scope">
-    <h2>Scope and research aims</h2>
-    <p>The script is designed to evaluate how obsidian production, transformation, and circulation may have been organised across Central Mediterranean Neolithic communities. It focuses on two chronological windows and compares alternative interaction models based on distance thresholds and production-rank rules.</p>
-    <p>The archaeological problem addressed by the workflow is not simply whether sites were connected, but under which assumptions a coherent circulation structure emerges. The script therefore tests multiple rule sets, evaluates the distance threshold needed to connect the system, and extracts source-confirmed subnetworks for Monte Arci / Sardegna, Lipari, and Palmarola.</p>
-  </section>
+<section id="workflow">
+<h2>Analytical workflow</h2>
+<ol>
+  <li><strong>Data loading and cleaning.</strong> The script reads the full dataset and the two chronological subsets from <code>RAWDATA/</code>, standardises column names, converts coordinates and counts to numeric values, and removes incomplete records.</li>
+  <li><strong>Production-score ranking.</strong> Each site contribution to blades, flakes, cores, and production by-products/waste is calculated. The summed contribution score defines Rank 1, Rank 2, and Rank 3; source nodes are added manually as Rank 4.</li>
+  <li><strong>Brainerd–Robinson diagnostics.</strong> Similarity/dissimilarity matrices, PERMANOVA-style tests, and PCoA visualisation are used to assess whether production-score ranks correspond to technological differentiation.</li>
+  <li><strong>Chronological split.</strong> Full-dataset ranks are attached to the 6100–5500 cal BC and 5500–4900 cal BC subsets.</li>
+  <li><strong>Rule-distance network modelling.</strong> Three rule sets are tested across distance thresholds from 100 to 650 km.</li>
+  <li><strong>Model comparison.</strong> The script exports metrics, centrality tables, rule-comparison figures, and non-parametric statistical tests.</li>
+  <li><strong>Source-confirmed networks.</strong> Sardegna / Monte Arci, Lipari, and Palmarola networks are extracted using confirmed source attribution and Rule A with Rule B fallback.</li>
+  <li><strong>Publication figures and tables.</strong> Maps, graphs, metric plots, ranked tables, centrality tables, source-filter logs, and lookup tables are exported to <code>OUTPUTS/</code>.</li>
+</ol>
 
-  <section id="inputs">
-    <h2>Inputs and folder structure</h2>
-    <p>The script assumes a local OneDrive-based project directory named <code>R/CHRONOS/NEWCODE</code>. For GitHub publication, it is recommended to replace local OneDrive paths with project-relative paths or an explicit configuration block.</p>
-    <table>
-      <thead><tr><th>Input</th><th>Expected location</th><th>Purpose</th></tr></thead>
-      <tbody>
-        <tr><td><code>obs_data_corr.xlsx</code></td><td><code>RAWDATA/</code></td><td>Full dataset used to calculate production-score ranks across all sites.</td></tr>
-        <tr><td><code>obs_data_corr_6100_5500.xlsx</code></td><td><code>RAWDATA/</code></td><td>Chronological subset for 6100–5500 cal BCE.</td></tr>
-        <tr><td><code>obs_data_corr_5500_4900.xlsx</code></td><td><code>RAWDATA/</code></td><td>Chronological subset for 5500–4900 cal BCE.</td></tr>
-        <tr><td><code>map_shp.shp</code> and sidecar files</td><td><code>MAP/</code></td><td>Base map for geographic visualisation of networks and site locations.</td></tr>
-      </tbody>
-    </table>
-    <h3>Required columns</h3>
-    <p>The cleaning function expects a site-name field, coordinates, total artefact count, and four technological variables. Source columns are used when present.</p>
-    <p><span class="tag">sites</span><span class="tag">Long</span><span class="tag">Lat</span><span class="tag">tot.no.ind</span><span class="tag">blade</span><span class="tag">flake</span><span class="tag">core</span><span class="tag">by.products.waste</span><span class="tag">Sardegna</span><span class="tag">Lipari</span><span class="tag">Palmarola</span></p>
-  </section>
+<h3>Rule sets</h3>
+<table>
+<thead><tr><th>Rule set</th><th>Allowed directed links</th><th>Interpretation</th></tr></thead>
+<tbody>
+<tr><td>Rule A</td><td><code>4-3</code>, <code>3-2</code>, <code>3-1</code>, <code>2-1</code></td><td>Parsimonious hierarchical model excluding direct source-to-intermediate links.</td></tr>
+<tr><td>Rule B</td><td><code>4-3</code>, <code>4-2</code>, <code>3-2</code>, <code>3-1</code>, <code>2-1</code></td><td>Less restrictive model allowing direct links from sources to intermediate sites.</td></tr>
+<tr><td>Rule C</td><td><code>4-3</code>, <code>3-2</code>, <code>2-1</code></td><td>Strict stepped hierarchical model.</td></tr>
+</tbody>
+</table>
+</section>
 
-  <section id="workflow">
-    <h2>Analytical workflow</h2>
-    <div class="workflow">
-      <div class="step"><strong>Read and clean input data.</strong> The script reads XLSX/XLSM or CSV files, normalises column names with <code>make.names()</code>, standardises site names, converts coordinates and counts to numeric values, and removes records without valid site names, coordinates, or total counts.</div>
-      <div class="step"><strong>Calculate production-contribution percentages.</strong> For each technological class, the script calculates each site’s percentage contribution to the total quantity of that class across the full dataset.</div>
-      <div class="step"><strong>Assign production ranks.</strong> A production score is calculated as the row sum of contribution percentages. Sites in the upper 10% are assigned Rank 3, sites between the 80th and 90th percentiles Rank 2, and all remaining sites Rank 1.</div>
-      <div class="step"><strong>Add raw-material source nodes.</strong> Monte Arci, Lipari, and Palmarola are manually added as Rank 4 nodes with geographic coordinates and source indicators.</div>
-      <div class="step"><strong>Build rule–distance networks.</strong> Directed networks are created for several rank-based rule sets and distance thresholds from 100 to 650 km at 50 km increments.</div>
-      <div class="step"><strong>Evaluate network structure.</strong> The script exports global metrics, centrality measures, rule-comparison plots, and statistical comparisons among rule sets.</div>
-      <div class="step"><strong>Extract source-confirmed subnetworks.</strong> For each source, only the source node and sites with confirmed presence of that source are retained. Rule A is attempted first, with Rule B as a fallback when the source-confirmed graph is uninformative.</div>
-      <div class="step"><strong>Generate maps and graph visualisations.</strong> The script exports network maps, graph-only layouts, PCoA plots, source-confirmed maps, and a numbered black-and-white site location map.</div>
-    </div>
-  </section>
+<section id="figures">
+<h2>Complete figure catalogue</h2>
+<div class="notice">
+This section explicitly embeds every PNG image generated by the script. If an image does not appear, the file path shown below the card should be checked in the GitHub repository.
+</div>
+<ul class="toc">
+<li><a href="#full-dataset-diagnostic-figures">Full-dataset diagnostic figures</a></li>
+<li><a href="#6100-5500-cal-bc-summary-figures">6100–5500 cal BC: summary figures</a></li>
+<li><a href="#6100-5500-cal-bc-rule-distance-network-maps">6100–5500 cal BC: rule-distance network maps</a></li>
+<li><a href="#6100-5500-cal-bc-source-confirmed-figures">6100–5500 cal BC: source-confirmed figures</a></li>
+<li><a href="#5500-4900-cal-bc-summary-figures">5500–4900 cal BC: summary figures</a></li>
+<li><a href="#5500-4900-cal-bc-rule-distance-network-maps">5500–4900 cal BC: rule-distance network maps</a></li>
+<li><a href="#5500-4900-cal-bc-source-confirmed-figures">5500–4900 cal BC: source-confirmed figures</a></li>
+</ul>
 
-  <section id="ranking">
-    <h2>Production-score ranking</h2>
-    <p>The ranking procedure avoids unsupervised clustering and instead uses an explicit, reproducible production-involvement score. This score is intended to estimate the quantitative contribution of each site to obsidian production and transformation.</p>
-    <pre><code>Production_score = blade.PN + flake.PN + core.PN + by.products.waste.PN</code></pre>
-    <table>
-      <thead><tr><th>Rank</th><th>Interpretation</th><th>Operational definition</th></tr></thead>
-      <tbody>
-        <tr><td>Rank 1</td><td>Low production involvement / consumer-oriented assemblage</td><td>Below the 80th percentile of production score.</td></tr>
-        <tr><td>Rank 2</td><td>Intermediate production involvement</td><td>Between the 80th and 90th percentiles.</td></tr>
-        <tr><td>Rank 3</td><td>High production involvement / producer-oriented assemblage</td><td>At or above the 90th percentile.</td></tr>
-        <tr><td>Rank 4</td><td>Raw-material source</td><td>Manually added nodes: Monte Arci, Lipari, Palmarola.</td></tr>
-      </tbody>
-    </table>
-    <p>Brainerd–Robinson-style dissimilarity and PCoA are retained as diagnostic tools to evaluate whether the production-score ranks correspond to meaningful multivariate differences in technological space. The script also applies a PERMANOVA-style test using <code>vegan::adonis2()</code>.</p>
-  </section>
+    <section id="full-dataset-diagnostic-figures" class="figure-group">
+      <h3>Full-dataset diagnostic figures</h3>
+      <div class="figure-grid">
+        
+        <article class="fig-card">
+          <h4>PCoA of Brainerd–Robinson dissimilarity by production rank</h4>
+          <a href="OUTPUTS/PCoA_BR_by_production_rank_all_sites.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/PCoA_BR_by_production_rank_all_sites.png" alt="PCoA of Brainerd–Robinson dissimilarity by production rank" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Diagnostic ordination showing whether the production-score ranks occupy distinguishable areas of the technological dissimilarity space. Rank 1 sites form the background, while Rank 2 and Rank 3 sites are labelled using short site codes.</p>
+          <p class="path"><code>OUTPUTS/PCoA_BR_by_production_rank_all_sites.png</code></p>
+        </article>
 
-  <section id="network">
-    <h2>Network modelling</h2>
-    <p>Networks are built from rank-based allowed connections and maximum centre-to-centre geographic distance. Distances are calculated after transforming site coordinates from WGS84 to ETRS89 / LAEA Europe (<code>EPSG:3035</code>), which is appropriate for broad European distance calculations.</p>
-    <table>
-      <thead><tr><th>Rule set</th><th>Allowed directed connections</th><th>Interpretation</th></tr></thead>
-      <tbody>
-        <tr><td>Rule A</td><td><code>4-3</code>, <code>3-2</code>, <code>3-1</code>, <code>2-1</code></td><td>Parsimonious production-distribution model excluding direct source-to-intermediate links.</td></tr>
-        <tr><td>Rule B</td><td><code>4-3</code>, <code>4-2</code>, <code>3-2</code>, <code>3-1</code>, <code>2-1</code></td><td>Less restrictive model allowing direct links from sources to intermediate sites.</td></tr>
-        <tr><td>Rule C</td><td><code>4-3</code>, <code>3-2</code>, <code>2-1</code></td><td>Strictly hierarchical model that excludes direct producer-to-consumer links.</td></tr>
-      </tbody>
-    </table>
-    <p>For each rule set, the script evaluates distance thresholds from <code>100 km</code> to <code>650 km</code> in <code>50 km</code> steps. For every model, it exports edge lists, maps, global metrics, and centrality values.</p>
-    <h3>Network metrics</h3>
-    <p>The script summarises each model using number of nodes, edges, connected components, isolates, largest component size, and whether all sites form one connected component. It also calculates degree, betweenness, closeness, harmonic centrality, and eigenvector centrality.</p>
-  </section>
+        <article class="fig-card">
+          <h4>Numbered site-location map</h4>
+          <a href="OUTPUTS/all_sites_numbered_black_white_map.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/all_sites_numbered_black_white_map.png" alt="Numbered site-location map" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Publication-oriented map of all sites. Numbers correspond to the lookup table exported as all_sites_numbered_map_lookup.csv.</p>
+          <p class="path"><code>OUTPUTS/all_sites_numbered_black_white_map.png</code></p>
+        </article>
+      </div>
+    </section>
+    
+    <section id="6100-5500-cal-bc-summary-figures" class="figure-group">
+      <h3>6100–5500 cal BC: summary figures</h3>
+      <div class="figure-grid">
+        
+        <article class="fig-card">
+          <h4>Rule-set metric comparison, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/rule_set_metric_comparison_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/rule_set_metric_comparison_6100_5500.png" alt="Rule-set metric comparison, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Sensitivity plot comparing edges, components, isolates, and largest component size across distance thresholds and rule sets. This figure is used to evaluate how quickly each rule set approaches a connected network.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/rule_set_metric_comparison_6100_5500.png</code></p>
+        </article>
 
-  <section id="source">
-    <h2>Source-confirmed networks</h2>
-    <p>Source-confirmed networks are extracted for three obsidian sources:</p>
-    <ul>
-      <li><strong>Monte Arci / Sardegna</strong></li>
-      <li><strong>Lipari</strong></li>
-      <li><strong>Palmarola</strong></li>
-    </ul>
-    <p>The source-confirmed filter retains only the selected source node and archaeological sites where the selected source column equals <code>1</code>. Sites with <code>0</code> or <code>NA</code> for that source are excluded from the confirmed-source subgraph. Other raw-material source nodes are also excluded.</p>
-    <div class="note">The script first attempts source filtering on the selected Rule A backbone. If the source-confirmed graph is empty, has no edges, lacks the source node, or leaves the source node isolated, it falls back to Rule B and records the fallback reason in the output log.</div>
-  </section>
+        <article class="fig-card">
+          <h4>Degree centrality by rank across rule-distance models, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/degree_by_rank_rule_distance_sweep_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/degree_by_rank_rule_distance_sweep_6100_5500.png" alt="Degree centrality by rank across rule-distance models, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Boxplot panel showing how degree centrality varies by rank, rule set, and distance threshold. It helps evaluate whether higher-ranked sites systematically occupy more connected positions.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/degree_by_rank_rule_distance_sweep_6100_5500.png</code></p>
+        </article>
+      </div>
+    </section>
+    
+    <section id="6100-5500-cal-bc-rule-distance-network-maps" class="figure-group">
+      <h3>6100–5500 cal BC: rule-distance network maps</h3>
+      <div class="figure-grid">
+        
+        <article class="fig-card">
+          <h4>Rule A network map at 100 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_100km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_100km_map_6100_5500.png" alt="Rule A network map at 100 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 100 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_100km_map_6100_5500.png</code></p>
+        </article>
 
-  <section id="outputs">
-    <h2>Expected outputs</h2>
-    <p>The workflow creates a main <code>OUTPUTS/</code> directory and two interval-specific subdirectories: <code>Obsidian_network_6100_5500/</code> and <code>Obsidian_network_5500_4900/</code>.</p>
-    <h3>Main full-dataset outputs</h3>
-    <table>
-      <thead><tr><th>Output pattern</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td><code>production_contribution_PN_all_sites.csv</code></td><td>Production-contribution percentage matrix.</td></tr>
-        <tr><td><code>obs_br_PN_all_sites.csv</code></td><td>Brainerd–Robinson-style similarity matrix on contribution values.</td></tr>
-        <tr><td><code>production_score_all_sites.csv</code></td><td>Production score for each site.</td></tr>
-        <tr><td><code>site_production_score_ranking_all_sites.csv</code></td><td>Rank assignment table.</td></tr>
-        <tr><td><code>ranked_sites_all_sites.csv</code></td><td>Cleaned and ranked full site table.</td></tr>
-        <tr><td><code>PCoA_BR_by_production_rank_all_sites.png</code></td><td>PCoA visualisation of technological dissimilarity by rank.</td></tr>
-        <tr><td><code>all_sites_numbered_black_white_map.png</code></td><td>Publication-oriented numbered map of all sites.</td></tr>
-      </tbody>
-    </table>
-    <h3>Interval-specific outputs</h3>
-    <table>
-      <thead><tr><th>Output pattern</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td><code>*_edges_[interval].csv</code></td><td>Directed edge lists for each rule-distance network.</td></tr>
-        <tr><td><code>*_map_[interval].png</code></td><td>Geographic network maps.</td></tr>
-        <tr><td><code>global_metrics_rule_distance_sweep_[interval].csv</code></td><td>Global connectivity metrics for all models.</td></tr>
-        <tr><td><code>centrality_rule_distance_sweep_[interval].csv</code></td><td>Node-level centrality values for all models.</td></tr>
-        <tr><td><code>rule_set_metric_comparison_[interval].png</code></td><td>Comparison of network metrics across rules and distances.</td></tr>
-        <tr><td><code>friedman_rule_comparison_[interval].csv</code></td><td>Friedman tests comparing rule sets across shared distance thresholds.</td></tr>
-        <tr><td><code>pairwise_rule_comparison_[interval].csv</code></td><td>Pairwise Wilcoxon post-hoc tests with Benjamini–Hochberg adjustment.</td></tr>
-        <tr><td><code>first_connected_network_by_rule_[interval].csv</code></td><td>First distance threshold at which each rule set connects all sites.</td></tr>
-        <tr><td><code>source_confirmed_rule_selection_log_[interval].csv</code></td><td>Source-filter backbone choice and fallback information.</td></tr>
-        <tr><td><code>[Source]_source_confirmed_*_[interval].csv/png</code></td><td>Source-confirmed edges, vertices, metrics, maps, and graph-only figures.</td></tr>
-      </tbody>
-    </table>
-  </section>
+        <article class="fig-card">
+          <h4>Rule A network map at 150 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_150km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_150km_map_6100_5500.png" alt="Rule A network map at 150 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 150 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_150km_map_6100_5500.png</code></p>
+        </article>
 
-  <section id="reproducibility">
-    <h2>Reproducibility notes</h2>
-    <h3>R packages</h3>
-    <p>The script uses the following packages directly or by namespace:</p>
-    <p><span class="tag">openxlsx</span><span class="tag">dplyr</span><span class="tag">tidyr</span><span class="tag">ggplot2</span><span class="tag">igraph</span><span class="tag">sf</span><span class="tag">ggrepel</span><span class="tag">ggspatial</span><span class="tag">vegan</span><span class="tag">units</span></p>
-    <p>Although <code>vegan</code> and <code>units</code> are called with explicit namespaces, they should still be listed in the project dependency file because the workflow depends on them.</p>
-    <h3>Recommended GitHub project structure</h3>
-    <pre><code>CHRONOS/
-├── README.md
-├── LICENSE
-├── CITATION.cff
-├── renv.lock              # recommended
-├── R/
-│   └── chronos_network_model.R
-├── RAWDATA/               # omit if data are sensitive or unpublished
+        <article class="fig-card">
+          <h4>Rule A network map at 200 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_200km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_200km_map_6100_5500.png" alt="Rule A network map at 200 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 200 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_200km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 250 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_250km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_250km_map_6100_5500.png" alt="Rule A network map at 250 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 250 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_250km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 300 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_300km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_300km_map_6100_5500.png" alt="Rule A network map at 300 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 300 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_300km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 350 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_350km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_350km_map_6100_5500.png" alt="Rule A network map at 350 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 350 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_350km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 400 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_400km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_400km_map_6100_5500.png" alt="Rule A network map at 400 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 400 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_400km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 450 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_450km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_450km_map_6100_5500.png" alt="Rule A network map at 450 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 450 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_450km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 500 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_500km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_500km_map_6100_5500.png" alt="Rule A network map at 500 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 500 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_500km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 550 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_550km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_550km_map_6100_5500.png" alt="Rule A network map at 550 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 550 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_550km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 600 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_600km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_600km_map_6100_5500.png" alt="Rule A network map at 600 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 600 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_600km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 650 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_650km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_650km_map_6100_5500.png" alt="Rule A network map at 650 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 650 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_650km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 100 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_100km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_100km_map_6100_5500.png" alt="Rule B network map at 100 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 100 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_100km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 150 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_150km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_150km_map_6100_5500.png" alt="Rule B network map at 150 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 150 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_150km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 200 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_200km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_200km_map_6100_5500.png" alt="Rule B network map at 200 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 200 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_200km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 250 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_250km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_250km_map_6100_5500.png" alt="Rule B network map at 250 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 250 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_250km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 300 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_300km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_300km_map_6100_5500.png" alt="Rule B network map at 300 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 300 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_300km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 350 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_350km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_350km_map_6100_5500.png" alt="Rule B network map at 350 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 350 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_350km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 400 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_400km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_400km_map_6100_5500.png" alt="Rule B network map at 400 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 400 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_400km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 450 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_450km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_450km_map_6100_5500.png" alt="Rule B network map at 450 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 450 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_450km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 500 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_500km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_500km_map_6100_5500.png" alt="Rule B network map at 500 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 500 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_500km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 550 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_550km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_550km_map_6100_5500.png" alt="Rule B network map at 550 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 550 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_550km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 600 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_600km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_600km_map_6100_5500.png" alt="Rule B network map at 600 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 600 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_600km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 650 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_650km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_650km_map_6100_5500.png" alt="Rule B network map at 650 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 650 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_650km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 100 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_100km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_100km_map_6100_5500.png" alt="Rule C network map at 100 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 100 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_100km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 150 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_150km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_150km_map_6100_5500.png" alt="Rule C network map at 150 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 150 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_150km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 200 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_200km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_200km_map_6100_5500.png" alt="Rule C network map at 200 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 200 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_200km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 250 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_250km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_250km_map_6100_5500.png" alt="Rule C network map at 250 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 250 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_250km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 300 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_300km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_300km_map_6100_5500.png" alt="Rule C network map at 300 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 300 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_300km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 350 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_350km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_350km_map_6100_5500.png" alt="Rule C network map at 350 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 350 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_350km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 400 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_400km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_400km_map_6100_5500.png" alt="Rule C network map at 400 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 400 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_400km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 450 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_450km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_450km_map_6100_5500.png" alt="Rule C network map at 450 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 450 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_450km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 500 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_500km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_500km_map_6100_5500.png" alt="Rule C network map at 500 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 500 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_500km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 550 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_550km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_550km_map_6100_5500.png" alt="Rule C network map at 550 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 550 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_550km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 600 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_600km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_600km_map_6100_5500.png" alt="Rule C network map at 600 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 600 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_600km_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 650 km, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_650km_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_650km_map_6100_5500.png" alt="Rule C network map at 650 km, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 650 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_650km_map_6100_5500.png</code></p>
+        </article>
+      </div>
+    </section>
+    
+    <section id="6100-5500-cal-bc-source-confirmed-figures" class="figure-group">
+      <h3>6100–5500 cal BC: source-confirmed figures</h3>
+      <div class="figure-grid">
+        
+        <article class="fig-card">
+          <h4>Monte Arci / Sardegna source-confirmed geographic network, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_map_6100_5500.png" alt="Monte Arci / Sardegna source-confirmed geographic network, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Map of the source-confirmed network retaining the selected source node and sites with confirmed presence of that obsidian source. The caption records whether Rule A or fallback Rule B was used in the underlying model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Monte Arci / Sardegna source-confirmed graph layout, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_graph_only_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_graph_only_6100_5500.png" alt="Monte Arci / Sardegna source-confirmed graph layout, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Graph-only layout of the same source-confirmed network, useful for reading network topology without geographic constraints.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_graph_only_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Lipari source-confirmed geographic network, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_map_6100_5500.png" alt="Lipari source-confirmed geographic network, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Map of the source-confirmed network retaining the selected source node and sites with confirmed presence of that obsidian source. The caption records whether Rule A or fallback Rule B was used in the underlying model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Lipari source-confirmed graph layout, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_graph_only_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_graph_only_6100_5500.png" alt="Lipari source-confirmed graph layout, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Graph-only layout of the same source-confirmed network, useful for reading network topology without geographic constraints.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_graph_only_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Palmarola source-confirmed geographic network, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_map_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_map_6100_5500.png" alt="Palmarola source-confirmed geographic network, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Map of the source-confirmed network retaining the selected source node and sites with confirmed presence of that obsidian source. The caption records whether Rule A or fallback Rule B was used in the underlying model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_map_6100_5500.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Palmarola source-confirmed graph layout, 6100–5500 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_graph_only_6100_5500.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_graph_only_6100_5500.png" alt="Palmarola source-confirmed graph layout, 6100–5500 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Graph-only layout of the same source-confirmed network, useful for reading network topology without geographic constraints.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_graph_only_6100_5500.png</code></p>
+        </article>
+      </div>
+    </section>
+    
+    <section id="5500-4900-cal-bc-summary-figures" class="figure-group">
+      <h3>5500–4900 cal BC: summary figures</h3>
+      <div class="figure-grid">
+        
+        <article class="fig-card">
+          <h4>Rule-set metric comparison, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/rule_set_metric_comparison_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/rule_set_metric_comparison_5500_4900.png" alt="Rule-set metric comparison, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Sensitivity plot comparing edges, components, isolates, and largest component size across distance thresholds and rule sets. This figure is used to evaluate how quickly each rule set approaches a connected network.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/rule_set_metric_comparison_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Degree centrality by rank across rule-distance models, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/degree_by_rank_rule_distance_sweep_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/degree_by_rank_rule_distance_sweep_5500_4900.png" alt="Degree centrality by rank across rule-distance models, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Boxplot panel showing how degree centrality varies by rank, rule set, and distance threshold. It helps evaluate whether higher-ranked sites systematically occupy more connected positions.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/degree_by_rank_rule_distance_sweep_5500_4900.png</code></p>
+        </article>
+      </div>
+    </section>
+    
+    <section id="5500-4900-cal-bc-rule-distance-network-maps" class="figure-group">
+      <h3>5500–4900 cal BC: rule-distance network maps</h3>
+      <div class="figure-grid">
+        
+        <article class="fig-card">
+          <h4>Rule A network map at 100 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_100km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_100km_map_5500_4900.png" alt="Rule A network map at 100 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 100 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_100km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 150 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_150km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_150km_map_5500_4900.png" alt="Rule A network map at 150 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 150 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_150km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 200 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_200km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_200km_map_5500_4900.png" alt="Rule A network map at 200 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 200 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_200km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 250 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_250km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_250km_map_5500_4900.png" alt="Rule A network map at 250 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 250 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_250km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 300 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_300km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_300km_map_5500_4900.png" alt="Rule A network map at 300 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 300 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_300km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 350 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_350km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_350km_map_5500_4900.png" alt="Rule A network map at 350 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 350 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_350km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 400 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_400km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_400km_map_5500_4900.png" alt="Rule A network map at 400 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 400 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_400km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 450 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_450km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_450km_map_5500_4900.png" alt="Rule A network map at 450 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 450 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_450km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 500 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_500km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_500km_map_5500_4900.png" alt="Rule A network map at 500 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 500 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_500km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 550 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_550km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_550km_map_5500_4900.png" alt="Rule A network map at 550 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 550 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_550km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 600 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_600km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_600km_map_5500_4900.png" alt="Rule A network map at 600 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 600 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_600km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule A network map at 650 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_650km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_650km_map_5500_4900.png" alt="Rule A network map at 650 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 650 km threshold. Rule A: parsimonious hierarchical model; allowed links 4-3, 3-2, 3-1, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_650km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 100 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_100km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_100km_map_5500_4900.png" alt="Rule B network map at 100 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 100 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_100km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 150 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_150km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_150km_map_5500_4900.png" alt="Rule B network map at 150 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 150 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_150km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 200 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_200km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_200km_map_5500_4900.png" alt="Rule B network map at 200 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 200 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_200km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 250 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_250km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_250km_map_5500_4900.png" alt="Rule B network map at 250 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 250 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_250km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 300 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_300km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_300km_map_5500_4900.png" alt="Rule B network map at 300 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 300 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_300km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 350 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_350km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_350km_map_5500_4900.png" alt="Rule B network map at 350 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 350 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_350km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 400 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_400km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_400km_map_5500_4900.png" alt="Rule B network map at 400 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 400 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_400km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 450 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_450km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_450km_map_5500_4900.png" alt="Rule B network map at 450 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 450 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_450km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 500 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_500km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_500km_map_5500_4900.png" alt="Rule B network map at 500 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 500 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_500km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 550 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_550km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_550km_map_5500_4900.png" alt="Rule B network map at 550 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 550 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_550km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 600 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_600km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_600km_map_5500_4900.png" alt="Rule B network map at 600 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 600 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_600km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule B network map at 650 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_650km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_650km_map_5500_4900.png" alt="Rule B network map at 650 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 650 km threshold. Rule B: less restrictive model; adds direct 4-2 source-to-intermediate links. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_650km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 100 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_100km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_100km_map_5500_4900.png" alt="Rule C network map at 100 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 100 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_100km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 150 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_150km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_150km_map_5500_4900.png" alt="Rule C network map at 150 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 150 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_150km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 200 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_200km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_200km_map_5500_4900.png" alt="Rule C network map at 200 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 200 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_200km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 250 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_250km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_250km_map_5500_4900.png" alt="Rule C network map at 250 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 250 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_250km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 300 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_300km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_300km_map_5500_4900.png" alt="Rule C network map at 300 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 300 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_300km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 350 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_350km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_350km_map_5500_4900.png" alt="Rule C network map at 350 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 350 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_350km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 400 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_400km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_400km_map_5500_4900.png" alt="Rule C network map at 400 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 400 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_400km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 450 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_450km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_450km_map_5500_4900.png" alt="Rule C network map at 450 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 450 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_450km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 500 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_500km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_500km_map_5500_4900.png" alt="Rule C network map at 500 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 500 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_500km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 550 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_550km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_550km_map_5500_4900.png" alt="Rule C network map at 550 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 550 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_550km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 600 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_600km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_600km_map_5500_4900.png" alt="Rule C network map at 600 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 600 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_600km_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Rule C network map at 650 km, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_650km_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_650km_map_5500_4900.png" alt="Rule C network map at 650 km, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Geographic network map generated for the 650 km threshold. Rule C: strict stepped hierarchical model; allowed links 4-3, 3-2, 2-1. Nodes are coloured and shaped by rank; links show permitted connections under the selected rule-distance model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_650km_map_5500_4900.png</code></p>
+        </article>
+      </div>
+    </section>
+    
+    <section id="5500-4900-cal-bc-source-confirmed-figures" class="figure-group">
+      <h3>5500–4900 cal BC: source-confirmed figures</h3>
+      <div class="figure-grid">
+        
+        <article class="fig-card">
+          <h4>Monte Arci / Sardegna source-confirmed geographic network, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_map_5500_4900.png" alt="Monte Arci / Sardegna source-confirmed geographic network, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Map of the source-confirmed network retaining the selected source node and sites with confirmed presence of that obsidian source. The caption records whether Rule A or fallback Rule B was used in the underlying model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Monte Arci / Sardegna source-confirmed graph layout, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_graph_only_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_graph_only_5500_4900.png" alt="Monte Arci / Sardegna source-confirmed graph layout, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Graph-only layout of the same source-confirmed network, useful for reading network topology without geographic constraints.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_graph_only_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Lipari source-confirmed geographic network, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_map_5500_4900.png" alt="Lipari source-confirmed geographic network, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Map of the source-confirmed network retaining the selected source node and sites with confirmed presence of that obsidian source. The caption records whether Rule A or fallback Rule B was used in the underlying model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Lipari source-confirmed graph layout, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_graph_only_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_graph_only_5500_4900.png" alt="Lipari source-confirmed graph layout, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Graph-only layout of the same source-confirmed network, useful for reading network topology without geographic constraints.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_graph_only_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Palmarola source-confirmed geographic network, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_map_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_map_5500_4900.png" alt="Palmarola source-confirmed geographic network, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Map of the source-confirmed network retaining the selected source node and sites with confirmed presence of that obsidian source. The caption records whether Rule A or fallback Rule B was used in the underlying model.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_map_5500_4900.png</code></p>
+        </article>
+
+        <article class="fig-card">
+          <h4>Palmarola source-confirmed graph layout, 5500–4900 cal BC</h4>
+          <a href="OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_graph_only_5500_4900.png" target="_blank" rel="noopener">
+            <img src="OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_graph_only_5500_4900.png" alt="Palmarola source-confirmed graph layout, 5500–4900 cal BC" loading="lazy"
+                 onerror="this.closest('.fig-card').classList.add('missing'); this.insertAdjacentHTML('afterend','<div class=&quot;missing-note&quot;>Image not found at this path. Check file name and folder structure.</div>'); this.remove();" />
+          </a>
+          <p>Graph-only layout of the same source-confirmed network, useful for reading network topology without geographic constraints.</p>
+          <p class="path"><code>OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_graph_only_5500_4900.png</code></p>
+        </article>
+      </div>
+    </section>
+    
+</section>
+
+<section id="tables">
+<h2>Output table catalogue</h2>
+<h3>Full-dataset output tables</h3>
+<table>
+<thead><tr><th>Output</th><th>Description and use</th></tr></thead>
+<tbody>
+<tr><td><code>OUTPUTS/production_contribution_PN_all_sites.csv</code></td><td>Production-contribution percentage matrix for the full dataset. Each technological class is normalised by its total abundance across all sites.</td></tr>
+<tr><td><code>OUTPUTS/obs_br_PN_all_sites.csv</code></td><td>Brainerd–Robinson-style similarity matrix calculated on production-contribution values.</td></tr>
+<tr><td><code>OUTPUTS/production_score_all_sites.csv</code></td><td>Production score for each site, calculated as the sum of blade.PN, flake.PN, core.PN, and by.products.waste.PN.</td></tr>
+<tr><td><code>OUTPUTS/production_score_rank_thresholds_all_sites.csv</code></td><td>Percentile thresholds used to define Rank 2 and Rank 3.</td></tr>
+<tr><td><code>OUTPUTS/site_production_score_ranking_all_sites.csv</code></td><td>Final production-score rank assignment for each site.</td></tr>
+<tr><td><code>OUTPUTS/ranked_sites_all_sites.csv</code></td><td>Cleaned full dataset with production ranks attached.</td></tr>
+<tr><td><code>OUTPUTS/rank_summary_all_sites.csv</code></td><td>Number of sites assigned to each rank.</td></tr>
+<tr><td><code>OUTPUTS/adonis_BR_dissimilarity_by_rank_all_sites.csv</code></td><td>PERMANOVA-style test assessing rank differences in Brainerd–Robinson dissimilarity space.</td></tr>
+<tr><td><code>OUTPUTS/pcoa_BR_by_production_rank_all_sites.csv</code></td><td>PCoA coordinates used to plot the Brainerd–Robinson diagnostic ordination.</td></tr>
+<tr><td><code>OUTPUTS/pcoa_site_code_lookup_all_sites.csv</code></td><td>Lookup table linking selected site names to short labels used in the PCoA plot.</td></tr>
+<tr><td><code>OUTPUTS/all_sites_numbered_map_lookup.csv</code></td><td>Lookup table linking numbered map IDs to site names and coordinates.</td></tr>
+</tbody>
+</table>
+
+      <h3>6100–5500 cal BC</h3>
+      <table>
+        <thead><tr><th>Output</th><th>Description</th></tr></thead>
+        <tbody><tr><td><code>OUTPUTS/Obsidian_network_6100_5500/ranked_sites_6100_5500.csv</code></td><td>Chronological dataset with full-dataset production ranks attached.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/unmatched_sites_no_rank_6100_5500.csv</code></td><td>Sites in the chronological dataset that could not be matched to the full-dataset ranking table.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/*_edges_6100_5500.csv</code></td><td>Directed edge list for each rule-distance model.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/global_metrics_rule_distance_sweep_6100_5500.csv</code></td><td>Global metrics for all rule-distance networks: nodes, edges, components, isolates, largest component size, and connectivity status.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/centrality_rule_distance_sweep_6100_5500.csv</code></td><td>Site-level centrality values for all rule-distance models.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/friedman_rule_comparison_6100_5500.csv</code></td><td>Friedman test results comparing rule sets across shared distance thresholds.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/pairwise_rule_comparison_6100_5500.csv</code></td><td>Pairwise Wilcoxon signed-rank post-hoc tests with Benjamini–Hochberg correction.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/first_connected_network_by_rule_6100_5500.csv</code></td><td>First fully connected network identified for each rule set.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/selected_backbone_network_6100_5500.csv</code></td><td>Backbone network selected for downstream analysis.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/selected_rule_a_source_filter_backbone_6100_5500.csv</code></td><td>Rule A backbone selected for source-filtered analyses.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/centrality_by_rank_rule_distance_sweep_6100_5500.csv</code></td><td>Mean centrality values summarised by rank, rule set, and distance threshold.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/source_confirmed_rule_selection_log_6100_5500.csv</code></td><td>Log documenting Rule A vs Rule B selection and fallback reasons for each source-confirmed network.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/source_confirmed_metrics_6100_5500.csv</code></td><td>Metrics for source-confirmed networks.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/&lt;source&gt;_source_confirmed_edges_6100_5500.csv</code></td><td>Edge list for each source-confirmed network.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/&lt;source&gt;_source_confirmed_vertices_6100_5500.csv</code></td><td>Vertex list for each source-confirmed network.</td></tr></tbody>
+      </table>
+    
+      <h3>5500–4900 cal BC</h3>
+      <table>
+        <thead><tr><th>Output</th><th>Description</th></tr></thead>
+        <tbody><tr><td><code>OUTPUTS/Obsidian_network_5500_4900/ranked_sites_5500_4900.csv</code></td><td>Chronological dataset with full-dataset production ranks attached.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/unmatched_sites_no_rank_5500_4900.csv</code></td><td>Sites in the chronological dataset that could not be matched to the full-dataset ranking table.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/*_edges_5500_4900.csv</code></td><td>Directed edge list for each rule-distance model.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/global_metrics_rule_distance_sweep_5500_4900.csv</code></td><td>Global metrics for all rule-distance networks: nodes, edges, components, isolates, largest component size, and connectivity status.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/centrality_rule_distance_sweep_5500_4900.csv</code></td><td>Site-level centrality values for all rule-distance models.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/friedman_rule_comparison_5500_4900.csv</code></td><td>Friedman test results comparing rule sets across shared distance thresholds.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/pairwise_rule_comparison_5500_4900.csv</code></td><td>Pairwise Wilcoxon signed-rank post-hoc tests with Benjamini–Hochberg correction.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/first_connected_network_by_rule_5500_4900.csv</code></td><td>First fully connected network identified for each rule set.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/selected_backbone_network_5500_4900.csv</code></td><td>Backbone network selected for downstream analysis.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/selected_rule_a_source_filter_backbone_5500_4900.csv</code></td><td>Rule A backbone selected for source-filtered analyses.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/centrality_by_rank_rule_distance_sweep_5500_4900.csv</code></td><td>Mean centrality values summarised by rank, rule set, and distance threshold.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/source_confirmed_rule_selection_log_5500_4900.csv</code></td><td>Log documenting Rule A vs Rule B selection and fallback reasons for each source-confirmed network.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/source_confirmed_metrics_5500_4900.csv</code></td><td>Metrics for source-confirmed networks.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/&lt;source&gt;_source_confirmed_edges_5500_4900.csv</code></td><td>Edge list for each source-confirmed network.</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/&lt;source&gt;_source_confirmed_vertices_5500_4900.csv</code></td><td>Vertex list for each source-confirmed network.</td></tr></tbody>
+      </table>
+    
+</section>
+
+<section id="reproducibility">
+<h2>Reproducibility and publication notes</h2>
+<h3>Required R packages</h3>
+<pre><code>install.packages(c(
+  "openxlsx",
+  "dplyr",
+  "tidyr",
+  "ggplot2",
+  "igraph",
+  "sf",
+  "ggrepel",
+  "ggspatial",
+  "vegan",
+  "units"
+))</code></pre>
+
+<h3>Suggested run command</h3>
+<pre><code>source("CHRONOS.R")
+# or from a terminal:
+Rscript CHRONOS.R</code></pre>
+
+<h3>Repository structure expected by the report</h3>
+<pre><code>CHRONOS/
+├── CHRONOS.R
+├── CHRONOS_report.html
+├── RAWDATA/
 ├── MAP/
-│   ├── map_shp.shp
-│   ├── map_shp.dbf
-│   ├── map_shp.shx
-│   └── map_shp.prj
-├── OUTPUTS/               # generated; consider excluding large outputs from Git
-└── docs/
-    └── CHRONOS_report.html</code></pre>
-    <h3>Suggested setup block</h3>
-    <p>For publication, consider replacing the OneDrive-specific path detection with project-relative paths:</p>
-    <pre><code>chronos_base <- here::here()
-rawdata_folder <- file.path(chronos_base, "RAWDATA")
-map_folder     <- file.path(chronos_base, "MAP")
-output_folder  <- file.path(chronos_base, "OUTPUTS")</code></pre>
-    <h3>Recommended reproducibility additions</h3>
-    <ul>
-      <li>Add <code>set.seed(123)</code> immediately before force-directed graph layouts as well as at the top of the script, because layouts can vary across sessions.</li>
-      <li>Include an <code>renv.lock</code> file or equivalent package-version record.</li>
-      <li>Add a data dictionary describing each input column and the meaning of source values <code>1</code>, <code>0</code>, and <code>NA</code>.</li>
-      <li>Export or document the coordinate reference system of the input site coordinates and shapefile.</li>
-      <li>Consider adding a short script header with author, ORCID, repository URL, version, date, and licence.</li>
-    </ul>
-    <div class="warning"><strong>Code-review note:</strong> one comment states a preference for Rule C first, followed by Rule A and Rule B, but the implemented vector currently reads <code>c("Rule_A", "Rule_B", "Rule_C")</code>. Before publication, either update the comment or change the vector to match the intended selection logic.</div>
-    <div class="warning"><strong>Minor typographic note:</strong> the comment “Define tecnological variables” should be corrected to “Define technological variables”. The section title “Liapri, Palamorala, Monte Arci” should be corrected to “Lipari, Palmarola, Monte Arci”.</div>
-  </section>
+└── OUTPUTS/</code></pre>
 
-  <section id="publication">
-    <h2>GitHub publication checklist</h2>
-    <table>
-      <thead><tr><th>Item</th><th>Status / recommendation</th></tr></thead>
-      <tbody>
-        <tr><td>Repository README</td><td>Use the executive summary and workflow sections of this report as the basis for <code>README.md</code>.</td></tr>
-        <tr><td>Licence</td><td>Add a software licence, for example MIT, GPL-3.0, or another licence appropriate to your collaboration and data policy.</td></tr>
-        <tr><td>Citation metadata</td><td>Add <code>CITATION.cff</code> with author, title, version, DOI if available, and repository URL.</td></tr>
-        <tr><td>Data availability</td><td>State clearly whether raw archaeological data are included, embargoed, anonymised, or available on request.</td></tr>
-        <tr><td>Reproducible environment</td><td>Add <code>renv.lock</code> or a package-install script.</td></tr>
-        <tr><td>Example run</td><td>Provide a small synthetic dataset or a reduced example to let users test the pipeline without restricted data.</td></tr>
-        <tr><td>Generated outputs</td><td>Consider storing large generated outputs as release assets, not directly in the main repository.</td></tr>
-        <tr><td>Figures</td><td>Keep key PNG outputs in <code>docs/figures/</code> for visual inspection in GitHub Pages or README.</td></tr>
-      </tbody>
-    </table>
-  </section>
+<p>The HTML report must remain in the repository root, beside the <code>OUTPUTS/</code> folder. The figures are loaded using relative paths such as <code>OUTPUTS/PCoA_BR_by_production_rank_all_sites.png</code>.</p>
 
-  <section id="citation">
-    <h2>Suggested citation</h2>
-    <p>Replace placeholders with the final repository URL, DOI, version, and publication year.</p>
-    <pre><code>Mazzucco, N. (YEAR). CHRONOS: Modelling Neolithic production and circulation of obsidian in the Central Mediterranean. Version 1.0.0. GitHub repository.
-    <h3>Suggested repository description</h3>
-    <p><strong>CHRONOS</strong> is an R-based workflow for modelling Neolithic obsidian production and circulation in the Central Mediterranean. It combines technological production-score ranking, Brainerd–Robinson diagnostic analysis, spatially constrained network modelling, rule–distance sensitivity testing, centrality analysis, and source-confirmed subnetwork extraction.</p>
-  </section>
+<h3>Licence recommendation</h3>
+<p>For publication, use a dual licensing model: a software licence such as MIT for <code>CHRONOS.R</code>, and Creative Commons Attribution 4.0 International (CC BY 4.0) for documentation, figures, and the HTML report, unless otherwise stated.</p>
+</section>
 
-  <footer>
-    <p>Prepared as a static HTML technical report from the CHRONOS R script. Suggested location in repository: <code>docs/CHRONOS_report.html</code>.</p>
-  </footer>
+<footer>
+<p>Prepared as a static HTML report for the CHRONOS GitHub repository.</p>
+</footer>
 </main>
 </body>
 </html>
