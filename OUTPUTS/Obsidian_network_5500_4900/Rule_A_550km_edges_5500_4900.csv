@@ -1,0 +1,261 @@
+"from","to","distance_rule_km"
+"Sant'Anna di Oria","La Lucciola",550
+"Sant'Anna di Oria","Masseria Acquasalsa",550
+"Sant'Anna di Oria","Grotta Continenza",550
+"Sant'Anna di Oria","Portonovo",550
+"Sant'Anna di Oria","Masseria Candelaro III",550
+"Sant'Anna di Oria","Grotta Scaloria",550
+"Sant'Anna di Oria","Marcianese",550
+"Sant'Anna di Oria","Trasanello II",550
+"Sant'Anna di Oria","Krivače",550
+"Sant'Anna di Oria","Pian di Calisti",550
+"Sant'Anna di Oria","Grotta dei Piccioni",550
+"Sant'Anna di Oria","Grotta Sant'Angelo II",550
+"Sant'Anna di Oria","Villa Badessa (Cepegatti)",550
+"Sant'Anna di Oria","Pokrovnik",550
+"Sant'Anna di Oria","Danilo-Bitinj",550
+"Sant'Anna di Oria","Colle Cera",550
+"Sant'Anna di Oria","Balsignano ",550
+"Sant'Anna di Oria","Spila Nakovana",550
+"Sant'Anna di Oria","Ex Palestra GIL",550
+"Sant'Anna di Oria","Grotta San Michele Arcangelo II",550
+"Sant'Anna di Oria","Masseria Santa Tecchia",550
+"Sant'Anna di Oria","Lokvica",550
+"Sant'Anna di Oria","Rocchicella-Paliké",550
+"La Scola","Abri Albertini",550
+"La Scola","La Lucciola",550
+"La Scola","Masseria Acquasalsa",550
+"La Scola","Grotta Continenza",550
+"La Scola","Portonovo",550
+"La Scola","Masseria Candelaro III",550
+"La Scola","Grotta Scaloria",550
+"La Scola","Marcianese",550
+"La Scola","Savignano sul Panaro",550
+"La Scola","Su Carroppu",550
+"La Scola","Krivače",550
+"La Scola","Pian di Calisti",550
+"La Scola","Grotta dei Piccioni",550
+"La Scola","Pienza",550
+"La Scola","Casa Querciolaia",550
+"La Scola","Grotta Sant'Angelo II",550
+"La Scola","Villa Badessa (Cepegatti)",550
+"La Scola","Pokrovnik",550
+"La Scola","Danilo-Bitinj",550
+"La Scola","Colle Cera",550
+"La Scola","Ex Palestra GIL",550
+"La Scola","Grande Rivoire",550
+"La Scola","Arene Candide II",550
+"La Scola","Fiorano Modenese",550
+"La Scola","Masseria Santa Tecchia",550
+"La Marmotta","Abri Albertini",550
+"La Marmotta","La Lucciola",550
+"La Marmotta","La Scola",550
+"La Marmotta","Masseria Acquasalsa",550
+"La Marmotta","Grotta Continenza",550
+"La Marmotta","Portonovo",550
+"La Marmotta","Masseria Candelaro III",550
+"La Marmotta","Grotta Scaloria",550
+"La Marmotta","Strette",550
+"La Marmotta","Marcianese",550
+"La Marmotta","Savignano sul Panaro",550
+"La Marmotta","Su Carroppu",550
+"La Marmotta","Trasanello II",550
+"La Marmotta","Fornace Cappuccini",550
+"La Marmotta","Krivače",550
+"La Marmotta","Pian di Calisti",550
+"La Marmotta","Grotta dei Piccioni",550
+"La Marmotta","Pienza",550
+"La Marmotta","Casa Querciolaia",550
+"La Marmotta","Grotta Sant'Angelo II",550
+"La Marmotta","Villa Badessa (Cepegatti)",550
+"La Marmotta","Pokrovnik",550
+"La Marmotta","Danilo-Bitinj",550
+"La Marmotta","Colle Cera",550
+"La Marmotta","Balsignano ",550
+"La Marmotta","Spila Nakovana",550
+"La Marmotta","Ex Palestra GIL",550
+"La Marmotta","Cala Giovanna",550
+"La Marmotta","Arene Candide II",550
+"La Marmotta","Grotta San Michele Arcangelo II",550
+"La Marmotta","Fiorano Modenese",550
+"La Marmotta","Masseria Santa Tecchia",550
+"La Marmotta","Lokvica",550
+"Umbro Bova Marina","Masseria Acquasalsa",550
+"Umbro Bova Marina","Grotta Continenza",550
+"Umbro Bova Marina","Masseria Candelaro III",550
+"Umbro Bova Marina","Grotta Scaloria",550
+"Umbro Bova Marina","Marcianese",550
+"Umbro Bova Marina","Trasanello II",550
+"Umbro Bova Marina","Grotta dei Piccioni",550
+"Umbro Bova Marina","Villa Badessa (Cepegatti)",550
+"Umbro Bova Marina","Colle Cera",550
+"Umbro Bova Marina","Balsignano ",550
+"Umbro Bova Marina","Ex Palestra GIL",550
+"Umbro Bova Marina","Grotta San Michele Arcangelo II",550
+"Umbro Bova Marina","Masseria Santa Tecchia",550
+"Umbro Bova Marina","Rocchicella-Paliké",550
+"Strette","Abri Albertini",550
+"Strette","La Lucciola",550
+"Strette","Masseria Acquasalsa",550
+"Strette","Grotta Continenza",550
+"Strette","Portonovo",550
+"Strette","Masseria Candelaro III",550
+"Strette","Marcianese",550
+"Strette","Savignano sul Panaro",550
+"Strette","Su Carroppu",550
+"Strette","Krivače",550
+"Strette","Pian di Calisti",550
+"Strette","Grotta dei Piccioni",550
+"Strette","Pienza",550
+"Strette","Casa Querciolaia",550
+"Strette","Grotta Sant'Angelo II",550
+"Strette","Villa Badessa (Cepegatti)",550
+"Strette","Colle Cera",550
+"Strette","Ex Palestra GIL",550
+"Strette","Grande Rivoire",550
+"Strette","Arene Candide II",550
+"Strette","Fiorano Modenese",550
+"Strette","Masseria Santa Tecchia",550
+"Fornace Cappuccini","Abri Albertini",550
+"Fornace Cappuccini","La Lucciola",550
+"Fornace Cappuccini","Masseria Acquasalsa",550
+"Fornace Cappuccini","Grotta Continenza",550
+"Fornace Cappuccini","Portonovo",550
+"Fornace Cappuccini","Masseria Candelaro III",550
+"Fornace Cappuccini","Grotta Scaloria",550
+"Fornace Cappuccini","Marcianese",550
+"Fornace Cappuccini","Savignano sul Panaro",550
+"Fornace Cappuccini","Krivače",550
+"Fornace Cappuccini","Pian di Calisti",550
+"Fornace Cappuccini","Grotta dei Piccioni",550
+"Fornace Cappuccini","Pienza",550
+"Fornace Cappuccini","Casa Querciolaia",550
+"Fornace Cappuccini","Grotta Sant'Angelo II",550
+"Fornace Cappuccini","Villa Badessa (Cepegatti)",550
+"Fornace Cappuccini","Pokrovnik",550
+"Fornace Cappuccini","Danilo-Bitinj",550
+"Fornace Cappuccini","Colle Cera",550
+"Fornace Cappuccini","Balsignano ",550
+"Fornace Cappuccini","Spila Nakovana",550
+"Fornace Cappuccini","Ex Palestra GIL",550
+"Fornace Cappuccini","Grande Rivoire",550
+"Fornace Cappuccini","Arene Candide II",550
+"Fornace Cappuccini","Fiorano Modenese",550
+"Fornace Cappuccini","Masseria Santa Tecchia",550
+"Fornace Cappuccini","Lokvica",550
+"Rio Saboccu","Abri Albertini",550
+"Rio Saboccu","La Lucciola",550
+"Rio Saboccu","La Scola",550
+"Rio Saboccu","Grotta Continenza",550
+"Rio Saboccu","Strette",550
+"Rio Saboccu","Su Carroppu",550
+"Rio Saboccu","Pian di Calisti",550
+"Rio Saboccu","Grotta dei Piccioni",550
+"Rio Saboccu","Pienza",550
+"Rio Saboccu","Casa Querciolaia",550
+"Rio Saboccu","Grotta Sant'Angelo II",550
+"Rio Saboccu","Cala Giovanna",550
+"Rio Saboccu","Arene Candide II",550
+"Catignano","Abri Albertini",550
+"Catignano","La Lucciola",550
+"Catignano","La Scola",550
+"Catignano","Masseria Acquasalsa",550
+"Catignano","Grotta Continenza",550
+"Catignano","Portonovo",550
+"Catignano","Masseria Candelaro III",550
+"Catignano","Grotta Scaloria",550
+"Catignano","Strette",550
+"Catignano","Marcianese",550
+"Catignano","Savignano sul Panaro",550
+"Catignano","Trasanello II",550
+"Catignano","Fornace Cappuccini",550
+"Catignano","Krivače",550
+"Catignano","Pian di Calisti",550
+"Catignano","Grotta dei Piccioni",550
+"Catignano","Pienza",550
+"Catignano","Casa Querciolaia",550
+"Catignano","Grotta Sant'Angelo II",550
+"Catignano","Villa Badessa (Cepegatti)",550
+"Catignano","Pokrovnik",550
+"Catignano","Danilo-Bitinj",550
+"Catignano","Colle Cera",550
+"Catignano","Balsignano ",550
+"Catignano","Spila Nakovana",550
+"Catignano","Ex Palestra GIL",550
+"Catignano","Cala Giovanna",550
+"Catignano","Arene Candide II",550
+"Catignano","Grotta San Michele Arcangelo II",550
+"Catignano","Fiorano Modenese",550
+"Catignano","Masseria Santa Tecchia",550
+"Catignano","Lokvica",550
+"Cala Giovanna","Abri Albertini",550
+"Cala Giovanna","La Lucciola",550
+"Cala Giovanna","Masseria Acquasalsa",550
+"Cala Giovanna","Grotta Continenza",550
+"Cala Giovanna","Portonovo",550
+"Cala Giovanna","Masseria Candelaro III",550
+"Cala Giovanna","Grotta Scaloria",550
+"Cala Giovanna","Marcianese",550
+"Cala Giovanna","Savignano sul Panaro",550
+"Cala Giovanna","Su Carroppu",550
+"Cala Giovanna","Krivače",550
+"Cala Giovanna","Pian di Calisti",550
+"Cala Giovanna","Grotta dei Piccioni",550
+"Cala Giovanna","Pienza",550
+"Cala Giovanna","Casa Querciolaia",550
+"Cala Giovanna","Grotta Sant'Angelo II",550
+"Cala Giovanna","Villa Badessa (Cepegatti)",550
+"Cala Giovanna","Pokrovnik",550
+"Cala Giovanna","Danilo-Bitinj",550
+"Cala Giovanna","Colle Cera",550
+"Cala Giovanna","Ex Palestra GIL",550
+"Cala Giovanna","Grande Rivoire",550
+"Cala Giovanna","Arene Candide II",550
+"Cala Giovanna","Fiorano Modenese",550
+"Cala Giovanna","Masseria Santa Tecchia",550
+"Sa Punta","Abri Albertini",550
+"Sa Punta","La Lucciola",550
+"Sa Punta","La Scola",550
+"Sa Punta","Grotta Continenza",550
+"Sa Punta","Strette",550
+"Sa Punta","Su Carroppu",550
+"Sa Punta","Pian di Calisti",550
+"Sa Punta","Grotta dei Piccioni",550
+"Sa Punta","Pienza",550
+"Sa Punta","Casa Querciolaia",550
+"Sa Punta","Grotta Sant'Angelo II",550
+"Sa Punta","Cala Giovanna",550
+"Sa Punta","Arene Candide II",550
+"Cuccuru is Arrius","Abri Albertini",550
+"Cuccuru is Arrius","La Lucciola",550
+"Cuccuru is Arrius","La Scola",550
+"Cuccuru is Arrius","Grotta Continenza",550
+"Cuccuru is Arrius","Strette",550
+"Cuccuru is Arrius","Savignano sul Panaro",550
+"Cuccuru is Arrius","Su Carroppu",550
+"Cuccuru is Arrius","Pian di Calisti",550
+"Cuccuru is Arrius","Grotta dei Piccioni",550
+"Cuccuru is Arrius","Pienza",550
+"Cuccuru is Arrius","Casa Querciolaia",550
+"Cuccuru is Arrius","Grotta Sant'Angelo II",550
+"Cuccuru is Arrius","Villa Badessa (Cepegatti)",550
+"Cuccuru is Arrius","Colle Cera",550
+"Cuccuru is Arrius","Cala Giovanna",550
+"Cuccuru is Arrius","Arene Candide II",550
+"Cuccuru is Arrius","Fiorano Modenese",550
+"Monte Arci","La Marmotta",550
+"Monte Arci","Rio Saboccu",550
+"Monte Arci","Catignano",550
+"Monte Arci","Sa Punta",550
+"Monte Arci","Cuccuru is Arrius",550
+"Lipari","Sant'Anna di Oria",550
+"Lipari","La Marmotta",550
+"Lipari","Umbro Bova Marina",550
+"Lipari","Catignano",550
+"Palmarola","Sant'Anna di Oria",550
+"Palmarola","La Marmotta",550
+"Palmarola","Umbro Bova Marina",550
+"Palmarola","Rio Saboccu",550
+"Palmarola","Catignano",550
+"Palmarola","Sa Punta",550
+"Palmarola","Cuccuru is Arrius",550

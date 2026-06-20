@@ -1,0 +1,183 @@
+"from","to","distance_rule_km"
+"Sant'Anna di Oria","Masseria Acquasalsa",400
+"Sant'Anna di Oria","Grotta Continenza",400
+"Sant'Anna di Oria","Masseria Candelaro III",400
+"Sant'Anna di Oria","Grotta Scaloria",400
+"Sant'Anna di Oria","Marcianese",400
+"Sant'Anna di Oria","Trasanello II",400
+"Sant'Anna di Oria","Krivače",400
+"Sant'Anna di Oria","Grotta dei Piccioni",400
+"Sant'Anna di Oria","Villa Badessa (Cepegatti)",400
+"Sant'Anna di Oria","Pokrovnik",400
+"Sant'Anna di Oria","Danilo-Bitinj",400
+"Sant'Anna di Oria","Colle Cera",400
+"Sant'Anna di Oria","Balsignano ",400
+"Sant'Anna di Oria","Spila Nakovana",400
+"Sant'Anna di Oria","Ex Palestra GIL",400
+"Sant'Anna di Oria","Grotta San Michele Arcangelo II",400
+"Sant'Anna di Oria","Masseria Santa Tecchia",400
+"Sant'Anna di Oria","Lokvica",400
+"La Scola","Abri Albertini",400
+"La Scola","La Lucciola",400
+"La Scola","Grotta Continenza",400
+"La Scola","Portonovo",400
+"La Scola","Marcianese",400
+"La Scola","Savignano sul Panaro",400
+"La Scola","Su Carroppu",400
+"La Scola","Pian di Calisti",400
+"La Scola","Grotta dei Piccioni",400
+"La Scola","Pienza",400
+"La Scola","Casa Querciolaia",400
+"La Scola","Grotta Sant'Angelo II",400
+"La Scola","Villa Badessa (Cepegatti)",400
+"La Scola","Colle Cera",400
+"La Scola","Arene Candide II",400
+"La Scola","Fiorano Modenese",400
+"La Marmotta","Abri Albertini",400
+"La Marmotta","La Lucciola",400
+"La Marmotta","La Scola",400
+"La Marmotta","Masseria Acquasalsa",400
+"La Marmotta","Grotta Continenza",400
+"La Marmotta","Portonovo",400
+"La Marmotta","Masseria Candelaro III",400
+"La Marmotta","Grotta Scaloria",400
+"La Marmotta","Strette",400
+"La Marmotta","Marcianese",400
+"La Marmotta","Savignano sul Panaro",400
+"La Marmotta","Fornace Cappuccini",400
+"La Marmotta","Krivače",400
+"La Marmotta","Pian di Calisti",400
+"La Marmotta","Grotta dei Piccioni",400
+"La Marmotta","Pienza",400
+"La Marmotta","Casa Querciolaia",400
+"La Marmotta","Grotta Sant'Angelo II",400
+"La Marmotta","Villa Badessa (Cepegatti)",400
+"La Marmotta","Pokrovnik",400
+"La Marmotta","Danilo-Bitinj",400
+"La Marmotta","Colle Cera",400
+"La Marmotta","Balsignano ",400
+"La Marmotta","Ex Palestra GIL",400
+"La Marmotta","Cala Giovanna",400
+"La Marmotta","Arene Candide II",400
+"La Marmotta","Fiorano Modenese",400
+"La Marmotta","Masseria Santa Tecchia",400
+"La Marmotta","Lokvica",400
+"Umbro Bova Marina","Masseria Acquasalsa",400
+"Umbro Bova Marina","Trasanello II",400
+"Umbro Bova Marina","Balsignano ",400
+"Umbro Bova Marina","Ex Palestra GIL",400
+"Umbro Bova Marina","Grotta San Michele Arcangelo II",400
+"Umbro Bova Marina","Masseria Santa Tecchia",400
+"Umbro Bova Marina","Rocchicella-Paliké",400
+"Strette","Abri Albertini",400
+"Strette","La Lucciola",400
+"Strette","Grotta Continenza",400
+"Strette","Portonovo",400
+"Strette","Savignano sul Panaro",400
+"Strette","Su Carroppu",400
+"Strette","Pian di Calisti",400
+"Strette","Grotta dei Piccioni",400
+"Strette","Pienza",400
+"Strette","Casa Querciolaia",400
+"Strette","Grotta Sant'Angelo II",400
+"Strette","Villa Badessa (Cepegatti)",400
+"Strette","Colle Cera",400
+"Strette","Arene Candide II",400
+"Strette","Fiorano Modenese",400
+"Fornace Cappuccini","Abri Albertini",400
+"Fornace Cappuccini","La Lucciola",400
+"Fornace Cappuccini","Grotta Continenza",400
+"Fornace Cappuccini","Portonovo",400
+"Fornace Cappuccini","Marcianese",400
+"Fornace Cappuccini","Savignano sul Panaro",400
+"Fornace Cappuccini","Krivače",400
+"Fornace Cappuccini","Pian di Calisti",400
+"Fornace Cappuccini","Grotta dei Piccioni",400
+"Fornace Cappuccini","Pienza",400
+"Fornace Cappuccini","Casa Querciolaia",400
+"Fornace Cappuccini","Grotta Sant'Angelo II",400
+"Fornace Cappuccini","Villa Badessa (Cepegatti)",400
+"Fornace Cappuccini","Pokrovnik",400
+"Fornace Cappuccini","Danilo-Bitinj",400
+"Fornace Cappuccini","Colle Cera",400
+"Fornace Cappuccini","Arene Candide II",400
+"Fornace Cappuccini","Fiorano Modenese",400
+"Rio Saboccu","Abri Albertini",400
+"Rio Saboccu","La Scola",400
+"Rio Saboccu","Strette",400
+"Rio Saboccu","Su Carroppu",400
+"Rio Saboccu","Cala Giovanna",400
+"Catignano","La Lucciola",400
+"Catignano","La Scola",400
+"Catignano","Masseria Acquasalsa",400
+"Catignano","Grotta Continenza",400
+"Catignano","Portonovo",400
+"Catignano","Masseria Candelaro III",400
+"Catignano","Grotta Scaloria",400
+"Catignano","Strette",400
+"Catignano","Marcianese",400
+"Catignano","Savignano sul Panaro",400
+"Catignano","Trasanello II",400
+"Catignano","Fornace Cappuccini",400
+"Catignano","Krivače",400
+"Catignano","Pian di Calisti",400
+"Catignano","Grotta dei Piccioni",400
+"Catignano","Pienza",400
+"Catignano","Casa Querciolaia",400
+"Catignano","Grotta Sant'Angelo II",400
+"Catignano","Villa Badessa (Cepegatti)",400
+"Catignano","Pokrovnik",400
+"Catignano","Danilo-Bitinj",400
+"Catignano","Colle Cera",400
+"Catignano","Balsignano ",400
+"Catignano","Spila Nakovana",400
+"Catignano","Ex Palestra GIL",400
+"Catignano","Cala Giovanna",400
+"Catignano","Grotta San Michele Arcangelo II",400
+"Catignano","Fiorano Modenese",400
+"Catignano","Masseria Santa Tecchia",400
+"Catignano","Lokvica",400
+"Cala Giovanna","Abri Albertini",400
+"Cala Giovanna","La Lucciola",400
+"Cala Giovanna","Grotta Continenza",400
+"Cala Giovanna","Portonovo",400
+"Cala Giovanna","Marcianese",400
+"Cala Giovanna","Savignano sul Panaro",400
+"Cala Giovanna","Su Carroppu",400
+"Cala Giovanna","Pian di Calisti",400
+"Cala Giovanna","Grotta dei Piccioni",400
+"Cala Giovanna","Pienza",400
+"Cala Giovanna","Casa Querciolaia",400
+"Cala Giovanna","Grotta Sant'Angelo II",400
+"Cala Giovanna","Villa Badessa (Cepegatti)",400
+"Cala Giovanna","Colle Cera",400
+"Cala Giovanna","Arene Candide II",400
+"Cala Giovanna","Fiorano Modenese",400
+"Sa Punta","Abri Albertini",400
+"Sa Punta","La Scola",400
+"Sa Punta","Strette",400
+"Sa Punta","Su Carroppu",400
+"Sa Punta","Cala Giovanna",400
+"Cuccuru is Arrius","Abri Albertini",400
+"Cuccuru is Arrius","La Scola",400
+"Cuccuru is Arrius","Strette",400
+"Cuccuru is Arrius","Su Carroppu",400
+"Cuccuru is Arrius","Cala Giovanna",400
+"Monte Arci","La Scola",400
+"Monte Arci","La Marmotta",400
+"Monte Arci","Strette",400
+"Monte Arci","Rio Saboccu",400
+"Monte Arci","Cala Giovanna",400
+"Monte Arci","Sa Punta",400
+"Monte Arci","Cuccuru is Arrius",400
+"Lipari","Sant'Anna di Oria",400
+"Lipari","Umbro Bova Marina",400
+"Palmarola","La Scola",400
+"Palmarola","La Marmotta",400
+"Palmarola","Strette",400
+"Palmarola","Fornace Cappuccini",400
+"Palmarola","Rio Saboccu",400
+"Palmarola","Catignano",400
+"Palmarola","Cala Giovanna",400
+"Palmarola","Sa Punta",400
+"Palmarola","Cuccuru is Arrius",400

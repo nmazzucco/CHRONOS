@@ -1,0 +1,42 @@
+"from","to","distance_rule_km"
+"La Scola","Abri Albertini",250
+"La Scola","La Lucciola",250
+"La Scola","Savignano sul Panaro",250
+"La Scola","Pian di Calisti",250
+"La Scola","Pienza",250
+"La Scola","Casa Querciolaia",250
+"La Scola","Arene Candide II",250
+"La Scola","Fiorano Modenese",250
+"La Marmotta","La Scola",250
+"La Marmotta","Strette",250
+"La Marmotta","Fornace Cappuccini",250
+"La Marmotta","Cala Giovanna",250
+"Strette","Abri Albertini",250
+"Strette","La Lucciola",250
+"Strette","Savignano sul Panaro",250
+"Strette","Pienza",250
+"Strette","Casa Querciolaia",250
+"Strette","Arene Candide II",250
+"Strette","Fiorano Modenese",250
+"Fornace Cappuccini","La Lucciola",250
+"Fornace Cappuccini","Portonovo",250
+"Fornace Cappuccini","Savignano sul Panaro",250
+"Fornace Cappuccini","Pian di Calisti",250
+"Fornace Cappuccini","Pienza",250
+"Fornace Cappuccini","Casa Querciolaia",250
+"Fornace Cappuccini","Grotta Sant'Angelo II",250
+"Fornace Cappuccini","Fiorano Modenese",250
+"Cala Giovanna","Abri Albertini",250
+"Cala Giovanna","La Lucciola",250
+"Cala Giovanna","Savignano sul Panaro",250
+"Cala Giovanna","Pian di Calisti",250
+"Cala Giovanna","Pienza",250
+"Cala Giovanna","Casa Querciolaia",250
+"Cala Giovanna","Arene Candide II",250
+"Cala Giovanna","Fiorano Modenese",250
+"Monte Arci","Rio Saboccu",250
+"Monte Arci","Sa Punta",250
+"Monte Arci","Cuccuru is Arrius",250
+"Lipari","Umbro Bova Marina",250
+"Palmarola","La Marmotta",250
+"Palmarola","Catignano",250
