@@ -2,7 +2,7 @@
 "Sant'Anna di Oria","Masseria Candelaro III",200
 "Sant'Anna di Oria","Grotta Scaloria",200
 "Sant'Anna di Oria","Trasanello II",200
-"Sant'Anna di Oria","Balsignano ",200
+"Sant'Anna di Oria","Balsignano II",200
 "Sant'Anna di Oria","Grotta San Michele Arcangelo II",200
 "Sant'Anna di Oria","Masseria Santa Tecchia",200
 "La Scola","Abri Albertini",200
@@ -14,7 +14,7 @@
 "La Marmotta","Grotta Continenza",200
 "La Marmotta","Portonovo",200
 "La Marmotta","Marcianese",200
-"La Marmotta","Pian di Calisti",200
+"La Marmotta","Piani di Calisti",200
 "La Marmotta","Grotta dei Piccioni",200
 "La Marmotta","Pienza",200
 "La Marmotta","Grotta Sant'Angelo II",200
@@ -29,7 +29,7 @@
 "Fornace Cappuccini","La Lucciola",200
 "Fornace Cappuccini","Portonovo",200
 "Fornace Cappuccini","Savignano sul Panaro",200
-"Fornace Cappuccini","Pian di Calisti",200
+"Fornace Cappuccini","Piani di Calisti",200
 "Fornace Cappuccini","Pienza",200
 "Fornace Cappuccini","Casa Querciolaia",200
 "Fornace Cappuccini","Fiorano Modenese",200
@@ -41,7 +41,7 @@
 "Catignano","Masseria Candelaro III",200
 "Catignano","Grotta Scaloria",200
 "Catignano","Marcianese",200
-"Catignano","Pian di Calisti",200
+"Catignano","Piani di Calisti",200
 "Catignano","Grotta dei Piccioni",200
 "Catignano","Grotta Sant'Angelo II",200
 "Catignano","Villa Badessa (Cepegatti)",200
@@ -52,11 +52,14 @@
 "Cala Giovanna","La Lucciola",200
 "Cala Giovanna","Pienza",200
 "Cala Giovanna","Casa Querciolaia",200
+"Grotta San Michele Arcangelo II","Trasanello II",200
+"Grotta San Michele Arcangelo II","Balsignano II",200
+"Grotta San Michele Arcangelo II","Ex Palestra GIL",200
+"Grotta San Michele Arcangelo II","Masseria Santa Tecchia",200
 "Sa Punta","Su Carroppu",200
-"Cuccuru is Arrius","Su Carroppu",200
 "Monte Arci","Rio Saboccu",200
 "Monte Arci","Sa Punta",200
-"Monte Arci","Cuccuru is Arrius",200
 "Lipari","Umbro Bova Marina",200
+"Lipari","Grotta San Michele Arcangelo II",200
 "Palmarola","La Marmotta",200
 "Palmarola","Catignano",200

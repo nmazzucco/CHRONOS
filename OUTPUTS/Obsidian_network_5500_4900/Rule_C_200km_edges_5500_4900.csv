@@ -1,4 +1,5 @@
 "from","to","distance_rule_km"
+"Sant'Anna di Oria","Grotta San Michele Arcangelo II",200
 "La Scola","Abri Albertini",200
 "La Scola","La Lucciola",200
 "La Scola","Pienza",200
@@ -12,7 +13,7 @@
 "Fornace Cappuccini","La Lucciola",200
 "Fornace Cappuccini","Portonovo",200
 "Fornace Cappuccini","Savignano sul Panaro",200
-"Fornace Cappuccini","Pian di Calisti",200
+"Fornace Cappuccini","Piani di Calisti",200
 "Fornace Cappuccini","Pienza",200
 "Fornace Cappuccini","Casa Querciolaia",200
 "Fornace Cappuccini","Fiorano Modenese",200
@@ -20,9 +21,12 @@
 "Cala Giovanna","La Lucciola",200
 "Cala Giovanna","Pienza",200
 "Cala Giovanna","Casa Querciolaia",200
+"Grotta San Michele Arcangelo II","Trasanello II",200
+"Grotta San Michele Arcangelo II","Balsignano II",200
+"Grotta San Michele Arcangelo II","Ex Palestra GIL",200
+"Grotta San Michele Arcangelo II","Masseria Santa Tecchia",200
 "Monte Arci","Rio Saboccu",200
 "Monte Arci","Sa Punta",200
-"Monte Arci","Cuccuru is Arrius",200
 "Lipari","Umbro Bova Marina",200
 "Palmarola","La Marmotta",200
 "Palmarola","Catignano",200

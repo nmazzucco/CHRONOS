@@ -7,14 +7,14 @@
 "Sant'Anna di Oria","Marcianese",500
 "Sant'Anna di Oria","Trasanello II",500
 "Sant'Anna di Oria","Krivače",500
-"Sant'Anna di Oria","Pian di Calisti",500
+"Sant'Anna di Oria","Piani di Calisti",500
 "Sant'Anna di Oria","Grotta dei Piccioni",500
 "Sant'Anna di Oria","Grotta Sant'Angelo II",500
 "Sant'Anna di Oria","Villa Badessa (Cepegatti)",500
 "Sant'Anna di Oria","Pokrovnik",500
 "Sant'Anna di Oria","Danilo-Bitinj",500
 "Sant'Anna di Oria","Colle Cera",500
-"Sant'Anna di Oria","Balsignano ",500
+"Sant'Anna di Oria","Balsignano II",500
 "Sant'Anna di Oria","Spila Nakovana",500
 "Sant'Anna di Oria","Ex Palestra GIL",500
 "Sant'Anna di Oria","Grotta San Michele Arcangelo II",500
@@ -32,7 +32,7 @@
 "La Scola","Savignano sul Panaro",500
 "La Scola","Su Carroppu",500
 "La Scola","Krivače",500
-"La Scola","Pian di Calisti",500
+"La Scola","Piani di Calisti",500
 "La Scola","Grotta dei Piccioni",500
 "La Scola","Pienza",500
 "La Scola","Casa Querciolaia",500
@@ -60,7 +60,7 @@
 "La Marmotta","Trasanello II",500
 "La Marmotta","Fornace Cappuccini",500
 "La Marmotta","Krivače",500
-"La Marmotta","Pian di Calisti",500
+"La Marmotta","Piani di Calisti",500
 "La Marmotta","Grotta dei Piccioni",500
 "La Marmotta","Pienza",500
 "La Marmotta","Casa Querciolaia",500
@@ -69,7 +69,7 @@
 "La Marmotta","Pokrovnik",500
 "La Marmotta","Danilo-Bitinj",500
 "La Marmotta","Colle Cera",500
-"La Marmotta","Balsignano ",500
+"La Marmotta","Balsignano II",500
 "La Marmotta","Spila Nakovana",500
 "La Marmotta","Ex Palestra GIL",500
 "La Marmotta","Cala Giovanna",500
@@ -84,7 +84,7 @@
 "Umbro Bova Marina","Grotta Scaloria",500
 "Umbro Bova Marina","Marcianese",500
 "Umbro Bova Marina","Trasanello II",500
-"Umbro Bova Marina","Balsignano ",500
+"Umbro Bova Marina","Balsignano II",500
 "Umbro Bova Marina","Ex Palestra GIL",500
 "Umbro Bova Marina","Grotta San Michele Arcangelo II",500
 "Umbro Bova Marina","Masseria Santa Tecchia",500
@@ -96,7 +96,7 @@
 "Strette","Marcianese",500
 "Strette","Savignano sul Panaro",500
 "Strette","Su Carroppu",500
-"Strette","Pian di Calisti",500
+"Strette","Piani di Calisti",500
 "Strette","Grotta dei Piccioni",500
 "Strette","Pienza",500
 "Strette","Casa Querciolaia",500
@@ -116,7 +116,7 @@
 "Fornace Cappuccini","Marcianese",500
 "Fornace Cappuccini","Savignano sul Panaro",500
 "Fornace Cappuccini","Krivače",500
-"Fornace Cappuccini","Pian di Calisti",500
+"Fornace Cappuccini","Piani di Calisti",500
 "Fornace Cappuccini","Grotta dei Piccioni",500
 "Fornace Cappuccini","Pienza",500
 "Fornace Cappuccini","Casa Querciolaia",500
@@ -155,7 +155,7 @@
 "Catignano","Trasanello II",500
 "Catignano","Fornace Cappuccini",500
 "Catignano","Krivače",500
-"Catignano","Pian di Calisti",500
+"Catignano","Piani di Calisti",500
 "Catignano","Grotta dei Piccioni",500
 "Catignano","Pienza",500
 "Catignano","Casa Querciolaia",500
@@ -164,7 +164,7 @@
 "Catignano","Pokrovnik",500
 "Catignano","Danilo-Bitinj",500
 "Catignano","Colle Cera",500
-"Catignano","Balsignano ",500
+"Catignano","Balsignano II",500
 "Catignano","Spila Nakovana",500
 "Catignano","Ex Palestra GIL",500
 "Catignano","Cala Giovanna",500
@@ -184,7 +184,7 @@
 "Cala Giovanna","Savignano sul Panaro",500
 "Cala Giovanna","Su Carroppu",500
 "Cala Giovanna","Krivače",500
-"Cala Giovanna","Pian di Calisti",500
+"Cala Giovanna","Piani di Calisti",500
 "Cala Giovanna","Grotta dei Piccioni",500
 "Cala Giovanna","Pienza",500
 "Cala Giovanna","Casa Querciolaia",500
@@ -197,6 +197,28 @@
 "Cala Giovanna","Arene Candide II",500
 "Cala Giovanna","Fiorano Modenese",500
 "Cala Giovanna","Masseria Santa Tecchia",500
+"Grotta San Michele Arcangelo II","La Lucciola",500
+"Grotta San Michele Arcangelo II","Masseria Acquasalsa",500
+"Grotta San Michele Arcangelo II","Grotta Continenza",500
+"Grotta San Michele Arcangelo II","Portonovo",500
+"Grotta San Michele Arcangelo II","Masseria Candelaro III",500
+"Grotta San Michele Arcangelo II","Grotta Scaloria",500
+"Grotta San Michele Arcangelo II","Marcianese",500
+"Grotta San Michele Arcangelo II","Trasanello II",500
+"Grotta San Michele Arcangelo II","Krivače",500
+"Grotta San Michele Arcangelo II","Piani di Calisti",500
+"Grotta San Michele Arcangelo II","Grotta dei Piccioni",500
+"Grotta San Michele Arcangelo II","Grotta Sant'Angelo II",500
+"Grotta San Michele Arcangelo II","Villa Badessa (Cepegatti)",500
+"Grotta San Michele Arcangelo II","Pokrovnik",500
+"Grotta San Michele Arcangelo II","Danilo-Bitinj",500
+"Grotta San Michele Arcangelo II","Colle Cera",500
+"Grotta San Michele Arcangelo II","Balsignano II",500
+"Grotta San Michele Arcangelo II","Spila Nakovana",500
+"Grotta San Michele Arcangelo II","Ex Palestra GIL",500
+"Grotta San Michele Arcangelo II","Masseria Santa Tecchia",500
+"Grotta San Michele Arcangelo II","Lokvica",500
+"Grotta San Michele Arcangelo II","Rocchicella-Paliké",500
 "Sa Punta","Abri Albertini",500
 "Sa Punta","La Lucciola",500
 "Sa Punta","La Scola",500
@@ -207,27 +229,17 @@
 "Sa Punta","Casa Querciolaia",500
 "Sa Punta","Cala Giovanna",500
 "Sa Punta","Arene Candide II",500
-"Cuccuru is Arrius","Abri Albertini",500
-"Cuccuru is Arrius","La Lucciola",500
-"Cuccuru is Arrius","La Scola",500
-"Cuccuru is Arrius","Grotta Continenza",500
-"Cuccuru is Arrius","Strette",500
-"Cuccuru is Arrius","Su Carroppu",500
-"Cuccuru is Arrius","Pienza",500
-"Cuccuru is Arrius","Casa Querciolaia",500
-"Cuccuru is Arrius","Cala Giovanna",500
-"Cuccuru is Arrius","Arene Candide II",500
 "Monte Arci","La Scola",500
 "Monte Arci","La Marmotta",500
 "Monte Arci","Strette",500
 "Monte Arci","Rio Saboccu",500
 "Monte Arci","Cala Giovanna",500
 "Monte Arci","Sa Punta",500
-"Monte Arci","Cuccuru is Arrius",500
 "Lipari","Sant'Anna di Oria",500
 "Lipari","La Marmotta",500
 "Lipari","Umbro Bova Marina",500
 "Lipari","Catignano",500
+"Lipari","Grotta San Michele Arcangelo II",500
 "Palmarola","Sant'Anna di Oria",500
 "Palmarola","La Scola",500
 "Palmarola","La Marmotta",500
@@ -237,5 +249,5 @@
 "Palmarola","Rio Saboccu",500
 "Palmarola","Catignano",500
 "Palmarola","Cala Giovanna",500
+"Palmarola","Grotta San Michele Arcangelo II",500
 "Palmarola","Sa Punta",500
-"Palmarola","Cuccuru is Arrius",500

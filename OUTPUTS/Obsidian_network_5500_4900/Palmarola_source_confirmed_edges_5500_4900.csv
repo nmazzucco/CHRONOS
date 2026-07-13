@@ -1,46 +1,60 @@
 "from","to","distance_rule_km"
 "Sant'Anna di Oria","Masseria Candelaro III",450
 "Sant'Anna di Oria","Marcianese",450
+"Sant'Anna di Oria","Grotta Sant'Angelo II",450
+"Sant'Anna di Oria","Villa Badessa (Cepegatti)",450
 "Sant'Anna di Oria","Colle Cera",450
-"Sant'Anna di Oria","Balsignano ",450
 "Sant'Anna di Oria","Grotta San Michele Arcangelo II",450
 "La Scola","La Lucciola",450
-"La Scola","Portonovo",450
 "La Scola","Marcianese",450
+"La Scola","Pienza",450
+"La Scola","Grotta Sant'Angelo II",450
+"La Scola","Villa Badessa (Cepegatti)",450
 "La Scola","Colle Cera",450
 "La Scola","Arene Candide II",450
 "La Marmotta","La Lucciola",450
 "La Marmotta","La Scola",450
-"La Marmotta","Portonovo",450
 "La Marmotta","Masseria Candelaro III",450
 "La Marmotta","Marcianese",450
 "La Marmotta","Fornace Cappuccini",450
+"La Marmotta","Pienza",450
+"La Marmotta","Grotta Sant'Angelo II",450
+"La Marmotta","Villa Badessa (Cepegatti)",450
 "La Marmotta","Colle Cera",450
-"La Marmotta","Balsignano ",450
 "La Marmotta","Cala Giovanna",450
 "La Marmotta","Arene Candide II",450
 "La Marmotta","Grotta San Michele Arcangelo II",450
 "Fornace Cappuccini","La Lucciola",450
-"Fornace Cappuccini","Portonovo",450
 "Fornace Cappuccini","Masseria Candelaro III",450
 "Fornace Cappuccini","Marcianese",450
+"Fornace Cappuccini","Pienza",450
+"Fornace Cappuccini","Grotta Sant'Angelo II",450
+"Fornace Cappuccini","Villa Badessa (Cepegatti)",450
 "Fornace Cappuccini","Colle Cera",450
 "Fornace Cappuccini","Arene Candide II",450
 "Catignano","La Lucciola",450
 "Catignano","La Scola",450
-"Catignano","Portonovo",450
 "Catignano","Masseria Candelaro III",450
 "Catignano","Marcianese",450
 "Catignano","Fornace Cappuccini",450
+"Catignano","Pienza",450
+"Catignano","Grotta Sant'Angelo II",450
+"Catignano","Villa Badessa (Cepegatti)",450
 "Catignano","Colle Cera",450
-"Catignano","Balsignano ",450
 "Catignano","Cala Giovanna",450
 "Catignano","Grotta San Michele Arcangelo II",450
 "Cala Giovanna","La Lucciola",450
-"Cala Giovanna","Portonovo",450
 "Cala Giovanna","Marcianese",450
+"Cala Giovanna","Pienza",450
+"Cala Giovanna","Grotta Sant'Angelo II",450
+"Cala Giovanna","Villa Badessa (Cepegatti)",450
 "Cala Giovanna","Colle Cera",450
 "Cala Giovanna","Arene Candide II",450
+"Grotta San Michele Arcangelo II","Masseria Candelaro III",450
+"Grotta San Michele Arcangelo II","Marcianese",450
+"Grotta San Michele Arcangelo II","Grotta Sant'Angelo II",450
+"Grotta San Michele Arcangelo II","Villa Badessa (Cepegatti)",450
+"Grotta San Michele Arcangelo II","Colle Cera",450
 "Palmarola","Sant'Anna di Oria",450
 "Palmarola","La Marmotta",450
 "Palmarola","Catignano",450

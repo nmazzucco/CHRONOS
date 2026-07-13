@@ -11,7 +11,7 @@
 "Sant'Anna di Oria","Pokrovnik",400
 "Sant'Anna di Oria","Danilo-Bitinj",400
 "Sant'Anna di Oria","Colle Cera",400
-"Sant'Anna di Oria","Balsignano ",400
+"Sant'Anna di Oria","Balsignano II",400
 "Sant'Anna di Oria","Spila Nakovana",400
 "Sant'Anna di Oria","Ex Palestra GIL",400
 "Sant'Anna di Oria","Grotta San Michele Arcangelo II",400
@@ -24,7 +24,7 @@
 "La Scola","Marcianese",400
 "La Scola","Savignano sul Panaro",400
 "La Scola","Su Carroppu",400
-"La Scola","Pian di Calisti",400
+"La Scola","Piani di Calisti",400
 "La Scola","Grotta dei Piccioni",400
 "La Scola","Pienza",400
 "La Scola","Casa Querciolaia",400
@@ -46,7 +46,7 @@
 "La Marmotta","Savignano sul Panaro",400
 "La Marmotta","Fornace Cappuccini",400
 "La Marmotta","Krivače",400
-"La Marmotta","Pian di Calisti",400
+"La Marmotta","Piani di Calisti",400
 "La Marmotta","Grotta dei Piccioni",400
 "La Marmotta","Pienza",400
 "La Marmotta","Casa Querciolaia",400
@@ -55,7 +55,7 @@
 "La Marmotta","Pokrovnik",400
 "La Marmotta","Danilo-Bitinj",400
 "La Marmotta","Colle Cera",400
-"La Marmotta","Balsignano ",400
+"La Marmotta","Balsignano II",400
 "La Marmotta","Ex Palestra GIL",400
 "La Marmotta","Cala Giovanna",400
 "La Marmotta","Arene Candide II",400
@@ -64,7 +64,7 @@
 "La Marmotta","Lokvica",400
 "Umbro Bova Marina","Masseria Acquasalsa",400
 "Umbro Bova Marina","Trasanello II",400
-"Umbro Bova Marina","Balsignano ",400
+"Umbro Bova Marina","Balsignano II",400
 "Umbro Bova Marina","Ex Palestra GIL",400
 "Umbro Bova Marina","Grotta San Michele Arcangelo II",400
 "Umbro Bova Marina","Masseria Santa Tecchia",400
@@ -75,7 +75,7 @@
 "Strette","Portonovo",400
 "Strette","Savignano sul Panaro",400
 "Strette","Su Carroppu",400
-"Strette","Pian di Calisti",400
+"Strette","Piani di Calisti",400
 "Strette","Grotta dei Piccioni",400
 "Strette","Pienza",400
 "Strette","Casa Querciolaia",400
@@ -91,7 +91,7 @@
 "Fornace Cappuccini","Marcianese",400
 "Fornace Cappuccini","Savignano sul Panaro",400
 "Fornace Cappuccini","Krivače",400
-"Fornace Cappuccini","Pian di Calisti",400
+"Fornace Cappuccini","Piani di Calisti",400
 "Fornace Cappuccini","Grotta dei Piccioni",400
 "Fornace Cappuccini","Pienza",400
 "Fornace Cappuccini","Casa Querciolaia",400
@@ -120,7 +120,7 @@
 "Catignano","Trasanello II",400
 "Catignano","Fornace Cappuccini",400
 "Catignano","Krivače",400
-"Catignano","Pian di Calisti",400
+"Catignano","Piani di Calisti",400
 "Catignano","Grotta dei Piccioni",400
 "Catignano","Pienza",400
 "Catignano","Casa Querciolaia",400
@@ -129,7 +129,7 @@
 "Catignano","Pokrovnik",400
 "Catignano","Danilo-Bitinj",400
 "Catignano","Colle Cera",400
-"Catignano","Balsignano ",400
+"Catignano","Balsignano II",400
 "Catignano","Spila Nakovana",400
 "Catignano","Ex Palestra GIL",400
 "Catignano","Cala Giovanna",400
@@ -144,7 +144,7 @@
 "Cala Giovanna","Marcianese",400
 "Cala Giovanna","Savignano sul Panaro",400
 "Cala Giovanna","Su Carroppu",400
-"Cala Giovanna","Pian di Calisti",400
+"Cala Giovanna","Piani di Calisti",400
 "Cala Giovanna","Grotta dei Piccioni",400
 "Cala Giovanna","Pienza",400
 "Cala Giovanna","Casa Querciolaia",400
@@ -153,24 +153,33 @@
 "Cala Giovanna","Colle Cera",400
 "Cala Giovanna","Arene Candide II",400
 "Cala Giovanna","Fiorano Modenese",400
+"Grotta San Michele Arcangelo II","Masseria Acquasalsa",400
+"Grotta San Michele Arcangelo II","Grotta Continenza",400
+"Grotta San Michele Arcangelo II","Masseria Candelaro III",400
+"Grotta San Michele Arcangelo II","Grotta Scaloria",400
+"Grotta San Michele Arcangelo II","Marcianese",400
+"Grotta San Michele Arcangelo II","Trasanello II",400
+"Grotta San Michele Arcangelo II","Grotta dei Piccioni",400
+"Grotta San Michele Arcangelo II","Grotta Sant'Angelo II",400
+"Grotta San Michele Arcangelo II","Villa Badessa (Cepegatti)",400
+"Grotta San Michele Arcangelo II","Colle Cera",400
+"Grotta San Michele Arcangelo II","Balsignano II",400
+"Grotta San Michele Arcangelo II","Spila Nakovana",400
+"Grotta San Michele Arcangelo II","Ex Palestra GIL",400
+"Grotta San Michele Arcangelo II","Masseria Santa Tecchia",400
+"Grotta San Michele Arcangelo II","Lokvica",400
+"Grotta San Michele Arcangelo II","Rocchicella-Paliké",400
 "Sa Punta","Abri Albertini",400
 "Sa Punta","La Scola",400
 "Sa Punta","Strette",400
 "Sa Punta","Su Carroppu",400
 "Sa Punta","Cala Giovanna",400
-"Cuccuru is Arrius","Abri Albertini",400
-"Cuccuru is Arrius","La Scola",400
-"Cuccuru is Arrius","Strette",400
-"Cuccuru is Arrius","Su Carroppu",400
-"Cuccuru is Arrius","Cala Giovanna",400
 "Monte Arci","La Marmotta",400
 "Monte Arci","Rio Saboccu",400
 "Monte Arci","Sa Punta",400
-"Monte Arci","Cuccuru is Arrius",400
 "Lipari","Sant'Anna di Oria",400
 "Lipari","Umbro Bova Marina",400
 "Palmarola","La Marmotta",400
 "Palmarola","Rio Saboccu",400
 "Palmarola","Catignano",400
 "Palmarola","Sa Punta",400
-"Palmarola","Cuccuru is Arrius",400

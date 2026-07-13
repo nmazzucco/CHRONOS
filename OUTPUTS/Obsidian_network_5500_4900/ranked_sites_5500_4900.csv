@@ -1,43 +1,42 @@
 "sites","Long","Lat","ID","blade","flake","core","by.products.waste","tot.no.ind","LabCode","C14Age","C14SD","Median","Interval","culture","cul_descr","Lipari","Palmarola","Sardegna","site_key","sites_ranked_all","Cluster_raw","Rank","Production_score"
-"Abri Albertini",8.9739,42.3313,1,1,0,0,0,1,"n/a","n/a","n/a",5498,"5500-4900","CRD_BFP","Cardial_BFP",0,0,1,"abri albertini","Abri Albertini",1,1,0.0255950857435372
-"La Lucciola",12.08612,43.06918,38,5,2,1,0,8,"n/a","n/a","n/a",5498,"5500-4900","CRD_BFP","Cardial_BFP",1,1,1,"la lucciola","La Lucciola",1,1,0.553190142702454
-"Sant'Anna di Oria",17.616931,40.49882,61,441,198,6,854,1499,"Combined","Combined","Combined",5490,"5500-4900","BFW_PDC","Passo di Corvo",1,1,0,"sant'anna di oria","Sant'Anna di Oria",3,3,62.1461521095554
-"La Scola",10.0833,42.58,84,99,138,15,25,277,"n/a","n/a","n/a",5472,"5500-4900","CRD_BFP","Cardial_BFP",1,1,1,"la scola","La Scola",2,2,8.38889926824054
-"Masseria Acquasalsa",15.34183,41.49154,45,5,4,0,0,9,"n/a","n/a","n/a",5461,"5500-4900","BFW_PDC","Passo di Corvo",NA,NA,NA,"masseria acquasalsa","Masseria Acquasalsa",1,1,0.194091131197025
-"La Marmotta",12.2745,42.1044,39,847,186,60,86,1179,"Combined","Combined","Combined",5443,"5500-4900","Mixing","Impresso_Cardial",1,1,0,"la marmotta","La Marmotta",3,3,52.8379143005339
-"Umbro Bova Marina",15.9178,37.9392,74,148,374,21,160,703,"Combined","Combined","Combined",5432,"5500-4900","STN","Stentinello",1,0,0,"umbro bova marina","Umbro Bova Marina",3,3,26.6797612606952
-"Grotta Continenza",13.531877,41.94873,25,16,1,0,0,17,"Combined","Combined","Combined",5422,"5500-4900","IMP","Impressa (Guadone / Medio-adriatica)",NA,NA,NA,"grotta continenza","Grotta Continenza",1,1,0.426050297516431
-"Portonovo",13.57343,43.56373,56,4,0,0,0,4,"Combined","Combined","Combined",5421,"5500-4900","IMP_MAD","Impressa (Medio-adriatica)",1,1,0,"portonovo","Portonovo",1,1,0.102380342974149
-"Masseria Candelaro III",15.750553,41.61289,47,28,14,0,1,43,"Combined","Combined","Combined",5359,"5500-4900","TFW","Scaloria Alta / Serra d'Alto",1,1,0,"masseria candelaro iii","Masseria Candelaro III",1,1,1.00103346119164
-"Grotta Scaloria",15.912,41.6367,110,8,2,1,0,11,"Combined","Combined","Combined",5340,"5500-4900","TFW_SDA","Tricromiche / Bande Rosse / Serra d'Alto",NA,NA,NA,"grotta scaloria","Grotta Scaloria",1,1,0.629975399933065
-"Strette",9.37738,42.68974,75,5,40,1,71,117,"Ly-2835","6420","300",5340,"5500-4900","CRD_SAP","Cardial (SAP)",0,0,1,"strette","Strette",2,2,4.94188253659516
-"Marcianese",14.39301,42.22498,44,11,2,0,0,13,"Combined","Combined","Combined",5301,"5500-4900","IMP_GDN","Impressa (Guadone)",0,1,0,"marcianese","Marcianese",1,1,0.314603794418579
-"Savignano sul Panaro",11.03461,44.47596,62,0,1,0,0,1,"Combined","Combined","Combined",5291,"5500-4900","LIN_FRN","Fiorano",NA,NA,NA,"savignano sul panaro","Savignano sul Panaro",1,1,0.0165289256198347
-"Su Carroppu",8.559799,39.20713,100,48,31,5,0,84,"Combined","Combined","Combined",5079,"5500-4900","CRD","Cardial (BFP ?)",0,0,1,"su carroppu","Su Carroppu",1,1,3.70174512363015
-"Trasanello II",16.672482,40.67402,72,15,25,0,0,40,"LTL-12139A","6301","45",5269,"5500-4900","LGN-QRC","Lagnano, Quercia, Graffitte",NA,NA,NA,"trasanello ii","Trasanello II",1,1,0.797149426648926
-"Fornace Cappuccini",11.872712,44.28343,22,167,85,3,51,306,"Combined","Combined","Combined",5268,"5500-4900","IMP_MAD","Medio-adriatica",1,1,0,"fornace cappuccini","Fornace Cappuccini",2,2,9.55707977153264
-"Krivače",15.84,43.86,118,3,0,0,0,3,"Combined","Combined","Combined",5225,"5500-4900","DKV_DNL","Danilo",1,0,0,"krivace","Krivače",1,1,0.0767852572306117
-"Pian di Calisti",12.948956,43.2522,53,4,2,0,0,6,"Combined","Combined","Combined",5217,"5500-4900","IMP_MAD","Medio-adriatica",NA,NA,NA,"pian di calisti","Pian di Calisti",1,1,0.135438194213818
-"Rio Saboccu",8.55253,39.68823,101,76,608,31,49,764,"Combined","Combined","Combined",5207,"5500-4900","LIN","Lineare Tosco-laziale",NA,NA,NA,"rio saboccu","Rio Saboccu",3,3,26.7470150215172
-"Grotta dei Piccioni",13.9621,42.2219,27,3,3,0,0,6,"Pi-46","6247","130",5186,"5500-4900","IMP_MAD","Medio-adriatica",NA,NA,NA,"grotta dei piccioni","Grotta dei Piccioni",1,1,0.126372034090116
-"Pienza",11.6767,43.0787,117,5,0,0,0,5,"n/a","n/a","n/a",5185,"5500-4900","LIN_SSV","Sasso Sarteano / Venere",NA,NA,NA,"pienza","Pienza",1,1,0.127975428717686
-"Casa Querciolaia",10.361458,43.55658,11,16,6,0,2,24,"GrA-13891","6040","50",5185,"5500-4900","LIN_FRN","Fiorano",0,0,1,"casa querciolaia","Casa Querciolaia",1,1,0.614627129005435
-"Grotta Sant'Angelo II",13.626537,42.75455,35,1,0,0,0,1,"n/a","n/a","n/a",5179,"5500-4900","BFW_CSB","Catignano",NA,NA,NA,"grotta sant'angelo ii","Grotta Sant'Angelo II",1,1,0.0255950857435372
-"Villa Badessa (Cepegatti)",14.0832,42.3745,87,3,2,0,0,5,"n/a","n/a","n/a",5179,"5500-4900","BFW_CSB","Catignano",NA,NA,NA,"villa badessa (cepegatti)","Villa Badessa (Cepegatti)",1,1,0.109843108470281
-"Pokrovnik",16.146,43.833,106,10,3,0,6,19,"Combined","Combined","Combined",5135,"5500-4900","DKV_DNL","Danilo",1,0,0,"pokrovnik","Pokrovnik",1,1,0.623334244464368
-"Catignano",13.943843,42.34267,13,195,138,49,0,382,"Combined","Combined","Combined",5125.15817700104,"5500-4900","BFW_CSB","Catignano",1,1,0,"catignano","Catignano",3,3,26.4877197300368
-"Danilo-Bitinj",15.99,43.7,105,49,18,3,3,73,"Combined","Combined","Combined",5124,"5500-4900","DKV_DNL","Danilo",1,0,0,"danilo-bitinj","Danilo-Bitinj",1,1,2.88704875591039
-"Colle Cera",13.987246,42.43035,15,83,38,1,6,128,"Combined","Combined","Combined",5093,"5500-4900","BFW_CSB","Catignano",1,1,0,"colle cera","Colle Cera",1,1,3.4624447631819
-"Balsignano ",16.7215,41.0696,88,17,15,1,0,33,"Combined","Combined","Combined",5084,"5500-4900","TFW_SDA","Tricromiche / Bande Rosse / Serra d'Alto",1,1,0,"balsignano","Balsignano",1,1,1.07520720468275
-"Spila Nakovana",17.08355,43.00369,66,2,0,1,0,3,"Combined","Combined","Combined",5046,"5500-4900","DKV_DNL","Danilo",1,0,0,"spila nakovana","Spila Nakovana",1,1,0.443347034232173
-"Ex Palestra GIL",15.540967,41.45263,19,1,3,0,0,4,"Combined","Combined","Combined",5036,"5500-4900","BFW_PDC","Passo di Corvo",NA,NA,NA,"ex palestra gil","Ex Palestra GIL",1,1,0.0751818626030414
-"Cala Giovanna",10.0938,42.58964,9,107,78,5,41,231,"Combined","Combined","Combined",5119,"5500-4900","NEO","Cardial /  Lineare tosco-laziale / Pianaccia",1,1,1,"cala giovanna","Cala Giovanna",2,2,8.16032485612261
-"Grande Rivoire",5.6444,45.2217,24,1,0,0,0,1,"Combined","Combined","Combined",4983,"5500-4900","EPI_TVC","Epicardial",0,0,1,"grande rivoire","Grande Rivoire",1,1,0.0255950857435372
-"Arene Candide II",8.32828,44.1623,120,13,8,0,0,21,"Combined","Combined","Combined",5077,"5500-4900","LIN","SMP0 / Vhò Cf.",0,1,1,"arene candide ii","Arene Candide II",1,1,0.464967519624662
-"Grotta San Michele Arcangelo II",16.1575,39.7799,30,104,40,2,2,148,"Combined","Combined","Combined",4928,"5500-4900","TFW","Tricromiche / Bande Rosse / Serra d'Alto",1,1,0,"grotta san michele arcangelo ii","Grotta San Michele Arcangelo II",1,1,4.21329187100129
-"Fiorano Modenese",10.823464,44.54411,21,4,0,0,0,4,"Combined","Combined","Combined",4925,"5500-4900","LIN_FRN","Fiorano",NA,NA,NA,"fiorano modenese","Fiorano Modenese",1,1,0.102380342974149
-"Sa Punta",8.507104,39.720056,67,222,954,27,218,1421,"Combined","Combined","Combined",4796.01167638278,"5500-4900","LIN","Lineare tosco-laziale Cf.",0,0,1,"sa punta","Sa Punta",3,3,43.5855495399968
-"Cuccuru is Arrius",8.502995,39.920392,68,29,1981,9,26,2045,"AA-80543","6040","80",4729,"5500-4900","PCRD","Cardial",0,0,1,"cuccuru is arrius","Cuccuru is Arrius",3,3,38.3925895482288
-"Masseria Santa Tecchia",15.7853,41.5263,51,4,0,0,0,4,"BM-2414","6520","70",5620,"5500-4900","BFW","Quercia / Passo di Corvo",1,0,0,"masseria santa tecchia","Masseria Santa Tecchia",1,1,0.102380342974149
-"Lokvica",16.875664,42.945019,119,1,2,0,3,3,"n/a","n/a","n/a",5140,"5500-4900","DKV_DNL","Danilo",1,0,0,"lokvica","Lokvica",1,1,0.877627908340643
-"Rocchicella-Paliké",14.700283,37.332642,128,0,9,0,0,9,"Combined","Combined","Combined",5191,"5500-4900","KRN","Kronio",1,0,0,"rocchicella-palike","Rocchicella-Paliké",1,1,0.148760330578512
+"Abri Albertini",8.9739,42.3313,1,1,0,0,0,1,"n/a","n/a","n/a",5498,"5500-4900","CRD_BFP","Cardial_BFP",NA,NA,NA,"abri albertini","Abri Albertini",1,1,0.0243961941937058
+"La Lucciola",12.08612,43.06918,38,5,2,1,0,8,"n/a","n/a","n/a",5498,"5500-4900","CRD_BFP","Cardial_BFP",1,1,1,"la lucciola","La Lucciola",1,1,0.564043411016296
+"Sant'Anna di Oria",17.616931,40.49882,61,441,198,6,854,1499,"Combined","Combined","Combined",5490,"5500-4900","BFW_PDC","Passo di Corvo",1,1,0,"sant'anna di oria","Sant'Anna di Oria",3,3,65.6339650804715
+"La Scola",10.0833,42.58,84,102,131,3,46,282,"n/a","n/a","n/a",5472,"5500-4900","CRD_BFP","Cardial_BFP",1,1,1,"la scola","La Scola",2,2,9.31841965495667
+"Masseria Acquasalsa",15.34183,41.49154,45,5,4,0,0,9,"n/a","n/a","n/a",5461,"5500-4900","BFW_PDC","Passo di Corvo",NA,NA,NA,"masseria acquasalsa","Masseria Acquasalsa",1,1,0.215592017071969
+"La Marmotta",12.2745,42.1044,39,951,288,64,6,1309,"Combined","Combined","Combined",5443,"5500-4900","Mixing","Impresso_Cardial",1,1,0,"la marmotta","La Marmotta",3,3,55.5735415553641
+"Umbro Bova Marina",15.9178,37.9392,74,148,374,21,160,703,"Combined","Combined","Combined",5432,"5500-4900","STN","Stentinello",1,0,1,"umbro bova marina","Umbro Bova Marina",3,3,29.632274673728
+"Grotta Continenza",13.531877,41.94873,25,16,1,0,0,17,"Combined","Combined","Combined",5422,"5500-4900","IMP","Impressa (Guadone / Medio-adriatica)",NA,NA,NA,"grotta continenza","Grotta Continenza",1,1,0.413741868625153
+"Portonovo",13.57343,43.56373,56,4,0,0,0,4,"Combined","Combined","Combined",5421,"5500-4900","IMP_MAD","Impressa (Medio-adriatica)",1,0,0,"portonovo","Portonovo",1,1,0.0975847767748231
+"Masseria Candelaro III",15.750553,41.61289,47,28,14,0,1,43,"Combined","Combined","Combined",5359,"5500-4900","TFW","Scaloria Alta / Serra d'Alto",1,1,0,"masseria candelaro iii","Masseria Candelaro III",1,1,1.066785910445
+"Grotta Scaloria",15.912,41.6367,110,8,2,1,0,11,"Combined","Combined","Combined",5340,"5500-4900","TFW_SDA","Tricromiche / Bande Rosse / Serra d'Alto",1,0,0,"grotta scaloria","Grotta Scaloria",1,1,0.637231993597414
+"Strette",9.37738,42.68974,75,5,40,1,71,117,"Ly-2835","6420","300",5340,"5500-4900","CRD_SAP","Cardial (SAP)",0,0,1,"strette","Strette",2,2,5.43316897680167
+"Marcianese",14.39301,42.22498,44,11,2,0,0,13,"Combined","Combined","Combined",5301,"5500-4900","IMP_GDN","Impressa (Guadone)",0,1,0,"marcianese","Marcianese",1,1,0.315163659182484
+"Savignano sul Panaro",11.03461,44.47596,62,0,1,0,0,1,"Combined","Combined","Combined",5291,"5500-4900","LIN_FRN","Fiorano",NA,NA,NA,"savignano sul panaro","Savignano sul Panaro",1,1,0.0234027615258601
+"Su Carroppu",8.559799,39.20713,100,48,31,5,0,84,"Combined","Combined","Combined",5079,"5500-4900","CRD","Cardial (BFP ?)",0,0,1,"su carroppu","Su Carroppu",1,1,3.87278751357978
+"Trasanello II",16.672482,40.67402,72,15,25,0,0,40,"LTL-12139A","6301","45",5269,"5500-4900","LGN-QRC","Lagnano, Quercia, Graffitte",1,0,0,"trasanello ii","Trasanello II",1,1,0.951011951052088
+"Fornace Cappuccini",11.872712,44.28343,22,167,113,1,25,306,"Combined","Combined","Combined",5268,"5500-4900","IMP_MAD","Medio-adriatica",1,1,0,"fornace cappuccini","Fornace Cappuccini",2,2,8.51527869124692
+"Krivače",15.84,43.86,118,3,0,0,0,3,"Combined","Combined","Combined",5225,"5500-4900","DKV_DNL","Danilo",1,0,0,"krivace","Krivače",1,1,0.0731885825811174
+"Piani di Calisti",12.948956,43.2522,53,4,2,0,0,6,"Combined","Combined","Combined",5217,"5500-4900","IMP_MAD","Medio-adriatica",1,0,0,"piani di calisti","Piani di Calisti",1,1,0.144390299826543
+"Rio Saboccu",8.55253,39.68823,101,76,608,31,49,764,"Combined","Combined","Combined",5207,"5500-4900","LIN","Lineare Tosco-laziale",0,0,1,"rio saboccu","Rio Saboccu",3,3,31.0825909646225
+"Grotta dei Piccioni",13.9621,42.2219,27,3,3,0,0,6,"Pi-46","6247","130",5186,"5500-4900","IMP_MAD","Medio-adriatica",NA,NA,NA,"grotta dei piccioni","Grotta dei Piccioni",1,1,0.143396867158698
+"Pienza",11.6767,43.0787,117,5,0,0,0,5,"n/a","n/a","n/a",5185,"5500-4900","LIN_SSV","Sasso Sarteano / Venere",1,1,0,"pienza","Pienza",1,1,0.121980970968529
+"Casa Querciolaia",10.361458,43.55658,11,16,6,0,2,24,"GrA-13891","6040","50",5185,"5500-4900","LIN_FRN","Fiorano",0,0,1,"casa querciolaia","Casa Querciolaia",1,1,0.642863299572838
+"Grotta Sant'Angelo II",13.626537,42.75455,35,1,0,0,0,1,"n/a","n/a","n/a",5179,"5500-4900","BFW_CSB","Catignano",1,1,0,"grotta sant'angelo ii","Grotta Sant'Angelo II",1,1,0.0243961941937058
+"Villa Badessa (Cepegatti)",14.0832,42.3745,87,3,2,0,0,5,"n/a","n/a","n/a",5179,"5500-4900","BFW_CSB","Catignano",1,1,0,"villa badessa (cepegatti)","Villa Badessa (Cepegatti)",1,1,0.119994105632837
+"Pokrovnik",16.146,43.833,106,10,3,0,6,19,"Combined","Combined","Combined",5135,"5500-4900","DKV_DNL","Danilo",1,0,0,"pokrovnik","Pokrovnik",1,1,0.650493096469795
+"Catignano",13.943843,42.34267,13,307,199,54,72,632,"Combined","Combined","Combined",5125.15817700104,"5500-4900","BFW_CSB","Catignano",1,1,0,"catignano","Catignano",3,3,37.5265291183623
+"Danilo-Bitinj",15.99,43.7,105,49,18,3,3,73,"Combined","Combined","Combined",5124,"5500-4900","DKV_DNL","Danilo",1,0,0,"danilo-bitinj","Danilo-Bitinj",1,1,2.97059540892278
+"Colle Cera",13.987246,42.43035,15,83,38,1,6,128,"Combined","Combined","Combined",5093,"5500-4900","BFW_CSB","Catignano",1,1,1,"colle cera","Colle Cera",1,1,3.64576884301147
+"Balsignano II",16.7215,41.0696,88,2,10,1,0,13,"Combined","Combined","Combined",4849,"5500-4900","TFW_SDA","Bande rosse",1,0,0,"balsignano ii","Balsignano II",1,1,0.678076920642059
+"Spila Nakovana",17.08355,43.00369,66,2,0,1,0,3,"Combined","Combined","Combined",5046,"5500-4900","DKV_DNL","Danilo",NA,NA,NA,"spila nakovana","Spila Nakovana",1,1,0.444049305383459
+"Ex Palestra GIL",15.540967,41.45263,19,1,3,0,0,4,"Combined","Combined","Combined",5036,"5500-4900","BFW_PDC","Passo di Corvo",1,0,0,"ex palestra gil","Ex Palestra GIL",1,1,0.0946044787712859
+"Cala Giovanna",10.0938,42.58964,9,107,78,5,41,231,"Combined","Combined","Combined",5119,"5500-4900","NEO","Cardial /  Lineare tosco-laziale / Pianaccia",1,1,1,"cala giovanna","Cala Giovanna",2,2,8.71029904075075
+"Grande Rivoire",5.6444,45.2217,24,1,0,0,0,1,"Combined","Combined","Combined",4983,"5500-4900","EPI_TVC","Epicardial",0,0,1,"grande rivoire","Grande Rivoire",1,1,0.0243961941937058
+"Arene Candide II",8.32828,44.1623,120,13,8,0,0,21,"Combined","Combined","Combined",5077,"5500-4900","LIN","SMP0 / Vhò Cf.",0,1,1,"arene candide ii","Arene Candide II",1,1,0.504372616725056
+"Grotta San Michele Arcangelo II",16.1575,39.7799,30,104,40,2,2,148,"Combined","Combined","Combined",4928,"5500-4900","TFW","Tricromiche / Bande Rosse / Serra d'Alto",1,1,0,"grotta san michele arcangelo ii","Grotta San Michele Arcangelo II",2,2,4.37593611449028
+"Fiorano Modenese",10.823464,44.54411,21,4,0,0,0,4,"Combined","Combined","Combined",4925,"5500-4900","LIN_FRN","Fiorano",1,0,0,"fiorano modenese","Fiorano Modenese",1,1,0.0975847767748231
+"Sa Punta",8.507104,39.720056,67,222,954,27,218,1421,"Combined","Combined","Combined",4796.01167638278,"5500-4900","LIN","Lineare tosco-laziale Cf.",0,0,1,"sa punta","Sa Punta",3,3,50.6338573072705
+"Masseria Santa Tecchia",15.7853,41.5263,51,4,0,0,0,4,"BM-2414","6520","70",5620,"5500-4900","BFW","Quercia / Passo di Corvo",1,0,0,"masseria santa tecchia","Masseria Santa Tecchia",1,1,0.0975847767748231
+"Lokvica",16.875664,42.945019,119,1,1,0,0,2,"n/a","n/a","n/a",5140,"5500-4900","DKV_DNL","Danilo",NA,NA,NA,"lokvica","Lokvica",1,1,0.0477989557195658
+"Rocchicella-Paliké",14.700283,37.332642,128,0,9,0,0,9,"Combined","Combined","Combined",5191,"5500-4900","KRN","Kronio",1,0,0,"rocchicella-palike","Rocchicella-Paliké",1,1,0.21062485373274
