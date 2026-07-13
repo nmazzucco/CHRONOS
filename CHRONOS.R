@@ -516,7 +516,14 @@ plot_network_map <- function(g, nodes, title, output_file) {
     scale_fill_manual(values = rank_palette) +
     scale_colour_manual(values = rank_palette) +
     scale_shape_manual(values = rank_shapes) +
-    scale_size_manual(values = c("1" = 2.0, "2" = 2.8, "3" = 3.6, "4" = 4.6)) +
+    scale_size_manual(
+      values = c(
+        "1" = 2.0,
+        "2" = 2.8,
+        "3" = 3.6,
+        "4" = 4.6
+      )
+    ) +
     coord_sf() +
     theme_minimal() +
     labs(
@@ -531,7 +538,16 @@ plot_network_map <- function(g, nodes, title, output_file) {
     theme(
       plot.background = element_rect(fill = "white", colour = NA),
       panel.background = element_rect(fill = "white", colour = NA),
-      legend.position = "right"
+      legend.position = "right",
+      
+      plot.title = element_text(
+        size = 9,
+        face = "plain",
+        margin = margin(
+          l = 45,
+          b = 6
+        )
+      )
     )
   
   ggsave(
@@ -1911,17 +1927,19 @@ run_network_models <- function(ranked_sites, output_folder, interval_label) {
       current_subgraph,
       current_nodes,
       paste0(
-        interval_label,
-        ": ",
         source_label,
-        " source-confirmed network on map; backbone = ",
-        source_filter_backbone_name,
-        "; rule = ",
-        source_filter_rule_set
+        ", ",
+        gsub("_", "–", interval_label),
+        " cal BCE"
       ),
       file.path(
         output_folder,
-        paste0(source_name, "_source_confirmed_map_", interval_label, ".png")
+        paste0(
+          source_name,
+          "_source_confirmed_map_",
+          interval_label,
+          ".png"
+        )
       )
     )
     
@@ -1929,17 +1947,20 @@ run_network_models <- function(ranked_sites, output_folder, interval_label) {
     plot_network_graph_only(
       current_subgraph,
       paste0(
-        interval_label,
-        ": ",
+        "\n\n",
         source_label,
-        " source-confirmed graph; backbone = ",
-        source_filter_backbone_name,
-        "; rule = ",
-        source_filter_rule_set
+        " network, ",
+        gsub("_", "–", interval_label),
+        " cal BCE"
       ),
       file.path(
         output_folder,
-        paste0(source_name, "_source_confirmed_graph_only_", interval_label, ".png")
+        paste0(
+          source_name,
+          "_source_confirmed_graph_only_",
+          interval_label,
+          ".png"
+        )
       )
     )
   }
