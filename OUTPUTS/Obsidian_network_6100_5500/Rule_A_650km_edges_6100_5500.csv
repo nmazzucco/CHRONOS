@@ -2,7 +2,6 @@
 "Piana di Curinga","Le Macchie (Ripagnola Polignano a mare)",650
 "Piana di Curinga","Susac Poje",650
 "Piana di Curinga","Favella",650
-"Piana di Curinga","Pulo di Molfetta Fondo Azzolini",650
 "Piana di Curinga","Terragne",650
 "Piana di Curinga","Coppa Nevigata",650
 "Piana di Curinga","Grotta San Michele Arcangelo I",650
@@ -21,12 +20,12 @@
 "Piana di Curinga","Villaggio Ortucchio",650
 "Piana di Curinga","Grotta Sant'Angelo I",650
 "Piana di Curinga","Barice Smilcic",650
+"Piana di Curinga","Balsignano I",650
 "Le Secche","Le Macchie (Ripagnola Polignano a mare)",650
 "Le Secche","Susac Poje",650
 "Le Secche","Favella",650
 "Le Secche","Peiro Signado",650
 "Le Secche","Pont de Roque-Haute",650
-"Le Secche","Pulo di Molfetta Fondo Azzolini",650
 "Le Secche","Terragne",650
 "Le Secche","Coppa Nevigata",650
 "Le Secche","Grotta San Michele Arcangelo I",650
@@ -47,11 +46,12 @@
 "Le Secche","Villaggio Ortucchio",650
 "Le Secche","Grotta Sant'Angelo I",650
 "Le Secche","Barice Smilcic",650
+"Le Secche","Balsignano I",650
+"Le Secche","La Farigoule 2",650
 "Colle Santo Stefano","Piana di Curinga",650
 "Colle Santo Stefano","Le Macchie (Ripagnola Polignano a mare)",650
 "Colle Santo Stefano","Susac Poje",650
 "Colle Santo Stefano","Favella",650
-"Colle Santo Stefano","Pulo di Molfetta Fondo Azzolini",650
 "Colle Santo Stefano","Terragne",650
 "Colle Santo Stefano","Coppa Nevigata",650
 "Colle Santo Stefano","Grotta San Michele Arcangelo I",650
@@ -75,11 +75,10 @@
 "Colle Santo Stefano","Villaggio Ortucchio",650
 "Colle Santo Stefano","Grotta Sant'Angelo I",650
 "Colle Santo Stefano","Barice Smilcic",650
-"Colle Santo Stefano","Renaghju",650
+"Colle Santo Stefano","Balsignano I",650
 "Renaghju","Susac Poje",650
 "Renaghju","Peiro Signado",650
 "Renaghju","Pont de Roque-Haute",650
-"Renaghju","Pulo di Molfetta Fondo Azzolini",650
 "Renaghju","Coppa Nevigata",650
 "Renaghju","Grotta San Michele Arcangelo I",650
 "Renaghju","Ripatetta",650
@@ -92,12 +91,17 @@
 "Renaghju","Grotta Pollera",650
 "Renaghju","Grotta dei Cocci",650
 "Renaghju","Masseria Candelaro II",650
+"Renaghju","Le Secche",650
 "Renaghju","Basi I",650
 "Renaghju","Palata 1",650
 "Renaghju","Maddalena di Muccia",650
 "Renaghju","Villaggio Ortucchio",650
 "Renaghju","Grotta Sant'Angelo I",650
 "Renaghju","Barice Smilcic",650
+"Renaghju","La Farigoule 2",650
 "Monte Arci","Colle Santo Stefano",650
+"Monte Arci","Renaghju",650
 "Lipari","Colle Santo Stefano",650
+"Lipari","Renaghju",650
 "Palmarola","Colle Santo Stefano",650
+"Palmarola","Renaghju",650

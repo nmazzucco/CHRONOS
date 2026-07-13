@@ -2,7 +2,6 @@
 "Piana di Curinga","Le Macchie (Ripagnola Polignano a mare)",550
 "Piana di Curinga","Susac Poje",550
 "Piana di Curinga","Favella",550
-"Piana di Curinga","Pulo di Molfetta Fondo Azzolini",550
 "Piana di Curinga","Terragne",550
 "Piana di Curinga","Coppa Nevigata",550
 "Piana di Curinga","Grotta San Michele Arcangelo I",550
@@ -19,9 +18,9 @@
 "Piana di Curinga","Maddalena di Muccia",550
 "Piana di Curinga","Villaggio Ortucchio",550
 "Piana di Curinga","Grotta Sant'Angelo I",550
+"Piana di Curinga","Balsignano I",550
 "Le Secche","Le Macchie (Ripagnola Polignano a mare)",550
 "Le Secche","Susac Poje",550
-"Le Secche","Pulo di Molfetta Fondo Azzolini",550
 "Le Secche","Coppa Nevigata",550
 "Le Secche","Grotta San Michele Arcangelo I",550
 "Le Secche","Ripatetta",550
@@ -41,11 +40,11 @@
 "Le Secche","Villaggio Ortucchio",550
 "Le Secche","Grotta Sant'Angelo I",550
 "Le Secche","Barice Smilcic",550
+"Le Secche","Balsignano I",550
 "Colle Santo Stefano","Piana di Curinga",550
 "Colle Santo Stefano","Le Macchie (Ripagnola Polignano a mare)",550
 "Colle Santo Stefano","Susac Poje",550
 "Colle Santo Stefano","Favella",550
-"Colle Santo Stefano","Pulo di Molfetta Fondo Azzolini",550
 "Colle Santo Stefano","Terragne",550
 "Colle Santo Stefano","Coppa Nevigata",550
 "Colle Santo Stefano","Grotta San Michele Arcangelo I",550
@@ -69,7 +68,7 @@
 "Colle Santo Stefano","Villaggio Ortucchio",550
 "Colle Santo Stefano","Grotta Sant'Angelo I",550
 "Colle Santo Stefano","Barice Smilcic",550
-"Colle Santo Stefano","Renaghju",550
+"Colle Santo Stefano","Balsignano I",550
 "Renaghju","Peiro Signado",550
 "Renaghju","Pont de Roque-Haute",550
 "Renaghju","Ripatetta",550
@@ -78,10 +77,12 @@
 "Renaghju","Arene Candide I",550
 "Renaghju","Grotta Pollera",550
 "Renaghju","Grotta dei Cocci",550
+"Renaghju","Le Secche",550
 "Renaghju","Basi I",550
 "Renaghju","Maddalena di Muccia",550
 "Renaghju","Villaggio Ortucchio",550
 "Renaghju","Grotta Sant'Angelo I",550
+"Renaghju","La Farigoule 2",550
 "Monte Arci","Le Secche",550
 "Monte Arci","Colle Santo Stefano",550
 "Monte Arci","Renaghju",550

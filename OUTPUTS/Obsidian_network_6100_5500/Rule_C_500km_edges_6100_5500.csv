@@ -2,7 +2,6 @@
 "Piana di Curinga","Le Macchie (Ripagnola Polignano a mare)",500
 "Piana di Curinga","Susac Poje",500
 "Piana di Curinga","Favella",500
-"Piana di Curinga","Pulo di Molfetta Fondo Azzolini",500
 "Piana di Curinga","Terragne",500
 "Piana di Curinga","Coppa Nevigata",500
 "Piana di Curinga","Grotta San Michele Arcangelo I",500
@@ -17,8 +16,8 @@
 "Piana di Curinga","Palata 1",500
 "Piana di Curinga","Villaggio Ortucchio",500
 "Piana di Curinga","Grotta Sant'Angelo I",500
+"Piana di Curinga","Balsignano I",500
 "Le Secche","Susac Poje",500
-"Le Secche","Pulo di Molfetta Fondo Azzolini",500
 "Le Secche","Coppa Nevigata",500
 "Le Secche","Ripatetta",500
 "Le Secche","Kargadur",500
@@ -37,16 +36,9 @@
 "Le Secche","Barice Smilcic",500
 "Colle Santo Stefano","Piana di Curinga",500
 "Colle Santo Stefano","Le Secche",500
-"Colle Santo Stefano","Renaghju",500
-"Renaghju","Pont de Roque-Haute",500
-"Renaghju","Rio Tana",500
-"Renaghju","Arene Candide I",500
-"Renaghju","Grotta Pollera",500
-"Renaghju","Grotta dei Cocci",500
-"Renaghju","Basi I",500
-"Renaghju","Maddalena di Muccia",500
-"Renaghju","Villaggio Ortucchio",500
-"Renaghju","Grotta Sant'Angelo I",500
+"Renaghju","Le Secche",500
 "Monte Arci","Colle Santo Stefano",500
+"Monte Arci","Renaghju",500
 "Lipari","Colle Santo Stefano",500
 "Palmarola","Colle Santo Stefano",500
+"Palmarola","Renaghju",500

@@ -1,10 +1,11 @@
 "from","to","distance_rule_km"
-"Le Secche","Arene Candide I",550
-"Le Secche","Grotta Pollera",550
-"Le Secche","Basi I",550
-"Renaghju","Peiro Signado",550
-"Renaghju","Arene Candide I",550
-"Renaghju","Grotta Pollera",550
-"Renaghju","Basi I",550
-"Monte Arci","Le Secche",550
-"Monte Arci","Renaghju",550
+"Le Secche","Peiro Signado",650
+"Le Secche","Arene Candide I",650
+"Le Secche","Grotta Pollera",650
+"Le Secche","Basi I",650
+"Renaghju","Peiro Signado",650
+"Renaghju","Arene Candide I",650
+"Renaghju","Grotta Pollera",650
+"Renaghju","Le Secche",650
+"Renaghju","Basi I",650
+"Monte Arci","Renaghju",650

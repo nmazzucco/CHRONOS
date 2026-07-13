@@ -1,7 +1,6 @@
 "from","to","distance_rule_km"
 "Piana di Curinga","Le Macchie (Ripagnola Polignano a mare)",350
 "Piana di Curinga","Favella",350
-"Piana di Curinga","Pulo di Molfetta Fondo Azzolini",350
 "Piana di Curinga","Terragne",350
 "Piana di Curinga","Coppa Nevigata",350
 "Piana di Curinga","Grotta San Michele Arcangelo I",350
@@ -13,6 +12,7 @@
 "Piana di Curinga","Masseria Candelaro II",350
 "Piana di Curinga","Trasanello I",350
 "Piana di Curinga","Palata 1",350
+"Piana di Curinga","Balsignano I",350
 "Le Secche","Rio Tana",350
 "Le Secche","Arene Candide I",350
 "Le Secche","Grotta Pollera",350
@@ -24,7 +24,6 @@
 "Colle Santo Stefano","Le Macchie (Ripagnola Polignano a mare)",350
 "Colle Santo Stefano","Susac Poje",350
 "Colle Santo Stefano","Favella",350
-"Colle Santo Stefano","Pulo di Molfetta Fondo Azzolini",350
 "Colle Santo Stefano","Coppa Nevigata",350
 "Colle Santo Stefano","Grotta San Michele Arcangelo I",350
 "Colle Santo Stefano","Ripatetta",350
@@ -42,8 +41,12 @@
 "Colle Santo Stefano","Villaggio Ortucchio",350
 "Colle Santo Stefano","Grotta Sant'Angelo I",350
 "Colle Santo Stefano","Barice Smilcic",350
+"Colle Santo Stefano","Balsignano I",350
 "Renaghju","Arene Candide I",350
 "Renaghju","Grotta Pollera",350
 "Renaghju","Grotta dei Cocci",350
+"Renaghju","Le Secche",350
 "Renaghju","Basi I",350
+"Monte Arci","Renaghju",350
 "Palmarola","Colle Santo Stefano",350
+"Palmarola","Renaghju",350

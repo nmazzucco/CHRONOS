@@ -1,4 +1,4 @@
 "Source","Source_label","Source_node","Filter_type","Backbone_network","Backbone_rule_set","Fallback_used","Fallback_reason","Confirmed_sites","Vertices","Edges"
-"Sardegna","Monte Arci / Sardegna","Monte Arci","confirmed_only","Rule_B_550km","Rule_B",TRUE,"Source node isolated under Rule A",6,7,9
-"Lipari","Lipari","Lipari","confirmed_only","Rule_A_550km","Rule_A",FALSE,NA,17,18,41
-"Palmarola","Palmarola","Palmarola","confirmed_only","Rule_A_550km","Rule_A",FALSE,NA,13,14,26
+"Sardegna","Monte Arci / Sardegna","Monte Arci","confirmed_only","Rule_A_650km","Rule_A",FALSE,NA,6,7,10
+"Lipari","Lipari","Lipari","confirmed_only","Rule_A_650km","Rule_A",FALSE,NA,15,16,25
+"Palmarola","Palmarola","Palmarola","confirmed_only","Rule_A_650km","Rule_A",FALSE,NA,15,16,36
