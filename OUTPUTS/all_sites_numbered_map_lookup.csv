@@ -6,70 +6,71 @@
 "5","Le Macchie (Ripagnola Polignano a mare)",17.2025,41.0131
 "6","Spila Nakovana",17.08355,43.00369
 "7","Lokvica",16.875664,42.945019
-"8","Balsignano",16.7215,41.0696
-"9","Trasanello I",16.672482,40.674017
-"10","Trasanello II",16.672482,40.674017
-"11","Pulo di Molfetta Fondo Azzolini",16.575779,41.194488
-"12","Trasano",16.5336,40.6693
-"13","Susac Poje",16.517,42.767
-"14","Favella",16.437459,39.684086
-"15","Piana di Curinga",16.29868,38.83539
-"16","Scamuso I",16.2626,40.571
-"17","Grotta San Michele Arcangelo I",16.1575,39.7799
-"18","Grotta San Michele Arcangelo II",16.1575,39.7799
-"19","Palata 1",16.0657,41.2239
-"20","Danilo-Bitinj",16.0492,43.7461
-"21","Pokrovnik",16.0297,43.8608
-"22","Umbro Bova Marina",15.9178,37.9392
-"23","Grotta Scaloria",15.912,41.6367
-"24","Masseria Santa Tecchia",15.7853,41.5263
-"25","Masseria Candelaro II",15.750553,41.61289
-"26","Masseria Candelaro III",15.750553,41.61289
-"27","Krivače",15.71767,44.1667
-"28","Coppa Nevigata",15.55,41.38
-"29","Ex Palestra GIL",15.540967,41.452628
-"30","Durdeva greda",15.504,44.526
-"31","Barice Smilcic",15.418,44.1172
-"32","Ripatetta",15.40402,41.43957
-"33","Masseria Acquasalsa",15.34183,41.491544
-"34","Rocchicella-Paliké",14.700283,37.332642
-"35","Marcianese",14.39301,42.22498
-"36","Villa Badessa (Cepegatti)",14.0832,42.3745
-"37","Colle Cera",13.987246,42.430353
-"38","Grotta dei Piccioni",13.9621,42.2219
-"39","Kargadur",13.95064,44.81915
-"40","Catignano",13.943843,42.34267
-"41","Rio Tana",13.7567,41.8558
-"42","Colle Santo Stefano",13.66639,41.95389
-"43","Grotta Sant'Angelo I",13.626537,42.754547
-"44","Grotta Sant'Angelo II",13.626537,42.754547
-"45","Villaggio Ortucchio",13.6123,41.9441
-"46","Portonovo",13.57343,43.56373
-"47","Grotta Continenza",13.531877,41.948734
-"48","Maddalena di Muccia",13.05987,43.07352
-"49","Pian di Calisti",12.948956,43.252201
-"50","Grotta dei Cocci",12.5106,42.5157
-"51","La Marmotta",12.2745,42.1044
-"52","La Lucciola",12.08612,43.06918
-"53","Fornace Cappuccini",11.872712,44.283427
-"54","Pienza",11.6767,43.0787
-"55","Savignano sul Panaro",11.03461,44.475959
-"56","Le Secche",10.882183,42.38172
-"57","Fiorano Modenese",10.823464,44.544107
-"58","Casa Querciolaia",10.361458,43.556578
-"59","Cala Giovanna",10.0938,42.58964
-"60","La Scola",10.0833,42.58
-"61","Strette",9.37738,42.68974
-"62","Abri Albertini",8.9739,42.3313
-"63","Renaghju",8.921266,41.526647
-"64","Basi I",8.79853,41.72871
-"65","Su Carroppu",8.559799,39.207134
-"66","Rio Saboccu",8.55253,39.688226
-"67","Sa Punta",8.507104,39.720056
-"68","Cuccuru is Arrius",8.502995,39.920392
+"8","Balsignano I",16.7215,41.0696
+"9","Balsignano II",16.7215,41.0696
+"10","Trasanello I",16.672482,40.674017
+"11","Trasanello II",16.672482,40.674017
+"12","Pulo di Molfetta Fondo Azzolini",16.575779,41.194488
+"13","Trasano",16.5336,40.6693
+"14","Susac Poje",16.517,42.767
+"15","Favella",16.437459,39.684086
+"16","Piana di Curinga",16.29868,38.83539
+"17","Scamuso I",16.2626,40.571
+"18","Grotta San Michele Arcangelo I",16.1575,39.7799
+"19","Grotta San Michele Arcangelo II",16.1575,39.7799
+"20","Palata 1",16.0657,41.2239
+"21","Danilo-Bitinj",16.0492,43.7461
+"22","Pokrovnik",16.0297,43.8608
+"23","Umbro Bova Marina",15.9178,37.9392
+"24","Grotta Scaloria",15.912,41.6367
+"25","Masseria Santa Tecchia",15.7853,41.5263
+"26","Masseria Candelaro II",15.750553,41.61289
+"27","Masseria Candelaro III",15.750553,41.61289
+"28","Krivače",15.71767,44.1667
+"29","Coppa Nevigata",15.55,41.38
+"30","Ex Palestra GIL",15.540967,41.452628
+"31","Durdeva greda",15.504,44.526
+"32","Barice Smilcic",15.418,44.1172
+"33","Ripatetta",15.40402,41.43957
+"34","Masseria Acquasalsa",15.34183,41.491544
+"35","Rocchicella-Paliké",14.700283,37.332642
+"36","Marcianese",14.39301,42.22498
+"37","Villa Badessa (Cepegatti)",14.0832,42.3745
+"38","Colle Cera",13.987246,42.430353
+"39","Grotta dei Piccioni",13.9621,42.2219
+"40","Kargadur",13.95064,44.81915
+"41","Catignano",13.943843,42.34267
+"42","Rio Tana",13.7567,41.8558
+"43","Colle Santo Stefano",13.66639,41.95389
+"44","Grotta Sant'Angelo I",13.626537,42.754547
+"45","Grotta Sant'Angelo II",13.626537,42.754547
+"46","Villaggio Ortucchio",13.6123,41.9441
+"47","Portonovo",13.57343,43.56373
+"48","Grotta Continenza",13.531877,41.948734
+"49","Maddalena di Muccia",13.05987,43.07352
+"50","Piani di Calisti",12.948956,43.252201
+"51","Grotta dei Cocci",12.5106,42.5157
+"52","La Marmotta",12.2745,42.1044
+"53","La Lucciola",12.08612,43.06918
+"54","Fornace Cappuccini",11.872712,44.283427
+"55","Pienza",11.6767,43.0787
+"56","Savignano sul Panaro",11.03461,44.475959
+"57","Le Secche",10.882183,42.38172
+"58","Fiorano Modenese",10.823464,44.544107
+"59","Casa Querciolaia",10.361458,43.556578
+"60","Cala Giovanna",10.0938,42.58964
+"61","La Scola",10.0833,42.58
+"62","Strette",9.37738,42.68974
+"63","Abri Albertini",8.9739,42.3313
+"64","Renaghju",8.921266,41.526647
+"65","Basi I",8.79853,41.72871
+"66","Su Carroppu",8.559799,39.207134
+"67","Rio Saboccu",8.55253,39.688226
+"68","Sa Punta",8.507104,39.720056
 "69","Arene Candide II",8.32828,44.1623
 "70","Arene Candide I",8.32828,44.162304
 "71","Grotta Pollera",8.314602,44.200546
 "72","Grande Rivoire",5.6444,45.2217
 "73","Pont de Roque-Haute",3.36003,43.2927
 "74","Peiro Signado",3.32891,43.3083
+"75","La Farigoule 2",4.31222,43.7569
