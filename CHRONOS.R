@@ -994,13 +994,11 @@ run_production_ranking <- function(input_file, output_folder, interval_label) {
       Rank = factor(Rank, levels = c("1", "2", "3"))
     )
   
-  # Short labels for Rank 2 and Rank 3 sites
   site_code_lookup <- data.frame(
     sites = c(
       "Sant'Anna di Oria",
       "La Marmotta",
       "Sa Punta",
-      "Cuccuru is Arrius",
       "Colle Santo Stefano",
       "Rio Saboccu",
       "Umbro Bova Marina",
@@ -1011,13 +1009,13 @@ run_production_ranking <- function(input_file, output_folder, interval_label) {
       "Cala Giovanna",
       "Piana di Curinga",
       "Le Secche",
-      "Strette"
+      "Strette",
+      "Grotta San Michele Arcangelo II"
     ),
     site_code = c(
       "SAO",
       "LM",
       "SP",
-      "CIA",
       "CSS",
       "RS",
       "UBM",
@@ -1028,7 +1026,8 @@ run_production_ranking <- function(input_file, output_folder, interval_label) {
       "CG",
       "PC",
       "LSE",
-      "STR"
+      "STR",
+      "GSMAII"
     ),
     stringsAsFactors = FALSE
   )
@@ -2294,5 +2293,3 @@ all_sites_numbered_map <- plot_all_sites_numbered_map(
   output_folder = output_folder,
   map_file = map_file
 )
-
-
