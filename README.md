@@ -1,7 +1,7 @@
 CHRONOS is a reproducible R workflow for modelling Neolithic obsidian production, ranking, and circulation networks in the Central Mediterranean.
 The repository contains the analytical R script, input datasets, map files, generated outputs, and an illustrated HTML report prepared for publication.
 
-Online report
+Online report:
 The full illustrated report is available through GitHub Pages:
 Open the CHRONOS HTML report
 The report includes:
