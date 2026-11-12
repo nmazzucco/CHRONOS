@@ -39,8 +39,7 @@ CHRONOS/
 │   ├── map_shp.shp
 │   ├── map_shp.dbf
 │   ├── map_shp.shx
-│   ├── map_shp.prj
-│   └── map_shp.qmd
+│   └── map_shp.prj
 └── OUTPUTS/
     ├── Obsidian_network_6100_5500/
     ├── Obsidian_network_5500_4900/
