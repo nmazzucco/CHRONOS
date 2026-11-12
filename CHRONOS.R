@@ -4,13 +4,24 @@
 # Modelling Neolithic production and circulation of obsidian in the Central
 # Mediterranean.
 #
-# This script reproduces the analyses documented in CHRONOS_report.html:
-#   1. read and clean obsidian technological/source data;
-#   2. calculate production-contribution values and production-score ranks;
-#   3. evaluate rank structure in Manhattan dissimilarity space;
-#   4. build rule-distance network models for two chronological intervals;
-#   5. export figures, edge lists, centrality tables, and source-confirmed
-#      network summaries.
+# Repository/manuscript release checked: 2026-11-13
+#
+# This is the complete executable workflow described in README.md and
+# CHRONOS_report.html. It:
+#   1. reads and validates technological, chronological, provenance and spatial data;
+#   2. calculates category-wise contribution values and production-score ranks;
+#   3. describes rank structure with Manhattan dissimilarity, PERMANOVA and PCoA;
+#   4. tests assemblage-size sensitivity with square-root-transformed counts and a
+#      composition-only Mantel diagnostic;
+#   5. transfers the full-dataset ranks to the two chronological subsets;
+#   6. evaluates Rules A-C from 100 to 650 km in 50-km increments;
+#   7. builds source-confirmed networks for Monte Arci/Sardegna, Lipari and Palmarola;
+#   8. re-runs the complete rule-distance grid with the square-root sensitivity ranks;
+#   9. exports analytical tables, network panels, Figure 1, and publication Figures 3-8.
+#
+# Ranks are operational levels of documented technological involvement, not fixed
+# archaeological functions. Network edges and distance thresholds are modelling
+# constructs, not direct reconstructions of prehistoric journeys.
 #
 # Repository layout expected by this script:
 #
@@ -850,7 +861,7 @@ run_production_ranking <- function(input_file, output_folder, interval_label) {
   # (b) composition-only distance diagnostic: within-site percentages are compared
   #     with the primary PN Manhattan distance structure using a Mantel correlation.
   #     This asks whether pairwise technological relationships remain similar after
-  #     assemblage magnitude is removed, but it is not used to assign functional ranks.
+  #     assemblage magnitude is removed, but it is not used to assign the operational technological ranks.
   
   sqrt_counts <- sqrt(as.matrix(obs_data[, categories]))
   colnames(sqrt_counts) <- categories
@@ -2072,11 +2083,11 @@ run_network_models <- function(ranked_sites, output_folder, interval_label) {
 # ==============================================================================
 # 6.11 NETWORK SENSITIVITY TO ALTERNATIVE RANKING
 # ==============================================================================
-# This lightweight sensitivity routine re-runs the rule-distance grid using an
-# alternative rank column (currently the square-root-transformed ranking). It
-# exports only global metrics and first-connected thresholds, avoiding duplicate
-# figure generation. The purpose is to assess whether the main network patterns
-# depend strongly on the magnitude retained by the primary classification.
+# This lightweight sensitivity routine re-runs the complete rule-distance grid
+# using an alternative rank column (currently the square-root-transformed ranking).
+# It exports global metrics and first-connected thresholds without duplicating the
+# full figure set. This tests whether the principal connectivity results depend on
+# the influence of very large assemblages in the primary classification.
 
 run_rank_sensitivity_networks <- function(
   ranked_sites,

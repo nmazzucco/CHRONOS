@@ -3,134 +3,219 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CHRONOS analytical report</title>
+<title>CHRONOS – analytical workflow and reproducibility report</title>
 <style>
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:1100px;margin:0 auto;padding:28px;line-height:1.55;color:#222}
-h1,h2,h3{line-height:1.2} h1{margin-bottom:.2rem} nav{padding:12px 0 20px;border-bottom:1px solid #ddd}
-nav a{margin-right:14px} code{background:#f3f3f3;padding:.1em .3em;border-radius:3px}
-pre{background:#f6f6f6;padding:14px;overflow:auto} table{border-collapse:collapse;width:100%;margin:1rem 0}
-th,td{border:1px solid #ddd;padding:8px;vertical-align:top;text-align:left} th{background:#f5f5f5}
-.note{background:#f6f8fa;border-left:4px solid #777;padding:12px 16px;margin:16px 0}
-.result{background:#f3f8f3;border-left:4px solid #4b7;padding:12px 16px;margin:16px 0}
-img{max-width:100%;height:auto;border:1px solid #ddd;margin:.5rem 0 1.5rem}
-.small{font-size:.92rem;color:#555}
+:root{--text:#202124;--muted:#5f6368;--line:#dfe1e5;--soft:#f7f8f9;--accent:#315c7d;--good:#edf7ef;--warn:#fff8e8}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:1120px;margin:0 auto;padding:28px;line-height:1.58;color:var(--text)}
+h1,h2,h3{line-height:1.22} h1{margin-bottom:.25rem}
+.subtitle{font-size:1.08rem;color:var(--muted);margin-top:0}
+nav{display:flex;flex-wrap:wrap;gap:10px 16px;padding:14px 0 22px;border-bottom:1px solid var(--line)}
+nav a,a{color:var(--accent)}
+code{background:#f1f3f4;padding:.1em .3em;border-radius:3px}
+pre{background:var(--soft);padding:14px;overflow:auto;border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;margin:1rem 0 1.5rem}
+th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+th{background:#f3f5f7}
+.note,.result,.warning{padding:12px 16px;margin:16px 0;border-left:4px solid var(--accent)}
+.note{background:var(--soft)}
+.result{background:var(--good)}
+.warning{background:var(--warn)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0}
+.card{border:1px solid var(--line);border-radius:7px;padding:13px;background:#fff}
+.card strong{display:block;font-size:1.2rem;margin-bottom:2px}
+img{max-width:100%;height:auto;border:1px solid var(--line);margin:.5rem 0 1.5rem}
+.small{font-size:.92rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);margin-top:32px;padding-top:16px;color:var(--muted)}
 </style>
 </head>
 <body>
-<h1>CHRONOS Report</h1>
-<p><strong>Modelling Obsidian Production and Circulation across the Central Mediterranean, 6100–4900 cal BCE</strong></p>
-<p>This report documents the current CHRONOS R workflow, including contribution-based ranking, Manhattan diagnostics, assemblage-size sensitivity tests, rule-distance network models, source-confirmed networks and publication-figure assembly.</p>
+<h1>CHRONOS analytical report</h1>
+<p class="subtitle"><strong>Modelling Obsidian Production and Circulation across the Central Mediterranean, 6100–4900 cal BCE</strong></p>
+<p>This page explains what the CHRONOS workflow does, how to reproduce it, how to interpret its sensitivity tests, and which files contain the principal results. It is a readable companion to <a href="CHRONOS.R">CHRONOS.R</a> and the <a href="README.md">README</a>.</p>
 
 <nav>
-<a href="#scope">Scope</a><a href="#inputs">Inputs</a><a href="#ranking">Ranking</a><a href="#sensitivity">Sensitivity</a><a href="#networks">Networks</a><a href="#sources">Sources</a><a href="#figures">Figures</a><a href="#tables">Outputs</a><a href="#reproducibility">Reproducibility</a>
+<a href="#overview">Overview</a>
+<a href="#inputs">Inputs</a>
+<a href="#ranking">Ranking</a>
+<a href="#sensitivity">Sensitivity</a>
+<a href="#networks">Networks</a>
+<a href="#sources">Sources</a>
+<a href="#figures">Figures</a>
+<a href="#outputs">Outputs</a>
+<a href="#reproducibility">Reproducibility</a>
 </nav>
 
-<h2 id="scope">1. Analytical scope</h2>
-<p>The workflow compares documented technological involvement in obsidian production/transformation and explores potential connectivity under alternative modelling assumptions. The three archaeological ranks are operational analytical levels, not homogeneous functional categories. Network links are model-generated potential connections and should not be read as demonstrated prehistoric routes.</p>
+<h2 id="overview">1. What the analysis measures</h2>
+<p>The workflow combines technological counts, chronology, provenance and location for 74 archaeological contexts. The primary classification asks how strongly each site contributes to the documented technological obsidian corpus, while the network analysis explores how different connection rules and distance thresholds affect potential connectivity.</p>
+<div class="warning"><strong>Interpretation:</strong> Ranks 1–3 are operational levels of <em>documented technological involvement</em>, not fixed archaeological functions. Network edges and thresholds are model-generated potential connections, not direct reconstructions of prehistoric journeys.</div>
+
+<div class="grid">
+<div class="card"><strong>74</strong>archaeological contexts in the full ranking dataset</div>
+<div class="card"><strong>59 / 7 / 8</strong>sites in Ranks 1 / 2 / 3</div>
+<div class="card"><strong>550 km</strong>Rule A first full connectivity, 6100–5500 cal BCE</div>
+<div class="card"><strong>450 km</strong>Rule A first full connectivity, 5500–4900 cal BCE</div>
+</div>
 
 <h2 id="inputs">2. Inputs and data semantics</h2>
 <pre>CHRONOS/
 ├── CHRONOS.R
+├── CHRONOS_report.html
+├── README.md
 ├── RAWDATA/
 │   ├── obs_data_corr.xlsx
 │   ├── obs_data_corr_6100_5500.xlsx
 │   └── obs_data_corr_5500_4900.xlsx
 ├── MAP/
-│   └── map_shp.shp (+ sidecar files)
-└── OUTPUTS/</pre>
-<p>The complete dataset provides the technological variables <code>blade</code>, <code>flake</code>, <code>core</code> and <code>by.products.waste</code>. Chronological datasets also provide coordinates and source fields used in network construction.</p>
-<div class="note"><strong>Missing data:</strong> for technological counts, 0 is a documented absence whereas unresolved/unpublished counts must remain NA; the script stops if NA technological counts would enter the ranking. For source fields, 1 = present, 0 = absent, NA = unknown/not analysed.</div>
+│   └── map_shp.shp (+ .dbf, .shx, .prj)
+└── OUTPUTS/
+    ├── Obsidian_network_6100_5500/
+    ├── Obsidian_network_5500_4900/
+    └── Figures/</pre>
 
-<h2 id="ranking">3. Contribution-based score and operational ranks</h2>
-<p>For each technological category, each site is expressed as its percentage contribution to the total quantity of that category in the complete dataset. The production score is the sum of the four category-wise contribution values. This retains both technological composition and the documented quantitative scale of obsidian working.</p>
-<pre>Production_score = blade.PN + flake.PN + core.PN + by.products.waste.PN</pre>
-<table><tr><th>Rank</th><th>Criterion</th><th>Operational meaning</th></tr>
+<p>The four technological variables are <code>blade</code>, <code>flake</code>, <code>core</code> and <code>by.products.waste</code>. The analytical denominator excludes technologically indeterminate pieces.</p>
+<div class="note"><strong>Zero is not missing data.</strong> A technological value of 0 means documented absence. An unresolved technological count must remain NA, and the script stops before ranking if such a value would enter the calculation. For provenance, 1 = present, 0 = absent, and NA = unknown/not analysed.</div>
+
+<h2 id="ranking">3. Contribution-based score and ranks</h2>
+<p>For each technological category, each site is expressed as its percentage contribution to the total documented amount of that category across the full dataset. The four category contributions are then summed:</p>
+<pre>Production_score =
+  blade.PN +
+  flake.PN +
+  core.PN +
+  by.products.waste.PN</pre>
+<p>This is deliberately different from converting each site to internal percentages. The primary score retains both technological composition and quantitative scale.</p>
+
+<table>
+<tr><th>Rank</th><th>Criterion</th><th>Operational meaning</th></tr>
 <tr><td>1</td><td>below 80th percentile</td><td>lower documented technological involvement</td></tr>
 <tr><td>2</td><td>80th–90th percentile</td><td>intermediate documented technological involvement</td></tr>
 <tr><td>3</td><td>upper decile</td><td>highest documented technological involvement</td></tr>
-<tr><td>4</td><td>source node</td><td>Monte Arci, Lipari or Palmarola</td></tr></table>
-<p>The percentile boundaries are reproducible modelling cut-offs rather than archaeological divisions and are defined independently of subsequent network performance.</p>
+<tr><td>4</td><td>geological source node</td><td>Monte Arci, Lipari or Palmarola</td></tr>
+</table>
+
+<div class="result"><strong>Current ranking:</strong> Rank 1 = 59 sites, Rank 2 = 7, Rank 3 = 8. The current score thresholds are 4.074466 for Rank 2 and 12.775919 for Rank 3.</div>
 
 <h3>Manhattan diagnostic</h3>
-<p>Pairwise Manhattan dissimilarities are calculated on the same contribution matrix used to derive the production score. PERMANOVA and PCoA therefore describe the rank structure in this contribution space; they are not independent validation of the classification. Current filenames use <strong>Manhattan</strong>, replacing legacy <strong>BR</strong> names from earlier repository versions.</p>
+<p>Pairwise Manhattan dissimilarities are calculated on the same contribution matrix used to derive the score. PERMANOVA and PCoA therefore describe the geometry of the rank structure in contribution space; they are descriptive diagnostics, not independent validation of the classification.</p>
+<p>The current workflow and repository use <strong>Manhattan</strong> filenames. Obsolete <strong>BR</strong>-named files from earlier versions have been removed.</p>
 
-<h2 id="sensitivity">4. Sensitivity to assemblage magnitude</h2>
-<p>The current workflow uses two complementary diagnostics.</p>
-<ol>
-<li><strong>Square-root sensitivity ranking:</strong> raw technological counts are square-root transformed and passed through the same category-wise contribution scaling, score calculation and 80th/90th percentile ranking. This reduces the leverage of very large assemblages without removing quantitative differences.</li>
-<li><strong>Composition-only diagnostic:</strong> within-site relative frequencies are converted to a Manhattan distance matrix and compared with the primary contribution-based distance structure using a Spearman Mantel test. This removes assemblage magnitude completely and therefore asks a different compositional question.</li>
-</ol>
-<div class="result"><strong>Reference run reported in the manuscript.</strong> Square-root scores strongly reproduce the primary classification (Spearman ρ = 0.987; 97.3% exact rank agreement). La Scola and Renaghju exchange Rank 2/Rank 3 positions, while combined Rank 2+3 membership is unchanged. The composition-only distance structure shows weak correspondence with the contribution-based structure (Mantel r = 0.163, p = 0.008).</div>
-<p>The network grid is then rerun with the square-root ranks. Under preferred Rule A, the first full-connectivity threshold remains 550 km in 6100–5500 cal BCE and 450 km in 5500–4900 cal BCE, showing that attenuation of the largest assemblages does not alter the main Rule A spatial result.</p>
+<h2 id="sensitivity">4. What the sensitivity tests mean</h2>
+<p>The reviewer concern was whether very large assemblages might dominate the classification. The workflow addresses that concern in two different ways.</p>
 
-<h2 id="networks">5. Rule-distance network models</h2>
-<table><tr><th>Rule</th><th>Permitted connections</th><th>Interpretive distinction</th></tr>
+<h3>Square-root sensitivity ranking</h3>
+<p>Each technological count is square-root transformed before repeating the same contribution scaling, score calculation and percentile ranking. This reduces the influence of very large assemblages without discarding quantitative differences.</p>
+
+<div class="result"><strong>Result:</strong> Spearman ρ = 0.987310 and 97.3% exact rank agreement. Only La Scola and Renaghju exchange Rank 2 and Rank 3 positions. Membership in the combined Rank 2+3 group is unchanged (Jaccard = 1.000).</div>
+
+<h3>Composition-only diagnostic</h3>
+<p>Within-site relative frequencies are converted to a Manhattan distance matrix and compared with the primary contribution-based distance structure using a Spearman Mantel test. Because this standardisation removes assemblage magnitude completely, it asks a different question: whether assemblages have similar internal technological proportions irrespective of how much obsidian is documented.</p>
+
+<div class="result"><strong>Result:</strong> Mantel r = 0.163444, p = 0.008. The correspondence is weak. This does not show instability of the primary classification; it shows that removing assemblage magnitude removes information deliberately retained by the contribution-based approach.</div>
+
+<p>The network grid is also rerun using the square-root ranks. The preferred Rule A first-full-connectivity thresholds remain 550 km in the earlier interval and 450 km in the later interval. Thus, reducing the leverage of the largest assemblages does not change the principal Rule A spatial result.</p>
+
+<h2 id="networks">5. Chronological network models</h2>
+<p>Ranks are calculated once from the complete 74-site dataset and then transferred to the two chronological subsets:</p>
+<ul>
+<li><strong>6100–5500 cal BCE:</strong> 33 archaeological sites + 3 source nodes = 36 nodes.</li>
+<li><strong>5500–4900 cal BCE:</strong> 41 archaeological sites + 3 source nodes = 44 nodes.</li>
+</ul>
+
+<table>
+<tr><th>Rule</th><th>Permitted rank connections</th><th>Interpretive difference</th></tr>
 <tr><td>A</td><td>4–3, 3–2, 3–1, 2–1</td><td>direct source links restricted to Rank 3</td></tr>
-<tr><td>B</td><td>4–3, 4–2, 3–2, 3–1, 2–1</td><td>also permits source-to-Rank 2 links</td></tr>
-<tr><td>C</td><td>4–3, 3–2, 2–1</td><td>consecutive-rank links only</td></tr></table>
-<p>Every rule is evaluated from 100 to 650 km in 50 km steps. Distances are centre-to-centre geographical distances calculated after projection to EPSG:3035.</p>
-<div class="note"><strong>Interpretation of distance:</strong> these thresholds are modelling parameters applied to individual potential links, not direct measures of prehistoric movement. The model does not explicitly incorporate coastlines, topography, currents, winds or social boundaries.</div>
-<p>The script exports global metrics, edge lists, centrality values, Friedman tests, pairwise Wilcoxon tests and the first threshold achieving full connectivity for each rule. Rule A is retained as the preferred parsimonious interpretative scenario when connected; its performance is not treated as independent proof of prehistoric circulation structure.</p>
+<tr><td>B</td><td>4–3, 4–2, 3–2, 3–1, 2–1</td><td>also allows source-to-Rank 2 links</td></tr>
+<tr><td>C</td><td>4–3, 3–2, 2–1</td><td>only consecutive-rank links</td></tr>
+</table>
+
+<p>Rules A–C are evaluated from 100 to 650 km in 50-km steps. Distances are centre-to-centre geographical distances after projection to EPSG:3035.</p>
+<div class="note"><strong>Distance thresholds are model parameters.</strong> They are applied to individual potential links and do not directly represent travel distances. The model does not explicitly include coastlines, topography, currents, winds or social boundaries.</div>
+
+<h3>First threshold achieving full connectivity</h3>
+<table>
+<tr><th>Interval</th><th>Rule A</th><th>Rule B</th><th>Rule C</th></tr>
+<tr><td>6100–5500 cal BCE</td><td>550 km</td><td>550 km</td><td>650 km</td></tr>
+<tr><td>5500–4900 cal BCE</td><td>450 km</td><td>450 km</td><td>450 km</td></tr>
+</table>
+<p>Rule A is the preferred parsimonious interpretative scenario because it obtains broad connectivity without adding the direct source-to-Rank 2 links permitted under Rule B. That preference is a modelling choice, not independent evidence that prehistoric circulation literally followed Rule A.</p>
+
+<h3>Square-root network sensitivity</h3>
+<table>
+<tr><th>Interval</th><th>Rule A</th><th>Rule B</th><th>Rule C</th></tr>
+<tr><td>6100–5500 cal BCE</td><td>550 km</td><td>550 km</td><td>550 km</td></tr>
+<tr><td>5500–4900 cal BCE</td><td>450 km</td><td>450 km</td><td>450 km</td></tr>
+</table>
+<p>The early Rule C shift from 650 to 550 km is retained here for transparency. The principal Rule A result is unchanged.</p>
 
 <h2 id="sources">6. Source-confirmed networks</h2>
-<p>Separate models are generated for Lipari, Palmarola and Monte Arci (internally named <code>Sardegna</code>). Only sites with explicit source presence are retained. Rank remains based on each site's total obsidian assemblage, because provenance and technological category are not systematically linked at artefact level in the available evidence.</p>
-<p>Rule A is attempted first. Rule B is used as a fallback only if the Rule A filtered graph is empty, has no edges, lacks the source node or leaves it isolated. The selection and fallback reason are exported.</p>
+<p>Separate source-filtered networks are produced for Lipari, Palmarola and Monte Arci (internally named <code>Sardegna</code>). Only sites with explicit source presence are retained. Site ranks still refer to the total obsidian assemblage, because provenance and technological category are not systematically linked at artefact level in the available evidence.</p>
+
+<table>
+<tr><th>Interval</th><th>Source</th><th>Nodes</th><th>Edges</th><th>Connectivity</th></tr>
+<tr><td>6100–5500</td><td>Monte Arci/Sardegna</td><td>7</td><td>9</td><td>connected</td></tr>
+<tr><td>6100–5500</td><td>Lipari</td><td>16</td><td>25</td><td>connected</td></tr>
+<tr><td>6100–5500</td><td>Palmarola</td><td>16</td><td>30</td><td>connected</td></tr>
+<tr><td>5500–4900</td><td>Monte Arci/Sardegna</td><td>13</td><td>26</td><td>2 components; 1 isolate</td></tr>
+<tr><td>5500–4900</td><td>Lipari</td><td>27</td><td>109</td><td>connected</td></tr>
+<tr><td>5500–4900</td><td>Palmarola</td><td>16</td><td>59</td><td>connected</td></tr>
+</table>
+
+<p>Rule A is attempted first for each source. Rule B is only a fallback if the Rule A filtered graph is empty, has no edges, lacks the source node or leaves the source isolated. No fallback is used in the current reference run.</p>
 
 <h2 id="figures">7. Manuscript figures</h2>
-<p><strong>Figure 1</strong> is generated directly as <code>OUTPUTS/all_sites_numbered_black_white_map.png</code>. <strong>Figure 2</strong> is the conceptual rule schematic prepared outside R.</p>
-<p>The current script automatically assembles publication composites for Figures 3–8 in <code>OUTPUTS/Figures/</code> as both PNG and LZW-compressed TIFF files.</p>
-<table><tr><th>Figure</th><th>Arrangement</th></tr>
-<tr><td>3</td><td>rule-set comparison: 6100–5500 left; 5500–4900 right</td></tr>
-<tr><td>4</td><td>earlier interval: Rules A/B/C at 300 km above; 550 km below</td></tr>
-<tr><td>5</td><td>later interval: Rules A/B/C at 300 km above; 450 km below</td></tr>
-<tr><td>6</td><td>Lipari: earlier above, later below; map left, graph-only right</td></tr>
-<tr><td>7</td><td>Palmarola: same arrangement</td></tr>
-<tr><td>8</td><td>Monte Arci/Sardegna: same arrangement</td></tr></table>
+<p><strong>Figure 1</strong> is generated as <code>OUTPUTS/all_sites_numbered_black_white_map.png</code>. <strong>Figure 2</strong> is the conceptual schematic of connection rules and is prepared outside the R workflow.</p>
+<p>Figures 3–8 are automatically assembled in <code>OUTPUTS/Figures/</code> as PNG and LZW-compressed TIFF files.</p>
+
+<table>
+<tr><th>Figure</th><th>Content</th></tr>
+<tr><td>3</td><td>rule-set comparison: earlier interval left, later interval right</td></tr>
+<tr><td>4</td><td>earlier general networks: Rules A/B/C at 300 km above, 550 km below</td></tr>
+<tr><td>5</td><td>later general networks: Rules A/B/C at 300 km above, 450 km below</td></tr>
+<tr><td>6</td><td>Lipari source-confirmed networks</td></tr>
+<tr><td>7</td><td>Palmarola source-confirmed networks</td></tr>
+<tr><td>8</td><td>Monte Arci/Sardegna source-confirmed networks</td></tr>
+</table>
 
 <h3>Current generated composites</h3>
-<img src="OUTPUTS/Figures/Figure_3.png" alt="Figure 3">
-<img src="OUTPUTS/Figures/Figure_4.png" alt="Figure 4">
-<img src="OUTPUTS/Figures/Figure_5.png" alt="Figure 5">
-<img src="OUTPUTS/Figures/Figure_6.png" alt="Figure 6">
-<img src="OUTPUTS/Figures/Figure_7.png" alt="Figure 7">
-<img src="OUTPUTS/Figures/Figure_8.png" alt="Figure 8">
-<p class="small">If an image is missing, regenerate the workflow and upload the current OUTPUTS folder while preserving this directory structure.</p>
+<img src="OUTPUTS/Figures/Figure_3.png" alt="Figure 3 rule-set comparison">
+<img src="OUTPUTS/Figures/Figure_4.png" alt="Figure 4 earlier network comparison">
+<img src="OUTPUTS/Figures/Figure_5.png" alt="Figure 5 later network comparison">
+<img src="OUTPUTS/Figures/Figure_6.png" alt="Figure 6 Lipari source-confirmed networks">
+<img src="OUTPUTS/Figures/Figure_7.png" alt="Figure 7 Palmarola source-confirmed networks">
+<img src="OUTPUTS/Figures/Figure_8.png" alt="Figure 8 Monte Arci source-confirmed networks">
 
-<h2 id="tables">8. Principal output files</h2>
-<h3>Global outputs</h3>
+<h2 id="outputs">8. Where to find the main results</h2>
 <table>
-<tr><th>File</th><th>Contents</th></tr>
-<tr><td>production_contribution_PN_all_sites.csv</td><td>category-wise contribution matrix</td></tr>
-<tr><td>manhattan_dissimilarity_PN_all_sites.csv</td><td>primary Manhattan distance matrix</td></tr>
-<tr><td>production_score_all_sites.csv</td><td>contribution-based production score</td></tr>
-<tr><td>production_score_rank_thresholds_all_sites.csv</td><td>80th and 90th percentile thresholds</td></tr>
-<tr><td>site_production_score_ranking_all_sites.csv</td><td>primary score/rank assignment</td></tr>
-<tr><td>sensitivity_rank_comparison_all_sites.csv</td><td>primary versus square-root score/rank by site</td></tr>
-<tr><td>sensitivity_summary_all_sites.csv</td><td>Spearman, rank agreement, Jaccard and Mantel statistics</td></tr>
-<tr><td>composition_only_manhattan_dissimilarity_all_sites.csv</td><td>composition-only distance matrix</td></tr>
-<tr><td>ranked_sites_all_sites.csv</td><td>cleaned data with primary and square-root ranks</td></tr>
-<tr><td>adonis_Manhattan_dissimilarity_by_rank_all_sites.csv</td><td>PERMANOVA-style descriptive diagnostic</td></tr>
-<tr><td>pcoa_Manhattan_by_production_rank_all_sites.csv</td><td>PCoA coordinates</td></tr>
+<tr><th>File</th><th>Use</th></tr>
+<tr><td><code>OUTPUTS/site_production_score_ranking_all_sites.csv</code></td><td>primary site scores and ranks</td></tr>
+<tr><td><code>OUTPUTS/production_score_rank_thresholds_all_sites.csv</code></td><td>80th/90th percentile thresholds</td></tr>
+<tr><td><code>OUTPUTS/sensitivity_rank_comparison_all_sites.csv</code></td><td>primary vs square-root rank for every site</td></tr>
+<tr><td><code>OUTPUTS/sensitivity_summary_all_sites.csv</code></td><td>Spearman, agreement, Jaccard and Mantel statistics</td></tr>
+<tr><td><code>OUTPUTS/composition_only_manhattan_dissimilarity_all_sites.csv</code></td><td>composition-only distance matrix</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_*/global_metrics_rule_distance_sweep_*.csv</code></td><td>complete rule-distance network metrics</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_*/first_connected_network_by_rule_*.csv</code></td><td>primary first-full-connectivity thresholds</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_*/first_connected_rank_sensitivity_sqrt_*.csv</code></td><td>square-root network sensitivity thresholds</td></tr>
+<tr><td><code>OUTPUTS/Obsidian_network_*/source_confirmed_metrics_*.csv</code></td><td>source-filtered network summaries</td></tr>
 </table>
-<h3>Interval outputs</h3>
-<p>Each interval folder contains the complete rule-distance edge lists and maps, global metrics, centrality tables, statistical rule comparisons, first-connected networks, source-filtered outputs, and the square-root network-sensitivity outputs:</p>
-<ul>
-<li><code>network_rank_sensitivity_sqrt_&lt;interval&gt;.csv</code></li>
-<li><code>first_connected_rank_sensitivity_sqrt_&lt;interval&gt;.csv</code></li>
-<li><code>source_confirmed_rule_selection_log_&lt;interval&gt;.csv</code></li>
-<li><code>source_confirmed_metrics_&lt;interval&gt;.csv</code></li>
-</ul>
 
 <h2 id="reproducibility">9. Reproducibility checklist</h2>
 <ol>
-<li>Run the complete <code>CHRONOS.R</code> workflow from the repository root.</li>
-<li>Confirm that the two unmatched-site tables contain no site records.</li>
-<li>Confirm sensitivity statistics from <code>sensitivity_summary_all_sites.csv</code>.</li>
-<li>Confirm primary and square-root first-connected thresholds from their respective interval tables.</li>
-<li>Confirm source-specific rule selection/fallbacks.</li>
-<li>Upload the complete regenerated OUTPUTS folders together so that tables and figures come from one run.</li>
-<li>Archive the exact repository commit and R/package environment used for publication.</li>
+<li>Install the required R packages listed in the README.</li>
+<li>Run <code>source("CHRONOS.R")</code> from the repository root.</li>
+<li>Confirm that both <code>unmatched_sites_no_rank_*.csv</code> files contain only their header.</li>
+<li>Confirm that <code>rank_summary_all_sites.csv</code> gives 59 / 7 / 8 sites.</li>
+<li>Confirm the sensitivity values in <code>sensitivity_summary_all_sites.csv</code>.</li>
+<li>Confirm the primary and square-root first-connectivity thresholds.</li>
+<li>Confirm source-filtered rule-selection logs and metrics.</li>
+<li>After any RAWDATA correction, regenerate and upload the complete OUTPUTS set together.</li>
+<li>For a publication archive, preserve the exact Git commit and R/package environment used for the final run.</li>
 </ol>
-<p>The R script, datasets, analytical pipelines and derived outputs are made openly available to enhance transparency, reproducibility and independent extension of the analysis.</p>
+
+<div class="result"><strong>Current repository QC:</strong> both chronological rank-join files contain zero unmatched sites, the principal numerical outputs agree with the manuscript values, and current output naming is aligned with the Manhattan-based workflow.</div>
+
+<footer>
+<p>CHRONOS analytical repository: <a href="https://github.com/nmazzucco/CHRONOS">github.com/nmazzucco/CHRONOS</a></p>
+<p>Niccolò Mazzucco — University of Pisa</p>
+</footer>
 </body>
 </html>
