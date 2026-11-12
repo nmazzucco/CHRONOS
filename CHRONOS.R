@@ -4,13 +4,17 @@
 # Modelling Neolithic production and circulation of obsidian in the Central
 # Mediterranean.
 #
-# This script reproduces the analyses documented in CHRONOS_report.html:
-#   1. read and clean obsidian technological/source data;
-#   2. calculate production-contribution values and production-score ranks;
+# This script reproduces the analytical workflow documented in the manuscript,
+# README.md, and CHRONOS_report.html:
+#   1. read and validate obsidian technological/source data;
+#   2. calculate contribution-based production scores and operational ranks of
+#      documented technological involvement;
 #   3. evaluate rank structure in Manhattan dissimilarity space;
-#   4. build rule-distance network models for two chronological intervals;
-#   5. export figures, edge lists, centrality tables, and source-confirmed
-#      network summaries.
+#   4. test robustness to assemblage magnitude using square-root-transformed
+#      counts and a composition-only Mantel diagnostic;
+#   5. build rule-distance network models for two chronological intervals;
+#   6. re-run the rule-distance grid with square-root sensitivity ranks;
+#   7. export source-confirmed networks and publication figures.
 #
 # Repository layout expected by this script:
 #
@@ -749,8 +753,10 @@ run_production_ranking <- function(input_file, output_folder, interval_label) {
   # ---------------------------------------------------------------------------
   # 5.4 Production-involvement score and rank assignment
   # ---------------------------------------------------------------------------
-  # The final site classification is based on an explicit production-involvement
-  # score rather than on unsupervised clustering.
+  # The final site classification is based on an explicit contribution-based
+  # production score rather than on unsupervised clustering. The resulting ranks
+  # are operational levels of documented technological involvement, not fixed
+  # functional categories.
   #
   # The production score is calculated as the row sum of the production-
   # contribution matrix:
@@ -759,8 +765,9 @@ run_production_ranking <- function(input_file, output_folder, interval_label) {
   #
   # Each .PN variable expresses the percentage contribution of a site to the
   # total amount of that technological category in the full dataset.
-  # The resulting score therefore estimates the overall quantitative involvement
-  # of each site in obsidian production/transformation.
+  # The resulting score therefore estimates the documented quantitative scale of
+  # technological involvement in obsidian production/transformation. It does not,
+  # by itself, demonstrate a specific functional role such as redistribution.
   
   production_score <- rowSums(obs_mat2, na.rm = TRUE)
   
@@ -787,7 +794,10 @@ run_production_ranking <- function(input_file, output_folder, interval_label) {
   # Rank 1 = all remaining sites
   #
   # This produces reproducible operational classes of documented technological
-  # involvement. The percentile boundaries are analytical cut-offs rather than
+  # involvement. The 90th percentile isolates the small upper tail of sites making
+  # the greatest contributions to the technological corpus; the 80th percentile
+  # defines an intermediate group immediately below it. The thresholds are
+  # analytical cut-offs defined independently of subsequent network results, not
   # independently established archaeological divisions.
   
   threshold_rank3 <- quantile(
