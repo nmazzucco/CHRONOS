@@ -1,0 +1,7 @@
+"Metric","Value"
+"Spearman_primary_vs_sqrt_scores",0.9873104347955
+"Exact_rank_agreement",0.972972972972973
+"Rank3_Jaccard_overlap",0.777777777777778
+"Rank2plus_Jaccard_overlap",1
+"Mantel_r_primary_vs_composition_distances",0.163444409499384
+"Mantel_p_primary_vs_composition_distances",0.008
