@@ -1,8 +1,8 @@
 "from","to","distance_rule_km"
 "Sant'Anna di Oria","Fornace Cappuccini",650
 "Sant'Anna di Oria","Grotta San Michele Arcangelo II",650
-"La Scola","Abri Albertini",650
-"La Scola","La Lucciola",650
+"Abri Albertini","La Scola",650
+"La Lucciola","La Scola",650
 "La Scola","Masseria Acquasalsa",650
 "La Scola","Grotta Continenza",650
 "La Scola","Portonovo",650
@@ -30,19 +30,19 @@
 "La Scola","Fiorano Modenese",650
 "La Scola","Masseria Santa Tecchia",650
 "La Scola","Lokvica",650
-"La Marmotta","La Scola",650
+"La Scola","La Marmotta",650
 "La Marmotta","Strette",650
 "La Marmotta","Fornace Cappuccini",650
 "La Marmotta","Cala Giovanna",650
 "La Marmotta","Grotta San Michele Arcangelo II",650
 "Umbro Bova Marina","Grotta San Michele Arcangelo II",650
-"Strette","Abri Albertini",650
-"Strette","La Lucciola",650
-"Strette","Masseria Acquasalsa",650
-"Strette","Grotta Continenza",650
-"Strette","Portonovo",650
-"Strette","Masseria Candelaro III",650
-"Strette","Grotta Scaloria",650
+"Abri Albertini","Strette",650
+"La Lucciola","Strette",650
+"Masseria Acquasalsa","Strette",650
+"Grotta Continenza","Strette",650
+"Portonovo","Strette",650
+"Masseria Candelaro III","Strette",650
+"Grotta Scaloria","Strette",650
 "Strette","Marcianese",650
 "Strette","Savignano sul Panaro",650
 "Strette","Su Carroppu",650
@@ -65,17 +65,17 @@
 "Strette","Fiorano Modenese",650
 "Strette","Masseria Santa Tecchia",650
 "Strette","Lokvica",650
-"Fornace Cappuccini","Abri Albertini",650
-"Fornace Cappuccini","La Lucciola",650
-"Fornace Cappuccini","Masseria Acquasalsa",650
-"Fornace Cappuccini","Grotta Continenza",650
-"Fornace Cappuccini","Portonovo",650
-"Fornace Cappuccini","Masseria Candelaro III",650
-"Fornace Cappuccini","Grotta Scaloria",650
-"Fornace Cappuccini","Marcianese",650
-"Fornace Cappuccini","Savignano sul Panaro",650
-"Fornace Cappuccini","Su Carroppu",650
-"Fornace Cappuccini","Trasanello II",650
+"Abri Albertini","Fornace Cappuccini",650
+"La Lucciola","Fornace Cappuccini",650
+"Masseria Acquasalsa","Fornace Cappuccini",650
+"Grotta Continenza","Fornace Cappuccini",650
+"Portonovo","Fornace Cappuccini",650
+"Masseria Candelaro III","Fornace Cappuccini",650
+"Grotta Scaloria","Fornace Cappuccini",650
+"Marcianese","Fornace Cappuccini",650
+"Savignano sul Panaro","Fornace Cappuccini",650
+"Su Carroppu","Fornace Cappuccini",650
+"Trasanello II","Fornace Cappuccini",650
 "Fornace Cappuccini","Krivače",650
 "Fornace Cappuccini","Piani di Calisti",650
 "Fornace Cappuccini","Grotta dei Piccioni",650
@@ -94,85 +94,85 @@
 "Fornace Cappuccini","Fiorano Modenese",650
 "Fornace Cappuccini","Masseria Santa Tecchia",650
 "Fornace Cappuccini","Lokvica",650
-"Rio Saboccu","La Scola",650
-"Rio Saboccu","Strette",650
-"Rio Saboccu","Fornace Cappuccini",650
+"La Scola","Rio Saboccu",650
+"Strette","Rio Saboccu",650
+"Fornace Cappuccini","Rio Saboccu",650
 "Rio Saboccu","Cala Giovanna",650
-"Catignano","La Scola",650
-"Catignano","Strette",650
-"Catignano","Fornace Cappuccini",650
+"La Scola","Catignano",650
+"Strette","Catignano",650
+"Fornace Cappuccini","Catignano",650
 "Catignano","Cala Giovanna",650
 "Catignano","Grotta San Michele Arcangelo II",650
-"Cala Giovanna","Abri Albertini",650
-"Cala Giovanna","La Lucciola",650
-"Cala Giovanna","Masseria Acquasalsa",650
-"Cala Giovanna","Grotta Continenza",650
-"Cala Giovanna","Portonovo",650
-"Cala Giovanna","Masseria Candelaro III",650
-"Cala Giovanna","Grotta Scaloria",650
-"Cala Giovanna","Marcianese",650
-"Cala Giovanna","Savignano sul Panaro",650
-"Cala Giovanna","Su Carroppu",650
-"Cala Giovanna","Trasanello II",650
-"Cala Giovanna","Krivače",650
-"Cala Giovanna","Piani di Calisti",650
-"Cala Giovanna","Grotta dei Piccioni",650
-"Cala Giovanna","Pienza",650
-"Cala Giovanna","Casa Querciolaia",650
-"Cala Giovanna","Grotta Sant'Angelo II",650
-"Cala Giovanna","Villa Badessa (Cepegatti)",650
-"Cala Giovanna","Pokrovnik",650
-"Cala Giovanna","Danilo-Bitinj",650
-"Cala Giovanna","Colle Cera",650
-"Cala Giovanna","Balsignano II",650
-"Cala Giovanna","Spila Nakovana",650
-"Cala Giovanna","Ex Palestra GIL",650
+"Abri Albertini","Cala Giovanna",650
+"La Lucciola","Cala Giovanna",650
+"Masseria Acquasalsa","Cala Giovanna",650
+"Grotta Continenza","Cala Giovanna",650
+"Portonovo","Cala Giovanna",650
+"Masseria Candelaro III","Cala Giovanna",650
+"Grotta Scaloria","Cala Giovanna",650
+"Marcianese","Cala Giovanna",650
+"Savignano sul Panaro","Cala Giovanna",650
+"Su Carroppu","Cala Giovanna",650
+"Trasanello II","Cala Giovanna",650
+"Krivače","Cala Giovanna",650
+"Piani di Calisti","Cala Giovanna",650
+"Grotta dei Piccioni","Cala Giovanna",650
+"Pienza","Cala Giovanna",650
+"Casa Querciolaia","Cala Giovanna",650
+"Grotta Sant'Angelo II","Cala Giovanna",650
+"Villa Badessa (Cepegatti)","Cala Giovanna",650
+"Pokrovnik","Cala Giovanna",650
+"Danilo-Bitinj","Cala Giovanna",650
+"Colle Cera","Cala Giovanna",650
+"Balsignano II","Cala Giovanna",650
+"Spila Nakovana","Cala Giovanna",650
+"Ex Palestra GIL","Cala Giovanna",650
 "Cala Giovanna","Grande Rivoire",650
 "Cala Giovanna","Arene Candide II",650
 "Cala Giovanna","Fiorano Modenese",650
 "Cala Giovanna","Masseria Santa Tecchia",650
 "Cala Giovanna","Lokvica",650
-"Grotta San Michele Arcangelo II","La Lucciola",650
-"Grotta San Michele Arcangelo II","Masseria Acquasalsa",650
-"Grotta San Michele Arcangelo II","Grotta Continenza",650
-"Grotta San Michele Arcangelo II","Portonovo",650
-"Grotta San Michele Arcangelo II","Masseria Candelaro III",650
-"Grotta San Michele Arcangelo II","Grotta Scaloria",650
-"Grotta San Michele Arcangelo II","Marcianese",650
-"Grotta San Michele Arcangelo II","Trasanello II",650
-"Grotta San Michele Arcangelo II","Krivače",650
-"Grotta San Michele Arcangelo II","Piani di Calisti",650
-"Grotta San Michele Arcangelo II","Grotta dei Piccioni",650
-"Grotta San Michele Arcangelo II","Pienza",650
-"Grotta San Michele Arcangelo II","Casa Querciolaia",650
-"Grotta San Michele Arcangelo II","Grotta Sant'Angelo II",650
-"Grotta San Michele Arcangelo II","Villa Badessa (Cepegatti)",650
-"Grotta San Michele Arcangelo II","Pokrovnik",650
-"Grotta San Michele Arcangelo II","Danilo-Bitinj",650
-"Grotta San Michele Arcangelo II","Colle Cera",650
-"Grotta San Michele Arcangelo II","Balsignano II",650
-"Grotta San Michele Arcangelo II","Spila Nakovana",650
-"Grotta San Michele Arcangelo II","Ex Palestra GIL",650
+"La Lucciola","Grotta San Michele Arcangelo II",650
+"Masseria Acquasalsa","Grotta San Michele Arcangelo II",650
+"Grotta Continenza","Grotta San Michele Arcangelo II",650
+"Portonovo","Grotta San Michele Arcangelo II",650
+"Masseria Candelaro III","Grotta San Michele Arcangelo II",650
+"Grotta Scaloria","Grotta San Michele Arcangelo II",650
+"Marcianese","Grotta San Michele Arcangelo II",650
+"Trasanello II","Grotta San Michele Arcangelo II",650
+"Krivače","Grotta San Michele Arcangelo II",650
+"Piani di Calisti","Grotta San Michele Arcangelo II",650
+"Grotta dei Piccioni","Grotta San Michele Arcangelo II",650
+"Pienza","Grotta San Michele Arcangelo II",650
+"Casa Querciolaia","Grotta San Michele Arcangelo II",650
+"Grotta Sant'Angelo II","Grotta San Michele Arcangelo II",650
+"Villa Badessa (Cepegatti)","Grotta San Michele Arcangelo II",650
+"Pokrovnik","Grotta San Michele Arcangelo II",650
+"Danilo-Bitinj","Grotta San Michele Arcangelo II",650
+"Colle Cera","Grotta San Michele Arcangelo II",650
+"Balsignano II","Grotta San Michele Arcangelo II",650
+"Spila Nakovana","Grotta San Michele Arcangelo II",650
+"Ex Palestra GIL","Grotta San Michele Arcangelo II",650
 "Grotta San Michele Arcangelo II","Masseria Santa Tecchia",650
 "Grotta San Michele Arcangelo II","Lokvica",650
 "Grotta San Michele Arcangelo II","Rocchicella-Paliké",650
-"Sa Punta","La Scola",650
-"Sa Punta","Strette",650
-"Sa Punta","Fornace Cappuccini",650
-"Sa Punta","Cala Giovanna",650
-"Monte Arci","La Marmotta",650
-"Monte Arci","Rio Saboccu",650
-"Monte Arci","Catignano",650
-"Monte Arci","Sa Punta",650
-"Lipari","Sant'Anna di Oria",650
-"Lipari","La Marmotta",650
-"Lipari","Umbro Bova Marina",650
-"Lipari","Rio Saboccu",650
-"Lipari","Catignano",650
-"Lipari","Sa Punta",650
-"Palmarola","Sant'Anna di Oria",650
-"Palmarola","La Marmotta",650
-"Palmarola","Umbro Bova Marina",650
-"Palmarola","Rio Saboccu",650
-"Palmarola","Catignano",650
-"Palmarola","Sa Punta",650
+"La Scola","Sa Punta",650
+"Strette","Sa Punta",650
+"Fornace Cappuccini","Sa Punta",650
+"Cala Giovanna","Sa Punta",650
+"La Marmotta","Monte Arci",650
+"Rio Saboccu","Monte Arci",650
+"Catignano","Monte Arci",650
+"Sa Punta","Monte Arci",650
+"Sant'Anna di Oria","Lipari",650
+"La Marmotta","Lipari",650
+"Umbro Bova Marina","Lipari",650
+"Rio Saboccu","Lipari",650
+"Catignano","Lipari",650
+"Sa Punta","Lipari",650
+"Sant'Anna di Oria","Palmarola",650
+"La Marmotta","Palmarola",650
+"Umbro Bova Marina","Palmarola",650
+"Rio Saboccu","Palmarola",650
+"Catignano","Palmarola",650
+"Sa Punta","Palmarola",650

@@ -13,7 +13,7 @@
 "Sant'Anna di Oria","Grotta San Michele Arcangelo II",450
 "Sant'Anna di Oria","Masseria Santa Tecchia",450
 "Sant'Anna di Oria","Rocchicella-Paliké",450
-"La Scola","La Lucciola",450
+"La Lucciola","La Scola",450
 "La Scola","Portonovo",450
 "La Scola","Piani di Calisti",450
 "La Scola","Pienza",450
@@ -21,8 +21,8 @@
 "La Scola","Villa Badessa (Cepegatti)",450
 "La Scola","Colle Cera",450
 "La Scola","Fiorano Modenese",450
-"La Marmotta","La Lucciola",450
-"La Marmotta","La Scola",450
+"La Lucciola","La Marmotta",450
+"La Scola","La Marmotta",450
 "La Marmotta","Portonovo",450
 "La Marmotta","Masseria Candelaro III",450
 "La Marmotta","Grotta Scaloria",450
@@ -50,10 +50,10 @@
 "Umbro Bova Marina","Grotta San Michele Arcangelo II",450
 "Umbro Bova Marina","Masseria Santa Tecchia",450
 "Umbro Bova Marina","Rocchicella-Paliké",450
-"Fornace Cappuccini","La Lucciola",450
-"Fornace Cappuccini","Portonovo",450
-"Fornace Cappuccini","Masseria Candelaro III",450
-"Fornace Cappuccini","Grotta Scaloria",450
+"La Lucciola","Fornace Cappuccini",450
+"Portonovo","Fornace Cappuccini",450
+"Masseria Candelaro III","Fornace Cappuccini",450
+"Grotta Scaloria","Fornace Cappuccini",450
 "Fornace Cappuccini","Krivače",450
 "Fornace Cappuccini","Piani di Calisti",450
 "Fornace Cappuccini","Pienza",450
@@ -65,19 +65,19 @@
 "Fornace Cappuccini","Ex Palestra GIL",450
 "Fornace Cappuccini","Fiorano Modenese",450
 "Fornace Cappuccini","Masseria Santa Tecchia",450
-"Catignano","La Lucciola",450
-"Catignano","La Scola",450
-"Catignano","Portonovo",450
-"Catignano","Masseria Candelaro III",450
-"Catignano","Grotta Scaloria",450
-"Catignano","Trasanello II",450
-"Catignano","Fornace Cappuccini",450
-"Catignano","Krivače",450
-"Catignano","Piani di Calisti",450
-"Catignano","Pienza",450
-"Catignano","Grotta Sant'Angelo II",450
-"Catignano","Villa Badessa (Cepegatti)",450
-"Catignano","Pokrovnik",450
+"La Lucciola","Catignano",450
+"La Scola","Catignano",450
+"Portonovo","Catignano",450
+"Masseria Candelaro III","Catignano",450
+"Grotta Scaloria","Catignano",450
+"Trasanello II","Catignano",450
+"Fornace Cappuccini","Catignano",450
+"Krivače","Catignano",450
+"Piani di Calisti","Catignano",450
+"Pienza","Catignano",450
+"Grotta Sant'Angelo II","Catignano",450
+"Villa Badessa (Cepegatti)","Catignano",450
+"Pokrovnik","Catignano",450
 "Catignano","Danilo-Bitinj",450
 "Catignano","Colle Cera",450
 "Catignano","Balsignano II",450
@@ -86,26 +86,25 @@
 "Catignano","Grotta San Michele Arcangelo II",450
 "Catignano","Fiorano Modenese",450
 "Catignano","Masseria Santa Tecchia",450
-"Cala Giovanna","La Lucciola",450
-"Cala Giovanna","Portonovo",450
-"Cala Giovanna","Piani di Calisti",450
-"Cala Giovanna","Pienza",450
-"Cala Giovanna","Grotta Sant'Angelo II",450
-"Cala Giovanna","Villa Badessa (Cepegatti)",450
-"Cala Giovanna","Colle Cera",450
+"La Lucciola","Cala Giovanna",450
+"Portonovo","Cala Giovanna",450
+"Piani di Calisti","Cala Giovanna",450
+"Pienza","Cala Giovanna",450
+"Grotta Sant'Angelo II","Cala Giovanna",450
+"Villa Badessa (Cepegatti)","Cala Giovanna",450
+"Colle Cera","Cala Giovanna",450
 "Cala Giovanna","Fiorano Modenese",450
-"Grotta San Michele Arcangelo II","Masseria Candelaro III",450
-"Grotta San Michele Arcangelo II","Grotta Scaloria",450
-"Grotta San Michele Arcangelo II","Trasanello II",450
-"Grotta San Michele Arcangelo II","Grotta Sant'Angelo II",450
-"Grotta San Michele Arcangelo II","Villa Badessa (Cepegatti)",450
-"Grotta San Michele Arcangelo II","Pokrovnik",450
-"Grotta San Michele Arcangelo II","Danilo-Bitinj",450
-"Grotta San Michele Arcangelo II","Colle Cera",450
-"Grotta San Michele Arcangelo II","Balsignano II",450
-"Grotta San Michele Arcangelo II","Ex Palestra GIL",450
+"Masseria Candelaro III","Grotta San Michele Arcangelo II",450
+"Grotta Scaloria","Grotta San Michele Arcangelo II",450
+"Trasanello II","Grotta San Michele Arcangelo II",450
+"Grotta Sant'Angelo II","Grotta San Michele Arcangelo II",450
+"Villa Badessa (Cepegatti)","Grotta San Michele Arcangelo II",450
+"Danilo-Bitinj","Grotta San Michele Arcangelo II",450
+"Colle Cera","Grotta San Michele Arcangelo II",450
+"Balsignano II","Grotta San Michele Arcangelo II",450
+"Ex Palestra GIL","Grotta San Michele Arcangelo II",450
 "Grotta San Michele Arcangelo II","Masseria Santa Tecchia",450
 "Grotta San Michele Arcangelo II","Rocchicella-Paliké",450
-"Lipari","Sant'Anna di Oria",450
-"Lipari","Umbro Bova Marina",450
-"Lipari","Catignano",450
+"Sant'Anna di Oria","Lipari",450
+"Umbro Bova Marina","Lipari",450
+"Catignano","Lipari",450

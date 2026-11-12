@@ -9,8 +9,8 @@
 "Sant'Anna di Oria","Grotta San Michele Arcangelo II",300
 "Sant'Anna di Oria","Masseria Santa Tecchia",300
 "Sant'Anna di Oria","Lokvica",300
-"La Scola","Abri Albertini",300
-"La Scola","La Lucciola",300
+"Abri Albertini","La Scola",300
+"La Lucciola","La Scola",300
 "La Scola","Grotta Continenza",300
 "La Scola","Savignano sul Panaro",300
 "La Scola","Piani di Calisti",300
@@ -19,10 +19,10 @@
 "La Scola","Grotta Sant'Angelo II",300
 "La Scola","Arene Candide II",300
 "La Scola","Fiorano Modenese",300
-"La Marmotta","Abri Albertini",300
-"La Marmotta","La Lucciola",300
-"La Marmotta","La Scola",300
-"La Marmotta","Masseria Acquasalsa",300
+"Abri Albertini","La Marmotta",300
+"La Lucciola","La Marmotta",300
+"La Scola","La Marmotta",300
+"Masseria Acquasalsa","La Marmotta",300
 "La Marmotta","Grotta Continenza",300
 "La Marmotta","Portonovo",300
 "La Marmotta","Masseria Candelaro III",300
@@ -43,18 +43,18 @@
 "La Marmotta","Masseria Santa Tecchia",300
 "Umbro Bova Marina","Grotta San Michele Arcangelo II",300
 "Umbro Bova Marina","Rocchicella-Paliké",300
-"Strette","Abri Albertini",300
-"Strette","La Lucciola",300
+"Abri Albertini","Strette",300
+"La Lucciola","Strette",300
 "Strette","Savignano sul Panaro",300
 "Strette","Piani di Calisti",300
 "Strette","Pienza",300
 "Strette","Casa Querciolaia",300
 "Strette","Arene Candide II",300
 "Strette","Fiorano Modenese",300
-"Fornace Cappuccini","La Lucciola",300
-"Fornace Cappuccini","Grotta Continenza",300
-"Fornace Cappuccini","Portonovo",300
-"Fornace Cappuccini","Savignano sul Panaro",300
+"La Lucciola","Fornace Cappuccini",300
+"Grotta Continenza","Fornace Cappuccini",300
+"Portonovo","Fornace Cappuccini",300
+"Savignano sul Panaro","Fornace Cappuccini",300
 "Fornace Cappuccini","Piani di Calisti",300
 "Fornace Cappuccini","Grotta dei Piccioni",300
 "Fornace Cappuccini","Pienza",300
@@ -64,24 +64,24 @@
 "Fornace Cappuccini","Colle Cera",300
 "Fornace Cappuccini","Arene Candide II",300
 "Fornace Cappuccini","Fiorano Modenese",300
-"Rio Saboccu","Abri Albertini",300
-"Rio Saboccu","Su Carroppu",300
-"Catignano","La Lucciola",300
-"Catignano","Masseria Acquasalsa",300
-"Catignano","Grotta Continenza",300
-"Catignano","Portonovo",300
-"Catignano","Masseria Candelaro III",300
-"Catignano","Grotta Scaloria",300
-"Catignano","Marcianese",300
-"Catignano","Trasanello II",300
-"Catignano","Fornace Cappuccini",300
-"Catignano","Krivače",300
-"Catignano","Piani di Calisti",300
-"Catignano","Grotta dei Piccioni",300
-"Catignano","Pienza",300
-"Catignano","Grotta Sant'Angelo II",300
-"Catignano","Villa Badessa (Cepegatti)",300
-"Catignano","Pokrovnik",300
+"Abri Albertini","Rio Saboccu",300
+"Su Carroppu","Rio Saboccu",300
+"La Lucciola","Catignano",300
+"Masseria Acquasalsa","Catignano",300
+"Grotta Continenza","Catignano",300
+"Portonovo","Catignano",300
+"Masseria Candelaro III","Catignano",300
+"Grotta Scaloria","Catignano",300
+"Marcianese","Catignano",300
+"Trasanello II","Catignano",300
+"Fornace Cappuccini","Catignano",300
+"Krivače","Catignano",300
+"Piani di Calisti","Catignano",300
+"Grotta dei Piccioni","Catignano",300
+"Pienza","Catignano",300
+"Grotta Sant'Angelo II","Catignano",300
+"Villa Badessa (Cepegatti)","Catignano",300
+"Pokrovnik","Catignano",300
 "Catignano","Danilo-Bitinj",300
 "Catignano","Colle Cera",300
 "Catignano","Balsignano II",300
@@ -89,28 +89,28 @@
 "Catignano","Ex Palestra GIL",300
 "Catignano","Masseria Santa Tecchia",300
 "Catignano","Lokvica",300
-"Cala Giovanna","Abri Albertini",300
-"Cala Giovanna","La Lucciola",300
-"Cala Giovanna","Grotta Continenza",300
-"Cala Giovanna","Savignano sul Panaro",300
-"Cala Giovanna","Piani di Calisti",300
-"Cala Giovanna","Pienza",300
-"Cala Giovanna","Casa Querciolaia",300
-"Cala Giovanna","Grotta Sant'Angelo II",300
+"Abri Albertini","Cala Giovanna",300
+"La Lucciola","Cala Giovanna",300
+"Grotta Continenza","Cala Giovanna",300
+"Savignano sul Panaro","Cala Giovanna",300
+"Piani di Calisti","Cala Giovanna",300
+"Pienza","Cala Giovanna",300
+"Casa Querciolaia","Cala Giovanna",300
+"Grotta Sant'Angelo II","Cala Giovanna",300
 "Cala Giovanna","Arene Candide II",300
 "Cala Giovanna","Fiorano Modenese",300
-"Grotta San Michele Arcangelo II","Masseria Acquasalsa",300
-"Grotta San Michele Arcangelo II","Masseria Candelaro III",300
-"Grotta San Michele Arcangelo II","Grotta Scaloria",300
-"Grotta San Michele Arcangelo II","Trasanello II",300
-"Grotta San Michele Arcangelo II","Balsignano II",300
-"Grotta San Michele Arcangelo II","Ex Palestra GIL",300
+"Masseria Acquasalsa","Grotta San Michele Arcangelo II",300
+"Masseria Candelaro III","Grotta San Michele Arcangelo II",300
+"Grotta Scaloria","Grotta San Michele Arcangelo II",300
+"Trasanello II","Grotta San Michele Arcangelo II",300
+"Balsignano II","Grotta San Michele Arcangelo II",300
+"Ex Palestra GIL","Grotta San Michele Arcangelo II",300
 "Grotta San Michele Arcangelo II","Masseria Santa Tecchia",300
 "Grotta San Michele Arcangelo II","Rocchicella-Paliké",300
-"Sa Punta","Abri Albertini",300
-"Sa Punta","Su Carroppu",300
-"Monte Arci","Rio Saboccu",300
-"Monte Arci","Sa Punta",300
-"Lipari","Umbro Bova Marina",300
-"Palmarola","La Marmotta",300
-"Palmarola","Catignano",300
+"Abri Albertini","Sa Punta",300
+"Su Carroppu","Sa Punta",300
+"Rio Saboccu","Monte Arci",300
+"Sa Punta","Monte Arci",300
+"Umbro Bova Marina","Lipari",300
+"La Marmotta","Palmarola",300
+"Catignano","Palmarola",300

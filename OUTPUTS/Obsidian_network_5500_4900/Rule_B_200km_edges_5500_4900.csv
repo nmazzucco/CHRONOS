@@ -5,12 +5,12 @@
 "Sant'Anna di Oria","Balsignano II",200
 "Sant'Anna di Oria","Grotta San Michele Arcangelo II",200
 "Sant'Anna di Oria","Masseria Santa Tecchia",200
-"La Scola","Abri Albertini",200
-"La Scola","La Lucciola",200
+"Abri Albertini","La Scola",200
+"La Lucciola","La Scola",200
 "La Scola","Pienza",200
 "La Scola","Casa Querciolaia",200
-"La Marmotta","La Lucciola",200
-"La Marmotta","La Scola",200
+"La Lucciola","La Marmotta",200
+"La Scola","La Marmotta",200
 "La Marmotta","Grotta Continenza",200
 "La Marmotta","Portonovo",200
 "La Marmotta","Marcianese",200
@@ -22,44 +22,44 @@
 "La Marmotta","Colle Cera",200
 "La Marmotta","Cala Giovanna",200
 "Umbro Bova Marina","Rocchicella-Paliké",200
-"Strette","Abri Albertini",200
+"Abri Albertini","Strette",200
 "Strette","Pienza",200
 "Strette","Casa Querciolaia",200
 "Strette","Arene Candide II",200
-"Fornace Cappuccini","La Lucciola",200
-"Fornace Cappuccini","Portonovo",200
-"Fornace Cappuccini","Savignano sul Panaro",200
+"La Lucciola","Fornace Cappuccini",200
+"Portonovo","Fornace Cappuccini",200
+"Savignano sul Panaro","Fornace Cappuccini",200
 "Fornace Cappuccini","Piani di Calisti",200
 "Fornace Cappuccini","Pienza",200
 "Fornace Cappuccini","Casa Querciolaia",200
 "Fornace Cappuccini","Fiorano Modenese",200
-"Rio Saboccu","Su Carroppu",200
-"Catignano","La Lucciola",200
-"Catignano","Masseria Acquasalsa",200
-"Catignano","Grotta Continenza",200
-"Catignano","Portonovo",200
-"Catignano","Masseria Candelaro III",200
-"Catignano","Grotta Scaloria",200
-"Catignano","Marcianese",200
-"Catignano","Piani di Calisti",200
-"Catignano","Grotta dei Piccioni",200
-"Catignano","Grotta Sant'Angelo II",200
-"Catignano","Villa Badessa (Cepegatti)",200
+"Su Carroppu","Rio Saboccu",200
+"La Lucciola","Catignano",200
+"Masseria Acquasalsa","Catignano",200
+"Grotta Continenza","Catignano",200
+"Portonovo","Catignano",200
+"Masseria Candelaro III","Catignano",200
+"Grotta Scaloria","Catignano",200
+"Marcianese","Catignano",200
+"Piani di Calisti","Catignano",200
+"Grotta dei Piccioni","Catignano",200
+"Grotta Sant'Angelo II","Catignano",200
+"Villa Badessa (Cepegatti)","Catignano",200
 "Catignano","Colle Cera",200
 "Catignano","Ex Palestra GIL",200
 "Catignano","Masseria Santa Tecchia",200
-"Cala Giovanna","Abri Albertini",200
-"Cala Giovanna","La Lucciola",200
-"Cala Giovanna","Pienza",200
-"Cala Giovanna","Casa Querciolaia",200
-"Grotta San Michele Arcangelo II","Trasanello II",200
-"Grotta San Michele Arcangelo II","Balsignano II",200
-"Grotta San Michele Arcangelo II","Ex Palestra GIL",200
+"Abri Albertini","Cala Giovanna",200
+"La Lucciola","Cala Giovanna",200
+"Pienza","Cala Giovanna",200
+"Casa Querciolaia","Cala Giovanna",200
+"Trasanello II","Grotta San Michele Arcangelo II",200
+"Balsignano II","Grotta San Michele Arcangelo II",200
+"Ex Palestra GIL","Grotta San Michele Arcangelo II",200
 "Grotta San Michele Arcangelo II","Masseria Santa Tecchia",200
-"Sa Punta","Su Carroppu",200
-"Monte Arci","Rio Saboccu",200
-"Monte Arci","Sa Punta",200
-"Lipari","Umbro Bova Marina",200
-"Lipari","Grotta San Michele Arcangelo II",200
-"Palmarola","La Marmotta",200
-"Palmarola","Catignano",200
+"Su Carroppu","Sa Punta",200
+"Rio Saboccu","Monte Arci",200
+"Sa Punta","Monte Arci",200
+"Umbro Bova Marina","Lipari",200
+"Grotta San Michele Arcangelo II","Lipari",200
+"La Marmotta","Palmarola",200
+"Catignano","Palmarola",200
