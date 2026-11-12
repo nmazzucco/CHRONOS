@@ -2,6 +2,7 @@
 "Piana di Curinga","Le Macchie (Ripagnola Polignano a mare)",650
 "Piana di Curinga","Susac Poje",650
 "Piana di Curinga","Favella",650
+"Piana di Curinga","Pulo di Molfetta Fondo Azzolini",650
 "Piana di Curinga","Terragne",650
 "Piana di Curinga","Coppa Nevigata",650
 "Piana di Curinga","Grotta San Michele Arcangelo I",650
@@ -17,43 +18,42 @@
 "Piana di Curinga","Trasanello I",650
 "Piana di Curinga","Palata 1",650
 "Piana di Curinga","Maddalena di Muccia",650
-"Piana di Curinga","Villaggio Ortucchio",650
 "Piana di Curinga","Grotta Sant'Angelo I",650
 "Piana di Curinga","Barice Smilcic",650
 "Piana di Curinga","Balsignano I",650
-"Le Secche","Le Macchie (Ripagnola Polignano a mare)",650
-"Le Secche","Susac Poje",650
-"Le Secche","Favella",650
-"Le Secche","Peiro Signado",650
-"Le Secche","Pont de Roque-Haute",650
-"Le Secche","Terragne",650
-"Le Secche","Coppa Nevigata",650
-"Le Secche","Grotta San Michele Arcangelo I",650
-"Le Secche","Ripatetta",650
-"Le Secche","Kargadur",650
-"Le Secche","Rio Tana",650
-"Le Secche","Scamuso I",650
-"Le Secche","Arene Candide I",650
-"Le Secche","Trasano",650
-"Le Secche","Durdeva greda",650
-"Le Secche","Grotta Pollera",650
-"Le Secche","Grotta dei Cocci",650
-"Le Secche","Masseria Candelaro II",650
+"Le Macchie (Ripagnola Polignano a mare)","Le Secche",650
+"Susac Poje","Le Secche",650
+"Favella","Le Secche",650
+"Peiro Signado","Le Secche",650
+"Pont de Roque-Haute","Le Secche",650
+"Pulo di Molfetta Fondo Azzolini","Le Secche",650
+"Terragne","Le Secche",650
+"Coppa Nevigata","Le Secche",650
+"Grotta San Michele Arcangelo I","Le Secche",650
+"Ripatetta","Le Secche",650
+"Kargadur","Le Secche",650
+"Rio Tana","Le Secche",650
+"Scamuso I","Le Secche",650
+"Arene Candide I","Le Secche",650
+"Trasano","Le Secche",650
+"Durdeva greda","Le Secche",650
+"Grotta Pollera","Le Secche",650
+"Grotta dei Cocci","Le Secche",650
+"Masseria Candelaro II","Le Secche",650
 "Le Secche","Basi I",650
 "Le Secche","Trasanello I",650
 "Le Secche","Palata 1",650
 "Le Secche","Maddalena di Muccia",650
-"Le Secche","Villaggio Ortucchio",650
 "Le Secche","Grotta Sant'Angelo I",650
 "Le Secche","Barice Smilcic",650
 "Le Secche","Balsignano I",650
 "Le Secche","La Farigoule 2",650
-"Colle Santo Stefano","Piana di Curinga",650
-"Colle Santo Stefano","Le Secche",650
-"Renaghju","Le Secche",650
-"Monte Arci","Colle Santo Stefano",650
-"Monte Arci","Renaghju",650
-"Lipari","Colle Santo Stefano",650
-"Lipari","Renaghju",650
-"Palmarola","Colle Santo Stefano",650
-"Palmarola","Renaghju",650
+"Piana di Curinga","Colle Santo Stefano",650
+"Le Secche","Colle Santo Stefano",650
+"Le Secche","Renaghju",650
+"Colle Santo Stefano","Monte Arci",650
+"Renaghju","Monte Arci",650
+"Colle Santo Stefano","Lipari",650
+"Renaghju","Lipari",650
+"Colle Santo Stefano","Palmarola",650
+"Renaghju","Palmarola",650

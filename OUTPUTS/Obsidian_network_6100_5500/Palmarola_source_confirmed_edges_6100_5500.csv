@@ -1,37 +1,31 @@
 "from","to","distance_rule_km"
-"Le Secche","Susac Poje",650
-"Le Secche","Peiro Signado",650
-"Le Secche","Pont de Roque-Haute",650
-"Le Secche","Grotta San Michele Arcangelo I",650
-"Le Secche","Ripatetta",650
-"Le Secche","Arene Candide I",650
-"Le Secche","Grotta Pollera",650
-"Le Secche","Masseria Candelaro II",650
-"Le Secche","Maddalena di Muccia",650
-"Le Secche","Grotta Sant'Angelo I",650
-"Le Secche","Balsignano I",650
-"Le Secche","La Farigoule 2",650
-"Colle Santo Stefano","Susac Poje",650
-"Colle Santo Stefano","Grotta San Michele Arcangelo I",650
-"Colle Santo Stefano","Ripatetta",650
-"Colle Santo Stefano","Arene Candide I",650
-"Colle Santo Stefano","Grotta Pollera",650
-"Colle Santo Stefano","Masseria Candelaro II",650
-"Colle Santo Stefano","Le Secche",650
-"Colle Santo Stefano","Maddalena di Muccia",650
-"Colle Santo Stefano","Grotta Sant'Angelo I",650
-"Colle Santo Stefano","Balsignano I",650
-"Renaghju","Susac Poje",650
-"Renaghju","Peiro Signado",650
-"Renaghju","Pont de Roque-Haute",650
-"Renaghju","Grotta San Michele Arcangelo I",650
-"Renaghju","Ripatetta",650
-"Renaghju","Arene Candide I",650
-"Renaghju","Grotta Pollera",650
-"Renaghju","Masseria Candelaro II",650
-"Renaghju","Le Secche",650
-"Renaghju","Maddalena di Muccia",650
-"Renaghju","Grotta Sant'Angelo I",650
-"Renaghju","La Farigoule 2",650
-"Palmarola","Colle Santo Stefano",650
-"Palmarola","Renaghju",650
+"Susac Poje","Le Secche",550
+"Grotta San Michele Arcangelo I","Le Secche",550
+"Ripatetta","Le Secche",550
+"Arene Candide I","Le Secche",550
+"Grotta Pollera","Le Secche",550
+"Masseria Candelaro II","Le Secche",550
+"Le Secche","Maddalena di Muccia",550
+"Susac Poje","Colle Santo Stefano",550
+"Grotta San Michele Arcangelo I","Colle Santo Stefano",550
+"Ripatetta","Colle Santo Stefano",550
+"Arene Candide I","Colle Santo Stefano",550
+"Grotta Pollera","Colle Santo Stefano",550
+"Masseria Candelaro II","Colle Santo Stefano",550
+"Le Secche","Colle Santo Stefano",550
+"Maddalena di Muccia","Colle Santo Stefano",550
+"Le Secche","Grotta Sant'Angelo I",550
+"Colle Santo Stefano","Grotta Sant'Angelo I",550
+"Peiro Signado","Renaghju",550
+"Pont de Roque-Haute","Renaghju",550
+"Ripatetta","Renaghju",550
+"Arene Candide I","Renaghju",550
+"Grotta Pollera","Renaghju",550
+"Le Secche","Renaghju",550
+"Maddalena di Muccia","Renaghju",550
+"Grotta Sant'Angelo I","Renaghju",550
+"Le Secche","Balsignano I",550
+"Colle Santo Stefano","Balsignano I",550
+"Renaghju","La Farigoule 2",550
+"Colle Santo Stefano","Palmarola",550
+"Renaghju","Palmarola",550

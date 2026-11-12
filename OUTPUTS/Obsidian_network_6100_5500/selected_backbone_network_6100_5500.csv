@@ -1,2 +1,2 @@
 "Network","Rule_set","Distance_km","Nodes","Edges","Components","Connected_All_Sites"
-"Rule_B_650km","Rule_B",650,37,111,2,FALSE
+"Rule_A_550km","Rule_A",550,36,88,1,TRUE

@@ -2,6 +2,7 @@
 "Piana di Curinga","Le Macchie (Ripagnola Polignano a mare)",500
 "Piana di Curinga","Susac Poje",500
 "Piana di Curinga","Favella",500
+"Piana di Curinga","Pulo di Molfetta Fondo Azzolini",500
 "Piana di Curinga","Terragne",500
 "Piana di Curinga","Coppa Nevigata",500
 "Piana di Curinga","Grotta San Michele Arcangelo I",500
@@ -14,70 +15,68 @@
 "Piana di Curinga","Masseria Candelaro II",500
 "Piana di Curinga","Trasanello I",500
 "Piana di Curinga","Palata 1",500
-"Piana di Curinga","Villaggio Ortucchio",500
 "Piana di Curinga","Grotta Sant'Angelo I",500
 "Piana di Curinga","Balsignano I",500
-"Le Secche","Susac Poje",500
-"Le Secche","Coppa Nevigata",500
-"Le Secche","Ripatetta",500
-"Le Secche","Kargadur",500
-"Le Secche","Rio Tana",500
-"Le Secche","Scamuso I",500
-"Le Secche","Arene Candide I",500
-"Le Secche","Durdeva greda",500
-"Le Secche","Grotta Pollera",500
-"Le Secche","Grotta dei Cocci",500
-"Le Secche","Masseria Candelaro II",500
+"Susac Poje","Le Secche",500
+"Pulo di Molfetta Fondo Azzolini","Le Secche",500
+"Coppa Nevigata","Le Secche",500
+"Ripatetta","Le Secche",500
+"Kargadur","Le Secche",500
+"Rio Tana","Le Secche",500
+"Scamuso I","Le Secche",500
+"Arene Candide I","Le Secche",500
+"Durdeva greda","Le Secche",500
+"Grotta Pollera","Le Secche",500
+"Grotta dei Cocci","Le Secche",500
+"Masseria Candelaro II","Le Secche",500
 "Le Secche","Basi I",500
 "Le Secche","Palata 1",500
 "Le Secche","Maddalena di Muccia",500
-"Le Secche","Villaggio Ortucchio",500
 "Le Secche","Grotta Sant'Angelo I",500
 "Le Secche","Barice Smilcic",500
-"Colle Santo Stefano","Piana di Curinga",500
-"Colle Santo Stefano","Le Macchie (Ripagnola Polignano a mare)",500
-"Colle Santo Stefano","Susac Poje",500
-"Colle Santo Stefano","Favella",500
-"Colle Santo Stefano","Terragne",500
-"Colle Santo Stefano","Coppa Nevigata",500
-"Colle Santo Stefano","Grotta San Michele Arcangelo I",500
-"Colle Santo Stefano","Ripatetta",500
-"Colle Santo Stefano","Torre Sabea",500
-"Colle Santo Stefano","Kargadur",500
-"Colle Santo Stefano","Rio Tana",500
-"Colle Santo Stefano","Scamuso I",500
-"Colle Santo Stefano","Arene Candide I",500
-"Colle Santo Stefano","Trasano",500
-"Colle Santo Stefano","Durdeva greda",500
-"Colle Santo Stefano","Masseria Montevergine - Torre de Rubeis",500
-"Colle Santo Stefano","Grotta dei Cocci",500
-"Colle Santo Stefano","Masseria Candelaro II",500
-"Colle Santo Stefano","Le Secche",500
-"Colle Santo Stefano","Basi I",500
-"Colle Santo Stefano","Trasanello I",500
-"Colle Santo Stefano","Palata 1",500
-"Colle Santo Stefano","Maddalena di Muccia",500
-"Colle Santo Stefano","Villaggio Ortucchio",500
+"Piana di Curinga","Colle Santo Stefano",500
+"Le Macchie (Ripagnola Polignano a mare)","Colle Santo Stefano",500
+"Susac Poje","Colle Santo Stefano",500
+"Favella","Colle Santo Stefano",500
+"Pulo di Molfetta Fondo Azzolini","Colle Santo Stefano",500
+"Terragne","Colle Santo Stefano",500
+"Coppa Nevigata","Colle Santo Stefano",500
+"Grotta San Michele Arcangelo I","Colle Santo Stefano",500
+"Ripatetta","Colle Santo Stefano",500
+"Torre Sabea","Colle Santo Stefano",500
+"Kargadur","Colle Santo Stefano",500
+"Rio Tana","Colle Santo Stefano",500
+"Scamuso I","Colle Santo Stefano",500
+"Arene Candide I","Colle Santo Stefano",500
+"Trasano","Colle Santo Stefano",500
+"Durdeva greda","Colle Santo Stefano",500
+"Masseria Montevergine - Torre de Rubeis","Colle Santo Stefano",500
+"Grotta dei Cocci","Colle Santo Stefano",500
+"Masseria Candelaro II","Colle Santo Stefano",500
+"Le Secche","Colle Santo Stefano",500
+"Basi I","Colle Santo Stefano",500
+"Trasanello I","Colle Santo Stefano",500
+"Palata 1","Colle Santo Stefano",500
+"Maddalena di Muccia","Colle Santo Stefano",500
 "Colle Santo Stefano","Grotta Sant'Angelo I",500
 "Colle Santo Stefano","Barice Smilcic",500
 "Colle Santo Stefano","Balsignano I",500
-"Renaghju","Pont de Roque-Haute",500
-"Renaghju","Rio Tana",500
-"Renaghju","Arene Candide I",500
-"Renaghju","Grotta Pollera",500
-"Renaghju","Grotta dei Cocci",500
-"Renaghju","Le Secche",500
-"Renaghju","Basi I",500
-"Renaghju","Maddalena di Muccia",500
-"Renaghju","Villaggio Ortucchio",500
-"Renaghju","Grotta Sant'Angelo I",500
+"Pont de Roque-Haute","Renaghju",500
+"Rio Tana","Renaghju",500
+"Arene Candide I","Renaghju",500
+"Grotta Pollera","Renaghju",500
+"Grotta dei Cocci","Renaghju",500
+"Le Secche","Renaghju",500
+"Basi I","Renaghju",500
+"Maddalena di Muccia","Renaghju",500
+"Grotta Sant'Angelo I","Renaghju",500
 "Renaghju","La Farigoule 2",500
-"Monte Arci","Le Secche",500
-"Monte Arci","Colle Santo Stefano",500
-"Monte Arci","Renaghju",500
-"Lipari","Piana di Curinga",500
-"Lipari","Colle Santo Stefano",500
-"Palmarola","Piana di Curinga",500
-"Palmarola","Le Secche",500
-"Palmarola","Colle Santo Stefano",500
-"Palmarola","Renaghju",500
+"Le Secche","Monte Arci",500
+"Colle Santo Stefano","Monte Arci",500
+"Renaghju","Monte Arci",500
+"Piana di Curinga","Lipari",500
+"Colle Santo Stefano","Lipari",500
+"Piana di Curinga","Palmarola",500
+"Le Secche","Palmarola",500
+"Colle Santo Stefano","Palmarola",500
+"Renaghju","Palmarola",500

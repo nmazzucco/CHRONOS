@@ -2,6 +2,7 @@
 "Piana di Curinga","Le Macchie (Ripagnola Polignano a mare)",500
 "Piana di Curinga","Susac Poje",500
 "Piana di Curinga","Favella",500
+"Piana di Curinga","Pulo di Molfetta Fondo Azzolini",500
 "Piana di Curinga","Terragne",500
 "Piana di Curinga","Coppa Nevigata",500
 "Piana di Curinga","Grotta San Michele Arcangelo I",500
@@ -14,31 +15,30 @@
 "Piana di Curinga","Masseria Candelaro II",500
 "Piana di Curinga","Trasanello I",500
 "Piana di Curinga","Palata 1",500
-"Piana di Curinga","Villaggio Ortucchio",500
 "Piana di Curinga","Grotta Sant'Angelo I",500
 "Piana di Curinga","Balsignano I",500
-"Le Secche","Susac Poje",500
-"Le Secche","Coppa Nevigata",500
-"Le Secche","Ripatetta",500
-"Le Secche","Kargadur",500
-"Le Secche","Rio Tana",500
-"Le Secche","Scamuso I",500
-"Le Secche","Arene Candide I",500
-"Le Secche","Durdeva greda",500
-"Le Secche","Grotta Pollera",500
-"Le Secche","Grotta dei Cocci",500
-"Le Secche","Masseria Candelaro II",500
+"Susac Poje","Le Secche",500
+"Pulo di Molfetta Fondo Azzolini","Le Secche",500
+"Coppa Nevigata","Le Secche",500
+"Ripatetta","Le Secche",500
+"Kargadur","Le Secche",500
+"Rio Tana","Le Secche",500
+"Scamuso I","Le Secche",500
+"Arene Candide I","Le Secche",500
+"Durdeva greda","Le Secche",500
+"Grotta Pollera","Le Secche",500
+"Grotta dei Cocci","Le Secche",500
+"Masseria Candelaro II","Le Secche",500
 "Le Secche","Basi I",500
 "Le Secche","Palata 1",500
 "Le Secche","Maddalena di Muccia",500
-"Le Secche","Villaggio Ortucchio",500
 "Le Secche","Grotta Sant'Angelo I",500
 "Le Secche","Barice Smilcic",500
-"Colle Santo Stefano","Piana di Curinga",500
-"Colle Santo Stefano","Le Secche",500
-"Renaghju","Le Secche",500
-"Monte Arci","Colle Santo Stefano",500
-"Monte Arci","Renaghju",500
-"Lipari","Colle Santo Stefano",500
-"Palmarola","Colle Santo Stefano",500
-"Palmarola","Renaghju",500
+"Piana di Curinga","Colle Santo Stefano",500
+"Le Secche","Colle Santo Stefano",500
+"Le Secche","Renaghju",500
+"Colle Santo Stefano","Monte Arci",500
+"Renaghju","Monte Arci",500
+"Colle Santo Stefano","Lipari",500
+"Colle Santo Stefano","Palmarola",500
+"Renaghju","Palmarola",500

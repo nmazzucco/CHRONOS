@@ -8,25 +8,23 @@
 "Piana di Curinga","Masseria Montevergine - Torre de Rubeis",250
 "Piana di Curinga","Trasanello I",250
 "Piana di Curinga","Balsignano I",250
-"Le Secche","Rio Tana",250
-"Le Secche","Grotta dei Cocci",250
+"Rio Tana","Le Secche",250
+"Grotta dei Cocci","Le Secche",250
 "Le Secche","Basi I",250
 "Le Secche","Maddalena di Muccia",250
-"Le Secche","Villaggio Ortucchio",250
 "Le Secche","Grotta Sant'Angelo I",250
-"Colle Santo Stefano","Coppa Nevigata",250
-"Colle Santo Stefano","Ripatetta",250
-"Colle Santo Stefano","Rio Tana",250
-"Colle Santo Stefano","Grotta dei Cocci",250
-"Colle Santo Stefano","Masseria Candelaro II",250
-"Colle Santo Stefano","Le Secche",250
-"Colle Santo Stefano","Palata 1",250
-"Colle Santo Stefano","Maddalena di Muccia",250
-"Colle Santo Stefano","Villaggio Ortucchio",250
+"Coppa Nevigata","Colle Santo Stefano",250
+"Ripatetta","Colle Santo Stefano",250
+"Rio Tana","Colle Santo Stefano",250
+"Grotta dei Cocci","Colle Santo Stefano",250
+"Masseria Candelaro II","Colle Santo Stefano",250
+"Le Secche","Colle Santo Stefano",250
+"Palata 1","Colle Santo Stefano",250
+"Maddalena di Muccia","Colle Santo Stefano",250
 "Colle Santo Stefano","Grotta Sant'Angelo I",250
-"Renaghju","Le Secche",250
-"Renaghju","Basi I",250
-"Monte Arci","Renaghju",250
-"Lipari","Piana di Curinga",250
-"Palmarola","Le Secche",250
-"Palmarola","Colle Santo Stefano",250
+"Le Secche","Renaghju",250
+"Basi I","Renaghju",250
+"Renaghju","Monte Arci",250
+"Piana di Curinga","Lipari",250
+"Le Secche","Palmarola",250
+"Colle Santo Stefano","Palmarola",250

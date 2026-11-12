@@ -1,0 +1,4 @@
+"Network","Nodes","Edges","Components","Isolates","Largest_Component_Size","Connected_All_Sites","Rule_set","Distance_km","Sensitivity"
+"Rule_A_550km",36,86,1,0,36,TRUE,"Rule_A",550,"sqrt"
+"Rule_B_550km",36,92,1,0,36,TRUE,"Rule_B",550,"sqrt"
+"Rule_C_550km",36,60,1,0,36,TRUE,"Rule_C",550,"sqrt"

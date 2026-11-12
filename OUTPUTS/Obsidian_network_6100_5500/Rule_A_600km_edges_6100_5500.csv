@@ -2,6 +2,7 @@
 "Piana di Curinga","Le Macchie (Ripagnola Polignano a mare)",600
 "Piana di Curinga","Susac Poje",600
 "Piana di Curinga","Favella",600
+"Piana di Curinga","Pulo di Molfetta Fondo Azzolini",600
 "Piana di Curinga","Terragne",600
 "Piana di Curinga","Coppa Nevigata",600
 "Piana di Curinga","Grotta San Michele Arcangelo I",600
@@ -16,80 +17,78 @@
 "Piana di Curinga","Trasanello I",600
 "Piana di Curinga","Palata 1",600
 "Piana di Curinga","Maddalena di Muccia",600
-"Piana di Curinga","Villaggio Ortucchio",600
 "Piana di Curinga","Grotta Sant'Angelo I",600
 "Piana di Curinga","Barice Smilcic",600
 "Piana di Curinga","Balsignano I",600
-"Le Secche","Le Macchie (Ripagnola Polignano a mare)",600
-"Le Secche","Susac Poje",600
-"Le Secche","Favella",600
-"Le Secche","Coppa Nevigata",600
-"Le Secche","Grotta San Michele Arcangelo I",600
-"Le Secche","Ripatetta",600
-"Le Secche","Kargadur",600
-"Le Secche","Rio Tana",600
-"Le Secche","Scamuso I",600
-"Le Secche","Arene Candide I",600
-"Le Secche","Trasano",600
-"Le Secche","Durdeva greda",600
-"Le Secche","Grotta Pollera",600
-"Le Secche","Grotta dei Cocci",600
-"Le Secche","Masseria Candelaro II",600
+"Le Macchie (Ripagnola Polignano a mare)","Le Secche",600
+"Susac Poje","Le Secche",600
+"Favella","Le Secche",600
+"Pulo di Molfetta Fondo Azzolini","Le Secche",600
+"Coppa Nevigata","Le Secche",600
+"Grotta San Michele Arcangelo I","Le Secche",600
+"Ripatetta","Le Secche",600
+"Kargadur","Le Secche",600
+"Rio Tana","Le Secche",600
+"Scamuso I","Le Secche",600
+"Arene Candide I","Le Secche",600
+"Trasano","Le Secche",600
+"Durdeva greda","Le Secche",600
+"Grotta Pollera","Le Secche",600
+"Grotta dei Cocci","Le Secche",600
+"Masseria Candelaro II","Le Secche",600
 "Le Secche","Basi I",600
 "Le Secche","Trasanello I",600
 "Le Secche","Palata 1",600
 "Le Secche","Maddalena di Muccia",600
-"Le Secche","Villaggio Ortucchio",600
 "Le Secche","Grotta Sant'Angelo I",600
 "Le Secche","Barice Smilcic",600
 "Le Secche","Balsignano I",600
 "Le Secche","La Farigoule 2",600
-"Colle Santo Stefano","Piana di Curinga",600
-"Colle Santo Stefano","Le Macchie (Ripagnola Polignano a mare)",600
-"Colle Santo Stefano","Susac Poje",600
-"Colle Santo Stefano","Favella",600
-"Colle Santo Stefano","Terragne",600
-"Colle Santo Stefano","Coppa Nevigata",600
-"Colle Santo Stefano","Grotta San Michele Arcangelo I",600
-"Colle Santo Stefano","Ripatetta",600
-"Colle Santo Stefano","Torre Sabea",600
-"Colle Santo Stefano","Kargadur",600
-"Colle Santo Stefano","Rio Tana",600
-"Colle Santo Stefano","Scamuso I",600
-"Colle Santo Stefano","Arene Candide I",600
-"Colle Santo Stefano","Trasano",600
-"Colle Santo Stefano","Durdeva greda",600
-"Colle Santo Stefano","Masseria Montevergine - Torre de Rubeis",600
-"Colle Santo Stefano","Grotta Pollera",600
-"Colle Santo Stefano","Grotta dei Cocci",600
-"Colle Santo Stefano","Masseria Candelaro II",600
-"Colle Santo Stefano","Le Secche",600
-"Colle Santo Stefano","Basi I",600
-"Colle Santo Stefano","Trasanello I",600
-"Colle Santo Stefano","Palata 1",600
-"Colle Santo Stefano","Maddalena di Muccia",600
-"Colle Santo Stefano","Villaggio Ortucchio",600
+"Piana di Curinga","Colle Santo Stefano",600
+"Le Macchie (Ripagnola Polignano a mare)","Colle Santo Stefano",600
+"Susac Poje","Colle Santo Stefano",600
+"Favella","Colle Santo Stefano",600
+"Pulo di Molfetta Fondo Azzolini","Colle Santo Stefano",600
+"Terragne","Colle Santo Stefano",600
+"Coppa Nevigata","Colle Santo Stefano",600
+"Grotta San Michele Arcangelo I","Colle Santo Stefano",600
+"Ripatetta","Colle Santo Stefano",600
+"Torre Sabea","Colle Santo Stefano",600
+"Kargadur","Colle Santo Stefano",600
+"Rio Tana","Colle Santo Stefano",600
+"Scamuso I","Colle Santo Stefano",600
+"Arene Candide I","Colle Santo Stefano",600
+"Trasano","Colle Santo Stefano",600
+"Durdeva greda","Colle Santo Stefano",600
+"Masseria Montevergine - Torre de Rubeis","Colle Santo Stefano",600
+"Grotta Pollera","Colle Santo Stefano",600
+"Grotta dei Cocci","Colle Santo Stefano",600
+"Masseria Candelaro II","Colle Santo Stefano",600
+"Le Secche","Colle Santo Stefano",600
+"Basi I","Colle Santo Stefano",600
+"Trasanello I","Colle Santo Stefano",600
+"Palata 1","Colle Santo Stefano",600
+"Maddalena di Muccia","Colle Santo Stefano",600
 "Colle Santo Stefano","Grotta Sant'Angelo I",600
 "Colle Santo Stefano","Barice Smilcic",600
 "Colle Santo Stefano","Balsignano I",600
-"Renaghju","Peiro Signado",600
-"Renaghju","Pont de Roque-Haute",600
-"Renaghju","Coppa Nevigata",600
-"Renaghju","Ripatetta",600
-"Renaghju","Kargadur",600
-"Renaghju","Rio Tana",600
-"Renaghju","Arene Candide I",600
-"Renaghju","Grotta Pollera",600
-"Renaghju","Grotta dei Cocci",600
-"Renaghju","Masseria Candelaro II",600
-"Renaghju","Le Secche",600
-"Renaghju","Basi I",600
-"Renaghju","Maddalena di Muccia",600
-"Renaghju","Villaggio Ortucchio",600
-"Renaghju","Grotta Sant'Angelo I",600
+"Peiro Signado","Renaghju",600
+"Pont de Roque-Haute","Renaghju",600
+"Coppa Nevigata","Renaghju",600
+"Ripatetta","Renaghju",600
+"Kargadur","Renaghju",600
+"Rio Tana","Renaghju",600
+"Arene Candide I","Renaghju",600
+"Grotta Pollera","Renaghju",600
+"Grotta dei Cocci","Renaghju",600
+"Masseria Candelaro II","Renaghju",600
+"Le Secche","Renaghju",600
+"Basi I","Renaghju",600
+"Maddalena di Muccia","Renaghju",600
+"Grotta Sant'Angelo I","Renaghju",600
 "Renaghju","La Farigoule 2",600
-"Monte Arci","Colle Santo Stefano",600
-"Monte Arci","Renaghju",600
-"Lipari","Colle Santo Stefano",600
-"Palmarola","Colle Santo Stefano",600
-"Palmarola","Renaghju",600
+"Colle Santo Stefano","Monte Arci",600
+"Renaghju","Monte Arci",600
+"Colle Santo Stefano","Lipari",600
+"Colle Santo Stefano","Palmarola",600
+"Renaghju","Palmarola",600

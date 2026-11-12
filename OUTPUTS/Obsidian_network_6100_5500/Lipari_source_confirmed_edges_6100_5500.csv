@@ -1,26 +1,26 @@
 "from","to","distance_rule_km"
-"Le Secche","Susac Poje",650
-"Le Secche","Favella",650
-"Le Secche","Terragne",650
-"Le Secche","Grotta San Michele Arcangelo I",650
-"Le Secche","Ripatetta",650
-"Le Secche","Kargadur",650
-"Le Secche","Masseria Candelaro II",650
-"Le Secche","Trasanello I",650
-"Le Secche","Maddalena di Muccia",650
-"Le Secche","Grotta Sant'Angelo I",650
-"Le Secche","Balsignano I",650
-"Colle Santo Stefano","Susac Poje",650
-"Colle Santo Stefano","Favella",650
-"Colle Santo Stefano","Terragne",650
-"Colle Santo Stefano","Grotta San Michele Arcangelo I",650
-"Colle Santo Stefano","Ripatetta",650
-"Colle Santo Stefano","Torre Sabea",650
-"Colle Santo Stefano","Kargadur",650
-"Colle Santo Stefano","Masseria Candelaro II",650
-"Colle Santo Stefano","Le Secche",650
-"Colle Santo Stefano","Trasanello I",650
-"Colle Santo Stefano","Maddalena di Muccia",650
-"Colle Santo Stefano","Grotta Sant'Angelo I",650
-"Colle Santo Stefano","Balsignano I",650
-"Lipari","Colle Santo Stefano",650
+"Susac Poje","Le Secche",550
+"Pulo di Molfetta Fondo Azzolini","Le Secche",550
+"Grotta San Michele Arcangelo I","Le Secche",550
+"Ripatetta","Le Secche",550
+"Kargadur","Le Secche",550
+"Masseria Candelaro II","Le Secche",550
+"Le Secche","Trasanello I",550
+"Le Secche","Maddalena di Muccia",550
+"Susac Poje","Colle Santo Stefano",550
+"Favella","Colle Santo Stefano",550
+"Pulo di Molfetta Fondo Azzolini","Colle Santo Stefano",550
+"Terragne","Colle Santo Stefano",550
+"Grotta San Michele Arcangelo I","Colle Santo Stefano",550
+"Ripatetta","Colle Santo Stefano",550
+"Torre Sabea","Colle Santo Stefano",550
+"Kargadur","Colle Santo Stefano",550
+"Masseria Candelaro II","Colle Santo Stefano",550
+"Le Secche","Colle Santo Stefano",550
+"Trasanello I","Colle Santo Stefano",550
+"Maddalena di Muccia","Colle Santo Stefano",550
+"Le Secche","Grotta Sant'Angelo I",550
+"Colle Santo Stefano","Grotta Sant'Angelo I",550
+"Le Secche","Balsignano I",550
+"Colle Santo Stefano","Balsignano I",550
+"Colle Santo Stefano","Lipari",550

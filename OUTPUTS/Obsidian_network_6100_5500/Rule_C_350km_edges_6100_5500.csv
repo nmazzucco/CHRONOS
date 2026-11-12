@@ -1,6 +1,7 @@
 "from","to","distance_rule_km"
 "Piana di Curinga","Le Macchie (Ripagnola Polignano a mare)",350
 "Piana di Curinga","Favella",350
+"Piana di Curinga","Pulo di Molfetta Fondo Azzolini",350
 "Piana di Curinga","Terragne",350
 "Piana di Curinga","Coppa Nevigata",350
 "Piana di Curinga","Grotta San Michele Arcangelo I",350
@@ -13,16 +14,15 @@
 "Piana di Curinga","Trasanello I",350
 "Piana di Curinga","Palata 1",350
 "Piana di Curinga","Balsignano I",350
-"Le Secche","Rio Tana",350
-"Le Secche","Arene Candide I",350
-"Le Secche","Grotta Pollera",350
-"Le Secche","Grotta dei Cocci",350
+"Rio Tana","Le Secche",350
+"Arene Candide I","Le Secche",350
+"Grotta Pollera","Le Secche",350
+"Grotta dei Cocci","Le Secche",350
 "Le Secche","Basi I",350
 "Le Secche","Maddalena di Muccia",350
-"Le Secche","Villaggio Ortucchio",350
 "Le Secche","Grotta Sant'Angelo I",350
-"Colle Santo Stefano","Le Secche",350
-"Renaghju","Le Secche",350
-"Monte Arci","Renaghju",350
-"Palmarola","Colle Santo Stefano",350
-"Palmarola","Renaghju",350
+"Le Secche","Colle Santo Stefano",350
+"Le Secche","Renaghju",350
+"Renaghju","Monte Arci",350
+"Colle Santo Stefano","Palmarola",350
+"Renaghju","Palmarola",350

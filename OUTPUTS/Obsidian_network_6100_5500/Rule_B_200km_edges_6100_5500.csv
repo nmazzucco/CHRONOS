@@ -2,19 +2,18 @@
 "Piana di Curinga","Favella",200
 "Piana di Curinga","Grotta San Michele Arcangelo I",200
 "Piana di Curinga","Scamuso I",200
-"Le Secche","Grotta dei Cocci",200
+"Grotta dei Cocci","Le Secche",200
 "Le Secche","Basi I",200
 "Le Secche","Maddalena di Muccia",200
-"Colle Santo Stefano","Coppa Nevigata",200
-"Colle Santo Stefano","Ripatetta",200
-"Colle Santo Stefano","Rio Tana",200
-"Colle Santo Stefano","Grotta dei Cocci",200
-"Colle Santo Stefano","Masseria Candelaro II",200
-"Colle Santo Stefano","Maddalena di Muccia",200
-"Colle Santo Stefano","Villaggio Ortucchio",200
+"Coppa Nevigata","Colle Santo Stefano",200
+"Ripatetta","Colle Santo Stefano",200
+"Rio Tana","Colle Santo Stefano",200
+"Grotta dei Cocci","Colle Santo Stefano",200
+"Masseria Candelaro II","Colle Santo Stefano",200
+"Maddalena di Muccia","Colle Santo Stefano",200
 "Colle Santo Stefano","Grotta Sant'Angelo I",200
-"Renaghju","Le Secche",200
-"Renaghju","Basi I",200
-"Monte Arci","Renaghju",200
-"Lipari","Piana di Curinga",200
-"Palmarola","Colle Santo Stefano",200
+"Le Secche","Renaghju",200
+"Basi I","Renaghju",200
+"Renaghju","Monte Arci",200
+"Piana di Curinga","Lipari",200
+"Colle Santo Stefano","Palmarola",200
