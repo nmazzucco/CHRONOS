@@ -1,1013 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>CHRONOS Report — Stepwise Analytical Workflow</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CHRONOS analytical report</title>
 <style>
-:root { --bg:#f3f6f9; --paper:#fff; --ink:#1f2937; --muted:#5f6b7a; --line:#d8dee9; --blue:#19324a; --green:#25635c; --orange:#8a4b2a; }
-* { box-sizing:border-box; }
-body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.62; }
-header { background:linear-gradient(135deg,#19324a,#25635c); color:white; padding:48px 24px; }
-.wrap, main { max-width:1240px; margin:0 auto; }
-header h1 { margin:0 0 8px; font-size:clamp(2.2rem,4vw,3.4rem); }
-header p { max-width:920px; font-size:1.08rem; margin:6px 0; }
-main { background:var(--paper); padding:32px 28px 70px; box-shadow:0 8px 36px rgba(0,0,0,.08); }
-h2 { margin-top:48px; padding-bottom:8px; border-bottom:2px solid var(--line); color:var(--blue); }
-h3 { margin-top:34px; color:var(--green); }
-h4 { margin:28px 0 12px; color:var(--orange); }
-a { color:#075ea8; }
-.notice { background:#fff8e7; border-left:5px solid #d19122; padding:14px 18px; margin:18px 0; }
-.toc { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:8px 24px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); gap:22px; align-items:start; }
-.grid.two { grid-template-columns:repeat(auto-fit,minmax(430px,1fr)); }
-.fig { margin:0; padding:12px; border:1px solid var(--line); border-radius:12px; background:white; box-shadow:0 2px 12px rgba(0,0,0,.05); }
-.fig img { display:block; width:100%; height:auto; border:1px solid #e5e7eb; border-radius:8px; background:#f7f7f7; }
-figcaption { padding:10px 2px 2px; font-size:.95rem; }
-.path { display:block; margin-top:8px; color:var(--muted); font-size:.78rem; overflow-wrap:anywhere; }
-.missing-msg { border:1px dashed #b45309; background:#fff7ed; color:#7c2d12; border-radius:8px; padding:12px; font-size:.9rem; }
-table { width:100%; border-collapse:collapse; margin:16px 0 28px; font-size:.94rem; }
-th,td { border:1px solid var(--line); padding:9px 10px; vertical-align:top; }
-th { background:#eef3f7; text-align:left; }
-pre, code { font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; }
-pre { background:#f6f8fa; color:#24292f; border:1px solid #d0d7de; border-radius:8px; padding:16px 18px; overflow-x:auto; white-space:pre-wrap; }
-code { background:#f6f8fa; color:#24292f; border-radius:5px; padding:.15em .35em; }
-footer { margin-top:48px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); }
-@media(max-width:760px) { main { padding:22px 16px 50px; } .grid,.grid.two { grid-template-columns:1fr; } }
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:1100px;margin:0 auto;padding:28px;line-height:1.55;color:#222}
+h1,h2,h3{line-height:1.2} h1{margin-bottom:.2rem} nav{padding:12px 0 20px;border-bottom:1px solid #ddd}
+nav a{margin-right:14px} code{background:#f3f3f3;padding:.1em .3em;border-radius:3px}
+pre{background:#f6f6f6;padding:14px;overflow:auto} table{border-collapse:collapse;width:100%;margin:1rem 0}
+th,td{border:1px solid #ddd;padding:8px;vertical-align:top;text-align:left} th{background:#f5f5f5}
+.note{background:#f6f8fa;border-left:4px solid #777;padding:12px 16px;margin:16px 0}
+.result{background:#f3f8f3;border-left:4px solid #4b7;padding:12px 16px;margin:16px 0}
+img{max-width:100%;height:auto;border:1px solid #ddd;margin:.5rem 0 1.5rem}
+.small{font-size:.92rem;color:#555}
 </style>
 </head>
 <body>
-<header><div class="wrap">
 <h1>CHRONOS Report</h1>
-<p>Stepwise illustrated report for modelling Neolithic obsidian production and circulation in the Central Mediterranean.</p>
-<p>The figures are organised according to the analytical sequence of <code>CHRONOS.R</code>.</p>
-</div></header>
-<main>
-<section id="summary">
-<h2>Executive summary</h2>
-<p>This report follows the logic of the analytical workflow: data cleaning, production-score ranking, Manhattan-dissimilarity diagnostics, rule-distance network modelling, source-filtered networks, and final site-location mapping.</p>
-<div class="notice"><strong>Missing-image control.</strong> If a PNG is not present in the repository, the report shows a visible warning card with the expected path. This helps identify missing uploads without breaking the report.</div>
-</section>
+<p><strong>Modelling Obsidian Production and Circulation across the Central Mediterranean, 6100–4900 cal BCE</strong></p>
+<p>This report documents the current CHRONOS R workflow, including contribution-based ranking, Manhattan diagnostics, assemblage-size sensitivity tests, rule-distance network models, source-confirmed networks and publication-figure assembly.</p>
 
-<section id="contents"><h2>Contents</h2>
-<ol class="toc">
-<li><a href="#step1">Obsidian technological data</a></li>
-<li><a href="#step2">Production-contribution values and ranks</a></li>
-<li><a href="#step3">Manhattan dissimilarity space</a></li>
-<li><a href="#step4">Rule-distance network models: Rule A, Rule B, Rule C</a></li>
-<li><a href="#step5">Source-filtered networks: Lipari, Palmarola, Monte Arci</a></li>
-<li><a href="#step6">Map of analysed sites</a></li>
-<li><a href="#tables">Output table catalogue</a></li>
-<li><a href="#reproducibility">Reproducibility and licence</a></li>
-</ol></section>
+<nav>
+<a href="#scope">Scope</a><a href="#inputs">Inputs</a><a href="#ranking">Ranking</a><a href="#sensitivity">Sensitivity</a><a href="#networks">Networks</a><a href="#sources">Sources</a><a href="#figures">Figures</a><a href="#tables">Outputs</a><a href="#reproducibility">Reproducibility</a>
+</nav>
 
-<section id="step1">
-<h2>1. Obsidian technological data</h2>
-<p>The workflow starts by reading and cleaning the full obsidian table and the two chronological subsets. Site names, coordinates, technological counts, total artefact counts, and source-attribution fields are standardised before analysis.</p>
-<pre><code>
-RAWDATA/obs_data_corr.xlsx
-RAWDATA/obs_data_corr_6100_5500.xlsx
-RAWDATA/obs_data_corr_5500_4900.xlsx
-</code></pre>
-<p>No figure is generated at this stage. The outputs are cleaned tables used by later ranking and network steps.</p>
-</section>
+<h2 id="scope">1. Analytical scope</h2>
+<p>The workflow compares documented technological involvement in obsidian production/transformation and explores potential connectivity under alternative modelling assumptions. The three archaeological ranks are operational analytical levels, not homogeneous functional categories. Network links are model-generated potential connections and should not be read as demonstrated prehistoric routes.</p>
 
-<section id="step2">
-<h2>2. Calculate production-contribution values and production-score ranks</h2>
-<p>Each technological class is normalised by the total amount of that class across the dataset. The production score is calculated as the sum of the contribution values for blades, flakes, cores, and by-products/waste.</p>
-<pre><code>Production_score = blade.PN + flake.PN + core.PN + by.products.waste.PN</code></pre>
-<p>The rank thresholds are then derived from the production-score distribution: Rank 3 corresponds to the upper 10%, Rank 2 to the 80th–90th percentile range, and Rank 1 to all remaining sites. Raw-material source nodes are added manually as Rank 4.</p>
-</section>
-
-<section id="step3">
-<h2>3. Evaluate rank structure in Manhattan dissimilarity space</h2>
-<p>Production-score ranks are evaluated using pairwise Manhattan dissimilarities calculated directly from the non-standardised production-contribution matrix. Because the matrix retains its original magnitude, the ordination reflects both differences in technological composition and differences in each site's relative quantitative contribution to the overall obsidian corpus. Principal coordinates analysis (PCoA) is used to visualise this dissimilarity space.</p>
-<div class="grid two">
-
-<figure class="fig">
-  <a href="OUTPUTS/PCoA_BR_by_production_rank_all_sites.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/PCoA_BR_by_production_rank_all_sites.png" alt="PCoA of Manhattan dissimilarity by production rank" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/PCoA_BR_by_production_rank_all_sites.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>PCoA of Manhattan dissimilarity by production rank</strong><br>The PCoA visualises Manhattan dissimilarities calculated from the non-standardised production-contribution matrix. Rank 1 sites form a relatively compact group, reflecting their generally low contribution to the documented technological corpus. Rank 2 sites occupy an intermediate and partly overlapping position, consistent with their transitional level of involvement. Rank 3 sites are more widely dispersed and are represented by larger production scores, showing that high involvement was not associated with a single technological configuration. Sant’Anna di Oria occupies a particularly distinctive position, while Renaghju lies closer to the Rank 2 field than most other Rank 3 sites. This does not contradict its classification, because ranks are assigned from the production score, whereas the PCoA is a diagnostic representation of pairwise dissimilarity. Overall, the ordination supports a broad gradient from low to high production involvement while also highlighting the technological heterogeneity of the upper ranks. Because the contribution matrix was not standardised by row, this plot should not be interpreted as a measure of assemblage composition independent of magnitude: it deliberately retains both technological structure and quantitative involvement.<br><span class="path">OUTPUTS/PCoA_BR_by_production_rank_all_sites.png</span></figcaption>
-</figure>
-
-</div>
-</section>
-
-<section id="step4">
-<h2>4. Build rule-distance network models for two chronological intervals</h2>
-<p>For each chronological interval, the workflow evaluates three rule sets across distance thresholds from 100 km to 650 km. The report presents the two intervals separately, and within each interval it follows Rule A, Rule B, and Rule C.</p>
-
-<section id="step4-6100_5500">
-<h3>Step 4 — Rule-distance network models: 6100–5500 cal BCE</h3>
-<p>This section first shows the summary plots for the interval, then the individual maps for Rule A, Rule B, and Rule C.</p>
-<div class="grid two">
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/rule_set_metric_comparison_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/rule_set_metric_comparison_6100_5500.png" alt="Rule-set metric comparison — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/rule_set_metric_comparison_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>Rule-set metric comparison — 6100–5500 cal BCE</strong><br>This sensitivity plot compares how the early network responds to increasing distance thresholds under the three rank-based rule sets. The important pattern is not only the absolute number of edges, but the speed at which components and isolates disappear and the largest component expands.
-For 6100–5500 cal BCE, Rules A and B integrate the system more rapidly than Rule C. At 300 km, Rule A generates 42 edges, eight components, seven isolates, and a largest component of 30 entries, while Rule B generates 44 edges, seven components, six isolates, and a largest component of 31 entries. Rule C remains substantially more fragmented, with 25 edges, 12 components, ten isolates, and a largest component of 14 entries. At 550 km, Rules A and B approach but do not reach full connectivity: each retains two components and one isolate, with 36 of the 37 entries in the largest component. Rule C remains divided into five components, with four isolates and a largest component of 33 entries.
-Archaeologically, this supports the use of Rule A as the preferred parsimonious model: it produces a highly integrated structure without assuming the additional direct source-to-Rank 2 pathway introduced by Rule B.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/rule_set_metric_comparison_6100_5500.png</span></figcaption>
-</figure>
-
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/degree_by_rank_rule_distance_sweep_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/degree_by_rank_rule_distance_sweep_6100_5500.png" alt="Degree centrality by rank — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/degree_by_rank_rule_distance_sweep_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>Degree centrality by rank — 6100–5500 cal BCE</strong><br>This plot evaluates whether the technological ranks also translate into different structural positions within the modelled networks. Degree centrality measures how many direct connections a node receives across the full rule-distance sweep.
-In the early interval, higher-rank nodes generally occupy more connected positions because the rules deliberately model them as potential production, transformation or redistribution points. However, the spread of values within ranks is meaningful: not all Rank 3 sites behave identically, and some intermediate sites may become locally important depending on the distance threshold and rule set.
-The figure should therefore be interpreted as a structural validation of the ranking logic, while also warning against equating rank mechanically with a single archaeological role. Centrality reflects both technological involvement and spatial position within maritime and mainland interaction fields.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/degree_by_rank_rule_distance_sweep_6100_5500.png</span></figcaption>
-</figure>
-
-</div>
-
-<section id="6100_5500-Rule_A" class="subsection">
-<h4>4a. Rule A: Parsimonious hierarchical model</h4>
-<p>Allowed connections: 4-3, 3-2, 3-1, 2-1. The maps are presented in increasing distance threshold order so that the reader can follow how connectivity develops from 100 km to 650 km. These maps should be read as a hypothesis of potential connectivity every 50 km, not as a literal exchange route. Its value lies in showing which parts of the Central Mediterranean become gradually connected or remain isolated when technological rank and geographical distance are combined.</p>
-<div class="grid">
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_100km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_100km_map_6100_5500.png" alt="4a. Rule A, 100 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_100km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 100 km — 6100–5500 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 100 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_A_100km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_150km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_150km_map_6100_5500.png" alt="4a. Rule A, 150 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_150km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 150 km — 6100–5500 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 150 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_A_150km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_200km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_200km_map_6100_5500.png" alt="4a. Rule A, 200 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_200km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 200 km — 6100–5500 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 200 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_A_200km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_250km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_250km_map_6100_5500.png" alt="4a. Rule A, 250 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_250km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 250 km — 6100–5500 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 250 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_A_250km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_300km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_300km_map_6100_5500.png" alt="4a. Rule A, 300 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_300km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 300 km — 6100–5500 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 300 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_A_300km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_350km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_350km_map_6100_5500.png" alt="4a. Rule A, 350 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_350km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 350 km — 6100–5500 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 350 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_A_350km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_400km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_400km_map_6100_5500.png" alt="4a. Rule A, 400 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_400km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 400 km — 6100–5500 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 400 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_A_400km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_450km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_450km_map_6100_5500.png" alt="4a. Rule A, 450 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_450km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 450 km — 6100–5500 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 450 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_A_450km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_500km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_500km_map_6100_5500.png" alt="4a. Rule A, 500 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_500km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 500 km — 6100–5500 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 500 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_A_500km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_550km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_550km_map_6100_5500.png" alt="4a. Rule A, 550 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_550km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 550 km — 6100–5500 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 550 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_A_550km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_600km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_600km_map_6100_5500.png" alt="4a. Rule A, 600 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_600km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 600 km — 6100–5500 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 600 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_A_600km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_A_650km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_A_650km_map_6100_5500.png" alt="4a. Rule A, 650 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_650km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 650 km — 6100–5500 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 650 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_A_650km_map_6100_5500.png</span></figcaption>
-</figure>
-</div>
-</section>
-
-<section id="6100_5500-Rule_B" class="subsection">
-<h4>4b. Rule B: Less restrictive hierarchical model</h4>
-<p>Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. The maps are presented in increasing distance threshold order so that the reader can follow how connectivity develops from 100 km to 650 km. These maps should be read as a hypothesis of potential connectivity every 50 km, not as a literal exchange route. Its value lies in showing which parts of the Central Mediterranean become gradually connected or remain isolated when technological rank and geographical distance are combined.</p>
-<div class="grid">
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_100km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_100km_map_6100_5500.png" alt="4b. Rule B, 100 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_100km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 100 km — 6100–5500 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 100 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_B_100km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_150km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_150km_map_6100_5500.png" alt="4b. Rule B, 150 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_150km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 150 km — 6100–5500 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 150 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_B_150km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_200km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_200km_map_6100_5500.png" alt="4b. Rule B, 200 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_200km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 200 km — 6100–5500 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 200 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_B_200km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_250km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_250km_map_6100_5500.png" alt="4b. Rule B, 250 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_250km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 250 km — 6100–5500 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 250 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_B_250km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_300km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_300km_map_6100_5500.png" alt="4b. Rule B, 300 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_300km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 300 km — 6100–5500 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 300 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_B_300km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_350km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_350km_map_6100_5500.png" alt="4b. Rule B, 350 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_350km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 350 km — 6100–5500 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 350 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_B_350km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_400km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_400km_map_6100_5500.png" alt="4b. Rule B, 400 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_400km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 400 km — 6100–5500 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 400 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_B_400km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_450km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_450km_map_6100_5500.png" alt="4b. Rule B, 450 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_450km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 450 km — 6100–5500 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 450 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_B_450km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_500km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_500km_map_6100_5500.png" alt="4b. Rule B, 500 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_500km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 500 km — 6100–5500 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 500 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_B_500km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_550km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_550km_map_6100_5500.png" alt="4b. Rule B, 550 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_550km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 550 km — 6100–5500 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 550 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_B_550km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_600km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_600km_map_6100_5500.png" alt="4b. Rule B, 600 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_600km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 600 km — 6100–5500 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 600 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_B_600km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_B_650km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_B_650km_map_6100_5500.png" alt="4b. Rule B, 650 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_650km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 650 km — 6100–5500 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 650 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_B_650km_map_6100_5500.png</span></figcaption>
-</figure>
-</div>
-</section>
-
-<section id="6100_5500-Rule_C" class="subsection">
-<h4>4c. Rule C: Strict stepped hierarchical model</h4>
-<p>Allowed connections: 4-3, 3-2, 2-1. The maps are presented in increasing distance threshold order so that the reader can follow how connectivity develops from 100 km to 650 km. These maps should be read as a hypothesis of potential connectivity every 50 km, not as a literal exchange route. Its value lies in showing which parts of the Central Mediterranean become gradually connected or remain isolated when technological rank and geographical distance are combined.</p>
-<div class="grid">
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_100km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_100km_map_6100_5500.png" alt="4c. Rule C, 100 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_100km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 100 km — 6100–5500 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 100 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_C_100km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_150km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_150km_map_6100_5500.png" alt="4c. Rule C, 150 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_150km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 150 km — 6100–5500 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 150 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_C_150km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_200km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_200km_map_6100_5500.png" alt="4c. Rule C, 200 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_200km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 200 km — 6100–5500 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 200 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_C_200km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_250km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_250km_map_6100_5500.png" alt="4c. Rule C, 250 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_250km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 250 km — 6100–5500 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 250 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_C_250km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_300km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_300km_map_6100_5500.png" alt="4c. Rule C, 300 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_300km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 300 km — 6100–5500 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 300 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_C_300km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_350km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_350km_map_6100_5500.png" alt="4c. Rule C, 350 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_350km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 350 km — 6100–5500 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 350 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_C_350km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_400km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_400km_map_6100_5500.png" alt="4c. Rule C, 400 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_400km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 400 km — 6100–5500 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 400 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_C_400km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_450km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_450km_map_6100_5500.png" alt="4c. Rule C, 450 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_450km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 450 km — 6100–5500 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 450 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_C_450km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_500km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_500km_map_6100_5500.png" alt="4c. Rule C, 500 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_500km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 500 km — 6100–5500 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 500 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_C_500km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_550km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_550km_map_6100_5500.png" alt="4c. Rule C, 550 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_550km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 550 km — 6100–5500 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 550 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_C_550km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_600km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_600km_map_6100_5500.png" alt="4c. Rule C, 600 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_600km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 600 km — 6100–5500 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 600 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_C_600km_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Rule_C_650km_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Rule_C_650km_map_6100_5500.png" alt="4c. Rule C, 650 km — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_650km_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 650 km — 6100–5500 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 650 km.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Rule_C_650km_map_6100_5500.png</span></figcaption>
-</figure>
-</div>
-</section>
-</section>
-<section id="step4-5500_4900">
-<h3>Step 4 — Rule-distance network models: 5500–4900 cal BCE</h3>
-<p>This section first shows the summary plots for the interval, then the individual maps for Rule A, Rule B, and Rule C.</p>
-<div class="grid two">
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/rule_set_metric_comparison_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/rule_set_metric_comparison_5500_4900.png" alt="Rule-set metric comparison — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/rule_set_metric_comparison_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>Rule-set metric comparison — 5500–4900 cal BCE</strong><br>This plot shows that the later network becomes integrated at shorter distance thresholds than the earlier one. Rules A and B rapidly reduce fragmentation, while Rule C remains more constrained because it models only consecutive-rank transmission.
-At 300 km, Rules A and B already incorporate 43 of the 44 entries into their largest component, each retaining only one isolate. Rule A generates 115 edges and Rule B 118 edges. Rule C remains considerably more fragmented at this threshold, with 61 edges, 11 components, eight isolates, and a largest component of 21 entries. At 450 km, all three rule sets reach formal full connectivity. Rule A does so with 207 edges, Rule B with 216 edges, and Rule C with 122 edges. The later interval therefore reaches integration at a shorter threshold than the earlier one, although Rule C follows a substantially less redundant architecture.
-The result is central to the diachronic interpretation: between 5500 and 4900 cal BCE, the modelled circulation system became more rapidly integrated and more regionally articulated. This pattern should be interpreted as a property of the comparative model rather than as direct evidence for specific routes or frequencies of contact.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/rule_set_metric_comparison_5500_4900.png</span></figcaption>
-</figure>
-
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/degree_by_rank_rule_distance_sweep_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/degree_by_rank_rule_distance_sweep_5500_4900.png" alt="Degree centrality by rank — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/degree_by_rank_rule_distance_sweep_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>Degree centrality by rank — 5500–4900 cal BCE</strong><br>The degree-by-rank plot assesses whether the later, more integrated network still preserves hierarchical differentiation among sites. Higher ranks tend to occupy more connected positions, but the broader connectivity of the later interval also increases the potential centrality of some Rank 1 and Rank 2 sites.
-This is archaeologically significant because it suggests that later obsidian circulation was not organised only around a few high-production nodes. Once the network becomes denser, intermediate and consumer-oriented sites can also become embedded in multiple pathways, especially when they are located in favourable coastal, island or corridor positions.
-The plot therefore complements the global metric comparison: the later network is more integrated overall, but it still retains rank-based asymmetries in access, transformation capacity and potential redistribution.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/degree_by_rank_rule_distance_sweep_5500_4900.png</span></figcaption>
-</figure>
-
-</div>
-
-<section id="5500_4900-Rule_A" class="subsection">
-<h4>4a. Rule A: Parsimonious hierarchical model</h4>
-<p>Allowed connections: 4-3, 3-2, 3-1, 2-1. The maps are presented in increasing distance threshold order so that the reader can follow how connectivity develops from 100 km to 650 km. These maps should be read as a hypothesis of potential connectivity every 50 km, not as a literal exchange route. Its value lies in showing which parts of the Central Mediterranean become gradually connected or remain isolated when technological rank and geographical distance are combined.</p>
-<div class="grid">
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_100km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_100km_map_5500_4900.png" alt="4a. Rule A, 100 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_100km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 100 km — 5500–4900 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 100 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_A_100km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_150km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_150km_map_5500_4900.png" alt="4a. Rule A, 150 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_150km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 150 km — 5500–4900 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 150 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_A_150km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_200km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_200km_map_5500_4900.png" alt="4a. Rule A, 200 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_200km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 200 km — 5500–4900 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 200 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_A_200km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_250km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_250km_map_5500_4900.png" alt="4a. Rule A, 250 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_250km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 250 km — 5500–4900 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 250 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_A_250km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_300km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_300km_map_5500_4900.png" alt="4a. Rule A, 300 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_300km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 300 km — 5500–4900 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 300 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_A_300km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_350km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_350km_map_5500_4900.png" alt="4a. Rule A, 350 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_350km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 350 km — 5500–4900 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 350 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_A_350km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_400km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_400km_map_5500_4900.png" alt="4a. Rule A, 400 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_400km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 400 km — 5500–4900 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 400 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_A_400km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_450km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_450km_map_5500_4900.png" alt="4a. Rule A, 450 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_450km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 450 km — 5500–4900 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 450 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_A_450km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_500km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_500km_map_5500_4900.png" alt="4a. Rule A, 500 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_500km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 500 km — 5500–4900 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 500 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_A_500km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_550km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_550km_map_5500_4900.png" alt="4a. Rule A, 550 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_550km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 550 km — 5500–4900 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 550 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_A_550km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_600km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_600km_map_5500_4900.png" alt="4a. Rule A, 600 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_600km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 600 km — 5500–4900 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 600 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_A_600km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_A_650km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_A_650km_map_5500_4900.png" alt="4a. Rule A, 650 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_650km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4a. Rule A, 650 km — 5500–4900 cal BCE</strong><br>Parsimonious hierarchical model. Allowed connections: 4-3, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 650 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_A_650km_map_5500_4900.png</span></figcaption>
-</figure>
-</div>
-</section>
-
-<section id="5500_4900-Rule_B" class="subsection">
-<h4>4b. Rule B: Less restrictive hierarchical model</h4>
-<p>Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. The maps are presented in increasing distance threshold order so that the reader can follow how connectivity develops from 100 km to 650 km. These maps should be read as a hypothesis of potential connectivity every 50 km, not as a literal exchange route. Its value lies in showing which parts of the Central Mediterranean become gradually connected or remain isolated when technological rank and geographical distance are combined.</p>
-<div class="grid">
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_100km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_100km_map_5500_4900.png" alt="4b. Rule B, 100 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_100km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 100 km — 5500–4900 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 100 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_B_100km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_150km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_150km_map_5500_4900.png" alt="4b. Rule B, 150 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_150km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 150 km — 5500–4900 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 150 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_B_150km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_200km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_200km_map_5500_4900.png" alt="4b. Rule B, 200 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_200km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 200 km — 5500–4900 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 200 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_B_200km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_250km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_250km_map_5500_4900.png" alt="4b. Rule B, 250 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_250km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 250 km — 5500–4900 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 250 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_B_250km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_300km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_300km_map_5500_4900.png" alt="4b. Rule B, 300 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_300km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 300 km — 5500–4900 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 300 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_B_300km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_350km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_350km_map_5500_4900.png" alt="4b. Rule B, 350 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_350km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 350 km — 5500–4900 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 350 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_B_350km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_400km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_400km_map_5500_4900.png" alt="4b. Rule B, 400 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_400km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 400 km — 5500–4900 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 400 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_B_400km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_450km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_450km_map_5500_4900.png" alt="4b. Rule B, 450 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_450km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 450 km — 5500–4900 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 450 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_B_450km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_500km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_500km_map_5500_4900.png" alt="4b. Rule B, 500 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_500km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 500 km — 5500–4900 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 500 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_B_500km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_550km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_550km_map_5500_4900.png" alt="4b. Rule B, 550 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_550km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 550 km — 5500–4900 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 550 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_B_550km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_600km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_600km_map_5500_4900.png" alt="4b. Rule B, 600 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_600km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 600 km — 5500–4900 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 600 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_B_600km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_B_650km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_B_650km_map_5500_4900.png" alt="4b. Rule B, 650 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_650km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4b. Rule B, 650 km — 5500–4900 cal BCE</strong><br>Less restrictive hierarchical model. Allowed connections: 4-3, 4-2, 3-2, 3-1, 2-1. Geographic map of the rule-distance model at 650 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_B_650km_map_5500_4900.png</span></figcaption>
-</figure>
-</div>
-</section>
-
-<section id="5500_4900-Rule_C" class="subsection">
-<h4>4c. Rule C: Strict stepped hierarchical model</h4>
-<p>Allowed connections: 4-3, 3-2, 2-1. The maps are presented in increasing distance threshold order so that the reader can follow how connectivity develops from 100 km to 650 km. These maps should be read as a hypothesis of potential connectivity every 50 km, not as a literal exchange route. Its value lies in showing which parts of the Central Mediterranean become gradually connected or remain isolated when technological rank and geographical distance are combined.</p>
-<div class="grid">
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_100km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_100km_map_5500_4900.png" alt="4c. Rule C, 100 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_100km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 100 km — 5500–4900 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 100 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_C_100km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_150km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_150km_map_5500_4900.png" alt="4c. Rule C, 150 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_150km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 150 km — 5500–4900 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 150 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_C_150km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_200km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_200km_map_5500_4900.png" alt="4c. Rule C, 200 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_200km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 200 km — 5500–4900 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 200 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_C_200km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_250km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_250km_map_5500_4900.png" alt="4c. Rule C, 250 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_250km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 250 km — 5500–4900 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 250 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_C_250km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_300km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_300km_map_5500_4900.png" alt="4c. Rule C, 300 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_300km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 300 km — 5500–4900 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 300 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_C_300km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_350km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_350km_map_5500_4900.png" alt="4c. Rule C, 350 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_350km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 350 km — 5500–4900 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 350 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_C_350km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_400km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_400km_map_5500_4900.png" alt="4c. Rule C, 400 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_400km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 400 km — 5500–4900 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 400 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_C_400km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_450km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_450km_map_5500_4900.png" alt="4c. Rule C, 450 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_450km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 450 km — 5500–4900 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 450 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_C_450km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_500km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_500km_map_5500_4900.png" alt="4c. Rule C, 500 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_500km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 500 km — 5500–4900 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 500 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_C_500km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_550km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_550km_map_5500_4900.png" alt="4c. Rule C, 550 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_550km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 550 km — 5500–4900 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 550 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_C_550km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_600km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_600km_map_5500_4900.png" alt="4c. Rule C, 600 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_600km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 600 km — 5500–4900 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 600 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_C_600km_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Rule_C_650km_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Rule_C_650km_map_5500_4900.png" alt="4c. Rule C, 650 km — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_650km_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>4c. Rule C, 650 km — 5500–4900 cal BCE</strong><br>Strict stepped hierarchical model. Allowed connections: 4-3, 3-2, 2-1. Geographic map of the rule-distance model at 650 km.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Rule_C_650km_map_5500_4900.png</span></figcaption>
-</figure>
-</div>
-</section>
-</section>
-</section>
-
-<section id="step5">
-<h2>5. Source-filtered networks</h2>
-<p>Source-filtered networks isolate sites with confirmed presence of each obsidian source. The sequence follows Lipari, Palmarola, and Monte Arci / Sardegna.</p>
-
-<section id="source-lipari">
-<h3>5a. Filtered network: Lipari</h3>
-<p>These figures isolate sites with confirmed presence of the selected obsidian source and show both mapped and graph-only views for the two chronological intervals.</p>
-<div class="grid two">
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_map_6100_5500.png" alt="5a. Lipari source-confirmed map — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>5a. Lipari source-filtered map — 6100–5500 cal BCE</strong><br>This source-filtered map retains only the Lipari source and sites where Lipari obsidian is explicitly documented. It therefore represents the confirmed Lipari distribution within the selected network backbone, not all possible routes of movement.
-In 6100–5500 cal BCE, the Lipari network includes 16 nodes, comprising 15 archaeological sites and the source, connected by 25 edges. It is divided into two components and contains one isolate. The map shows that Lipari obsidian was already embedded in a geographically extensive interaction field, although the confirmed distribution was not yet fully connected.
-The pattern supports the interpretation of Lipari as an early and widely distributed source within the analysed central Mediterranean network.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_graph_only_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_graph_only_6100_5500.png" alt="5a. Lipari source-confirmed graph — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_graph_only_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>5a. Lipari source-filtered graph — 6100–5500 cal BCE</strong><br>The graph-only view removes geography in order to emphasise the internal structure of the confirmed Lipari network. This makes it easier to see the degree of connectivity among sites sharing the same source attribution.
-The early Lipari graph is extensive but not completely cohesive: it comprises two components and one isolate. The graph therefore highlights Lipari’s early importance while preserving the distinction between connected sites and the still-discontinuous structure of its confirmed distribution.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_graph_only_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_map_5500_4900.png" alt="5a. Lipari source-confirmed map — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>5a. Lipari source-filtered map — 5500–4900 cal BCE</strong><br>The later Lipari map shows the marked expansion of the most extensive source-filtered network. During 5500–4900 cal BCE, it includes 27 nodes and 110 edges and forms a single connected component. The increase in both nodes and links indicates wider documentation and stronger internal connectivity among the sites where Lipari obsidian is confirmed. Lipari emerges as the largest and most geographically extensive source-specific interaction field in the later interval.
-This continuity suggests that Lipari maintained a central role while the broader Central Mediterranean network became more integrated.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_graph_only_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_graph_only_5500_4900.png" alt="5a. Lipari source-confirmed graph — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_graph_only_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>5a. Lipari source-filtered graph — 5500–4900 cal BCE</strong><br>The graph-only representation highlights the densification of the later Lipari network. Compared with the earlier interval, more sites are mutually connected through the selected backbone, reflecting a more cohesive source-specific structure.
-This supports the manuscript’s interpretation that Lipari remained the most widely embedded obsidian source, while also becoming structurally denser during 5500-4900 cal BCE.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_graph_only_5500_4900.png</span></figcaption>
-</figure>
-</div>
-</section>
-
-<section id="source-palmarola">
-<h3>5b. Filtered network: Palmarola</h3>
-<p>These figures isolate sites with confirmed presence of the selected obsidian source and show both mapped and graph-only views for the two chronological intervals.</p>
-<div class="grid two">
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_map_6100_5500.png" alt="5b. Palmarola source-confirmed map — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>5b. Palmarola source-filtered map — 6100–5500 cal BCE</strong><br>This map isolates the confirmed Palmarola distribution in the early interval. The network includes 16 nodes, comprising 15 archaeological sites and the source, and 36 edges. It forms a single connected component. The spatial pattern suggests a geographically selective but internally cohesive circulation field, shaped by the limited set of sites where Palmarola obsidian is securely documented. The figure should therefore be read as evidence for a coherent source-specific network rather than as a marginal or insignificant distribution.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_graph_only_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_graph_only_6100_5500.png" alt="5b. Palmarola source-confirmed graph — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_graph_only_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>5b. Palmarola source-filtered graph — 6100–5500 cal BCE</strong><br>The graph-only view shows the internal organisation of the early Palmarola network. Its smaller size relative to Lipari is important, but so is its coherence: the confirmed Palmarola sites are not simply isolated occurrences.
-This suggests that Palmarola obsidian participated in a structured circulation field during the early interval, although one that was more spatially selective than Lipari.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_graph_only_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_map_5500_4900.png" alt="5b. Palmarola source-confirmed map — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>5b. Palmarola source-filtered map — 5500–4900 cal BCE</strong><br>In the later interval, the Palmarola network retains the same overall size, with 16 nodes, but its edge count rises from 36 to 59. It remains a single connected component. The map therefore documents increased internal density rather than major expansion in the number of confirmed sites. This pattern is archaeologically meaningful: Palmarola maintains a selective distribution while becoming more internally connected within an already established interaction field. The later Palmarola network thus contributes to the broader pattern of post-5500 cal BCE integration without losing its source-specific selectivity.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_graph_only_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_graph_only_5500_4900.png" alt="5b. Palmarola source-confirmed graph — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_graph_only_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>5b. Palmarola source-filtered graph — 5500–4900 cal BCE</strong><br>The graph-only view makes the later densification of the Palmarola network clearer. The increase in internal links suggests more redundant or more frequent potential pathways among sites where Palmarola obsidian is documented.
-This supports an interpretation of Palmarola as a selective but increasingly well-integrated source system during 5500-4900 cal BCE.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_graph_only_5500_4900.png</span></figcaption>
-</figure>
-</div>
-</section>
-
-<section id="source-sardegna">
-<h3>5c. Filtered network: Monte Arci / Sardegna</h3>
-<p>These figures isolate sites with confirmed presence of the selected obsidian source and show both mapped and graph-only views for the two chronological intervals.</p>
-<div class="grid two">
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_map_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_map_6100_5500.png" alt="5c. Monte Arci / Sardegna source-confirmed map — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_map_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>5c. Monte Arci / Sardegna source-filtered map — 6100–5500 cal BCE</strong><br>This map shows the confirmed Monte Arci/Sardinian obsidian network in the early interval. It is the most restricted of the three source-filtered networks, with seven nodes and ten edges, but it forms a single connected component under Rule A. No fallback to Rule B is required. The figure therefore represents a small but internally connected confirmed circulation field rather than a structurally dependent or disconnected network.<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_map_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_graph_only_6100_5500.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_graph_only_6100_5500.png" alt="5c. Monte Arci / Sardegna source-confirmed graph — 6100–5500 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_graph_only_6100_5500.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>5c. Monte Arci / Sardegna source-filtered graph — 6100–5500 cal BCE</strong><br>The graph-only view emphasises the restricted size but complete connectivity of the early Monte Arci/Sardinian network under Rule A. This makes the early Sardinian pattern analytically different from the larger Lipari and Palmarola networks, but it does not require a less parsimonious fallback model.
-<br><span class="path">OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_graph_only_6100_5500.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_map_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_map_5500_4900.png" alt="5c. Monte Arci / Sardegna source-confirmed map — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_map_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>5c. Monte Arci / Sardegna source-filtered map — 5500–4900 cal BCE</strong><br>The later Monte Arci/Sardinian map shows substantial geographical expansion, increasing from seven to 13 nodes and from ten to 26 edges. However, the later network is divided into two components and includes one isolate. Both intervals are generated under the parsimonious Rule A backbone, and no fallback to Rule B is required. The figure therefore captures a shift from a small, fully connected early distribution to a broader but less cohesive later source network.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_map_5500_4900.png</span></figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_graph_only_5500_4900.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_graph_only_5500_4900.png" alt="5c. Monte Arci / Sardegna source-confirmed graph — 5500–4900 cal BCE" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_graph_only_5500_4900.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>5c. Monte Arci / Sardegna source-filtered graph — 5500–4900 cal BCE</strong><br>The graph-only representation highlights the later consolidation of the Monte Arci/Sardinian network. The increase in nodes and edges indicates that Sardinian obsidian becomes more structurally embedded during 5500-4900 cal BCE.
-This supports the manuscript’s broader argument that the later network was not only more connected overall, but also more differentiated by source, with each raw material forming a clearer internal structure.<br><span class="path">OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_graph_only_5500_4900.png</span></figcaption>
-</figure>
-</div>
-</section>
-
-</section>
-
-<section id="step6">
-<h2>6. Map of analysed sites</h2>
-<p>The final map provides a numbered overview of all analysed sites. The corresponding lookup table is <code>OUTPUTS/all_sites_numbered_map_lookup.csv</code>.</p>
-<div class="grid two">
-
-<figure class="fig">
-  <a href="OUTPUTS/all_sites_numbered_black_white_map.png" target="_blank" rel="noopener">
-    <img src="OUTPUTS/all_sites_numbered_black_white_map.png" alt="Numbered map of analysed sites" loading="lazy"
-      onerror="this.closest('figure').classList.add('missing'); this.insertAdjacentHTML('afterbegin','<div class=&quot;missing-msg&quot;><strong>Missing image in repository</strong><br><code>OUTPUTS/all_sites_numbered_black_white_map.png</code></div>'); this.remove();" />
-  </a>
-  <figcaption><strong>Numbered map of analysed sites</strong><br>This numbered map provides the spatial frame for the full dataset of 74 archaeological contexts. It shows the dense coverage along the Italian Peninsula and additional sites in Sardinia, Corsica, Sicily, the Tuscan Archipelago, southern France and the eastern Adriatic.
-The map is important for interpreting both the strengths and limitations of the analysis. The dataset is broad enough to model supra-regional obsidian circulation, even tough it is not an exhaustive inventory of every obsidian occurrence. Inclusion depends on the availability of sufficiently reliable chronological, technological and source-attribution information.
-For this reason, the network models should be read as controlled comparative reconstructions based on a critically filtered dataset, rather than as complete maps of all Neolithic obsidian movement.<br><span class="path">OUTPUTS/all_sites_numbered_black_white_map.png</span></figcaption>
-</figure>
-
-</div>
-</section>
-
-<section id="tables">
-<h2>Output table catalogue</h2>
-<h3>Global outputs</h3>
-<table><thead><tr><th>Output</th><th>Step</th><th>Description</th></tr></thead><tbody><tr><td><code>OUTPUTS/production_contribution_PN_all_sites.csv</code></td><td>2</td><td>Production-contribution values used to compute the production-score ranking.</td></tr>
-<tr><td><code>OUTPUTS/production_score_all_sites.csv</code></td><td>2</td><td>Production score for each site.</td></tr>
-<tr><td><code>OUTPUTS/production_score_rank_thresholds_all_sites.csv</code></td><td>2</td><td>Percentile thresholds used for Rank 2 and Rank 3.</td></tr>
-<tr><td><code>OUTPUTS/site_production_score_ranking_all_sites.csv</code></td><td>2</td><td>Final rank assignment.</td></tr>
-<tr><td><code>OUTPUTS/ranked_sites_all_sites.csv</code></td><td>2</td><td>Cleaned full dataset with ranks attached.</td></tr>
-<tr><td><code>OUTPUTS/rank_summary_all_sites.csv</code></td><td>2</td><td>Number of sites per rank.</td></tr>
-<tr><td><code>OUTPUTS/obs_br_PN_all_sites.csv</code></td><td>3</td><td>Legacy-named matrix used for the Manhattan-dissimilarity diagnostic; the filename is retained for compatibility with existing outputs.</td></tr>
-<tr><td><code>OUTPUTS/adonis_BR_dissimilarity_by_rank_all_sites.csv</code></td><td>3</td><td>PERMANOVA-style rank test.</td></tr>
-<tr><td><code>OUTPUTS/pcoa_BR_by_production_rank_all_sites.csv</code></td><td>3</td><td>PCoA coordinates for the diagnostic plot.</td></tr>
-<tr><td><code>OUTPUTS/pcoa_site_code_lookup_all_sites.csv</code></td><td>3</td><td>Short labels used in the PCoA plot.</td></tr>
-<tr><td><code>OUTPUTS/all_sites_numbered_map_lookup.csv</code></td><td>6</td><td>Map ID lookup table for the site-location figure.</td></tr></tbody></table>
-
-<h3>6100–5500 cal BCE</h3>
-<table><thead><tr><th>Output</th><th>Step</th><th>Description</th></tr></thead><tbody><tr><td><code>OUTPUTS/Obsidian_network_6100_5500/ranked_sites_6100_5500.csv</code></td><td>4</td><td>Chronological dataset with ranks attached.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/unmatched_sites_no_rank_6100_5500.csv</code></td><td>4</td><td>Unmatched sites with no assigned rank.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/Rule_A_*km_edges_6100_5500.csv</code></td><td>4a</td><td>Rule A edge lists.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/Rule_B_*km_edges_6100_5500.csv</code></td><td>4b</td><td>Rule B edge lists.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/Rule_C_*km_edges_6100_5500.csv</code></td><td>4c</td><td>Rule C edge lists.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/global_metrics_rule_distance_sweep_6100_5500.csv</code></td><td>4</td><td>Network metrics across rules and thresholds.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/centrality_rule_distance_sweep_6100_5500.csv</code></td><td>4</td><td>Node-level centrality values.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/centrality_by_rank_rule_distance_sweep_6100_5500.csv</code></td><td>4</td><td>Centrality summary by rank.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/friedman_rule_comparison_6100_5500.csv</code></td><td>4</td><td>Friedman test comparing rule sets.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/pairwise_rule_comparison_6100_5500.csv</code></td><td>4</td><td>Pairwise Wilcoxon post-hoc tests.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/first_connected_network_by_rule_6100_5500.csv</code></td><td>4</td><td>First connected model by rule set.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/selected_backbone_network_6100_5500.csv</code></td><td>4</td><td>Selected backbone network.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/selected_rule_a_source_filter_backbone_6100_5500.csv</code></td><td>5</td><td>Rule A source-filter backbone.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/source_confirmed_rule_selection_log_6100_5500.csv</code></td><td>5</td><td>Source-filter rule selection and fallback log.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/source_confirmed_metrics_6100_5500.csv</code></td><td>5</td><td>Metrics for source-confirmed networks.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_edges_6100_5500.csv</code></td><td>5a</td><td>Lipari edge list.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/Lipari_source_confirmed_vertices_6100_5500.csv</code></td><td>5a</td><td>Lipari vertex list.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_edges_6100_5500.csv</code></td><td>5b</td><td>Palmarola edge list.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/Palmarola_source_confirmed_vertices_6100_5500.csv</code></td><td>5b</td><td>Palmarola vertex list.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_edges_6100_5500.csv</code></td><td>5c</td><td>Monte Arci / Sardegna edge list.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_6100_5500/Sardegna_source_confirmed_vertices_6100_5500.csv</code></td><td>5c</td><td>Monte Arci / Sardegna vertex list.</td></tr></tbody></table>
-
-<h3>5500–4900 cal BCE</h3>
-<table><thead><tr><th>Output</th><th>Step</th><th>Description</th></tr></thead><tbody><tr><td><code>OUTPUTS/Obsidian_network_5500_4900/ranked_sites_5500_4900.csv</code></td><td>4</td><td>Chronological dataset with ranks attached.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/unmatched_sites_no_rank_5500_4900.csv</code></td><td>4</td><td>Unmatched sites with no assigned rank.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/Rule_A_*km_edges_5500_4900.csv</code></td><td>4a</td><td>Rule A edge lists.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/Rule_B_*km_edges_5500_4900.csv</code></td><td>4b</td><td>Rule B edge lists.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/Rule_C_*km_edges_5500_4900.csv</code></td><td>4c</td><td>Rule C edge lists.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/global_metrics_rule_distance_sweep_5500_4900.csv</code></td><td>4</td><td>Network metrics across rules and thresholds.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/centrality_rule_distance_sweep_5500_4900.csv</code></td><td>4</td><td>Node-level centrality values.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/centrality_by_rank_rule_distance_sweep_5500_4900.csv</code></td><td>4</td><td>Centrality summary by rank.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/friedman_rule_comparison_5500_4900.csv</code></td><td>4</td><td>Friedman test comparing rule sets.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/pairwise_rule_comparison_5500_4900.csv</code></td><td>4</td><td>Pairwise Wilcoxon post-hoc tests.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/first_connected_network_by_rule_5500_4900.csv</code></td><td>4</td><td>First connected model by rule set.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/selected_backbone_network_5500_4900.csv</code></td><td>4</td><td>Selected backbone network.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/selected_rule_a_source_filter_backbone_5500_4900.csv</code></td><td>5</td><td>Rule A source-filter backbone.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/source_confirmed_rule_selection_log_5500_4900.csv</code></td><td>5</td><td>Source-filter rule selection and fallback log.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/source_confirmed_metrics_5500_4900.csv</code></td><td>5</td><td>Metrics for source-confirmed networks.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_edges_5500_4900.csv</code></td><td>5a</td><td>Lipari edge list.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/Lipari_source_confirmed_vertices_5500_4900.csv</code></td><td>5a</td><td>Lipari vertex list.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_edges_5500_4900.csv</code></td><td>5b</td><td>Palmarola edge list.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/Palmarola_source_confirmed_vertices_5500_4900.csv</code></td><td>5b</td><td>Palmarola vertex list.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_edges_5500_4900.csv</code></td><td>5c</td><td>Monte Arci / Sardegna edge list.</td></tr>
-<tr><td><code>OUTPUTS/Obsidian_network_5500_4900/Sardegna_source_confirmed_vertices_5500_4900.csv</code></td><td>5c</td><td>Monte Arci / Sardegna vertex list.</td></tr></tbody></table>
-
-</section>
-
-<section id="reproducibility">
-<h2>Reproducibility and licence</h2>
-<h3>Expected repository structure</h3>
-<pre><code>CHRONOS/
+<h2 id="inputs">2. Inputs and data semantics</h2>
+<pre>CHRONOS/
 ├── CHRONOS.R
-├── CHRONOS_report.html
 ├── RAWDATA/
+│   ├── obs_data_corr.xlsx
+│   ├── obs_data_corr_6100_5500.xlsx
+│   └── obs_data_corr_5500_4900.xlsx
 ├── MAP/
-└── OUTPUTS/</code></pre>
-<h3>Run command</h3>
-<pre><code>source("CHRONOS.R")
-# or
-Rscript CHRONOS.R</code></pre>
-<h3>Required R packages</h3>
-<pre><code>install.packages(c(
-  "openxlsx", "dplyr", "tidyr", "ggplot2",
-  "igraph", "sf", "ggrepel", "ggspatial",
-  "vegan", "units"
-))</code></pre>
-<h3>Licence</h3>
-<p>This repository is released under a dual licensing model for publication:</p>
-<ul>
-<li><strong>Code</strong>: the R script <code>CHRONOS.R</code> is released under the <strong>MIT Licence</strong>.</li>
-<li><strong>Documentation, figures, output tables, and HTML report</strong>: these materials are released under the <strong>Creative Commons Attribution 4.0 International Licence (CC BY 4.0)</strong>, unless otherwise stated.</li>
-</ul>
-<p>Users may reuse, adapt, and redistribute the code, documentation, figures, tables, and report according to the terms of these licences, with appropriate attribution.</p>
-</section>
+│   └── map_shp.shp (+ sidecar files)
+└── OUTPUTS/</pre>
+<p>The complete dataset provides the technological variables <code>blade</code>, <code>flake</code>, <code>core</code> and <code>by.products.waste</code>. Chronological datasets also provide coordinates and source fields used in network construction.</p>
+<div class="note"><strong>Missing data:</strong> for technological counts, 0 is a documented absence whereas unresolved/unpublished counts must remain NA; the script stops if NA technological counts would enter the ranking. For source fields, 1 = present, 0 = absent, NA = unknown/not analysed.</div>
 
-<footer>Prepared as a static HTML report for the CHRONOS GitHub repository.</footer>
-</main>
+<h2 id="ranking">3. Contribution-based score and operational ranks</h2>
+<p>For each technological category, each site is expressed as its percentage contribution to the total quantity of that category in the complete dataset. The production score is the sum of the four category-wise contribution values. This retains both technological composition and the documented quantitative scale of obsidian working.</p>
+<pre>Production_score = blade.PN + flake.PN + core.PN + by.products.waste.PN</pre>
+<table><tr><th>Rank</th><th>Criterion</th><th>Operational meaning</th></tr>
+<tr><td>1</td><td>below 80th percentile</td><td>lower documented technological involvement</td></tr>
+<tr><td>2</td><td>80th–90th percentile</td><td>intermediate documented technological involvement</td></tr>
+<tr><td>3</td><td>upper decile</td><td>highest documented technological involvement</td></tr>
+<tr><td>4</td><td>source node</td><td>Monte Arci, Lipari or Palmarola</td></tr></table>
+<p>The percentile boundaries are reproducible modelling cut-offs rather than archaeological divisions and are defined independently of subsequent network performance.</p>
+
+<h3>Manhattan diagnostic</h3>
+<p>Pairwise Manhattan dissimilarities are calculated on the same contribution matrix used to derive the production score. PERMANOVA and PCoA therefore describe the rank structure in this contribution space; they are not independent validation of the classification. Current filenames use <strong>Manhattan</strong>, replacing legacy <strong>BR</strong> names from earlier repository versions.</p>
+
+<h2 id="sensitivity">4. Sensitivity to assemblage magnitude</h2>
+<p>The current workflow uses two complementary diagnostics.</p>
+<ol>
+<li><strong>Square-root sensitivity ranking:</strong> raw technological counts are square-root transformed and passed through the same category-wise contribution scaling, score calculation and 80th/90th percentile ranking. This reduces the leverage of very large assemblages without removing quantitative differences.</li>
+<li><strong>Composition-only diagnostic:</strong> within-site relative frequencies are converted to a Manhattan distance matrix and compared with the primary contribution-based distance structure using a Spearman Mantel test. This removes assemblage magnitude completely and therefore asks a different compositional question.</li>
+</ol>
+<div class="result"><strong>Reference run reported in the manuscript.</strong> Square-root scores strongly reproduce the primary classification (Spearman ρ = 0.987; 97.3% exact rank agreement). La Scola and Renaghju exchange Rank 2/Rank 3 positions, while combined Rank 2+3 membership is unchanged. The composition-only distance structure shows weak correspondence with the contribution-based structure (Mantel r = 0.163, p = 0.008).</div>
+<p>The network grid is then rerun with the square-root ranks. Under preferred Rule A, the first full-connectivity threshold remains 550 km in 6100–5500 cal BCE and 450 km in 5500–4900 cal BCE, showing that attenuation of the largest assemblages does not alter the main Rule A spatial result.</p>
+
+<h2 id="networks">5. Rule-distance network models</h2>
+<table><tr><th>Rule</th><th>Permitted connections</th><th>Interpretive distinction</th></tr>
+<tr><td>A</td><td>4–3, 3–2, 3–1, 2–1</td><td>direct source links restricted to Rank 3</td></tr>
+<tr><td>B</td><td>4–3, 4–2, 3–2, 3–1, 2–1</td><td>also permits source-to-Rank 2 links</td></tr>
+<tr><td>C</td><td>4–3, 3–2, 2–1</td><td>consecutive-rank links only</td></tr></table>
+<p>Every rule is evaluated from 100 to 650 km in 50 km steps. Distances are centre-to-centre geographical distances calculated after projection to EPSG:3035.</p>
+<div class="note"><strong>Interpretation of distance:</strong> these thresholds are modelling parameters applied to individual potential links, not direct measures of prehistoric movement. The model does not explicitly incorporate coastlines, topography, currents, winds or social boundaries.</div>
+<p>The script exports global metrics, edge lists, centrality values, Friedman tests, pairwise Wilcoxon tests and the first threshold achieving full connectivity for each rule. Rule A is retained as the preferred parsimonious interpretative scenario when connected; its performance is not treated as independent proof of prehistoric circulation structure.</p>
+
+<h2 id="sources">6. Source-confirmed networks</h2>
+<p>Separate models are generated for Lipari, Palmarola and Monte Arci (internally named <code>Sardegna</code>). Only sites with explicit source presence are retained. Rank remains based on each site's total obsidian assemblage, because provenance and technological category are not systematically linked at artefact level in the available evidence.</p>
+<p>Rule A is attempted first. Rule B is used as a fallback only if the Rule A filtered graph is empty, has no edges, lacks the source node or leaves it isolated. The selection and fallback reason are exported.</p>
+
+<h2 id="figures">7. Manuscript figures</h2>
+<p><strong>Figure 1</strong> is generated directly as <code>OUTPUTS/all_sites_numbered_black_white_map.png</code>. <strong>Figure 2</strong> is the conceptual rule schematic prepared outside R.</p>
+<p>The current script automatically assembles publication composites for Figures 3–8 in <code>OUTPUTS/Figures/</code> as both PNG and LZW-compressed TIFF files.</p>
+<table><tr><th>Figure</th><th>Arrangement</th></tr>
+<tr><td>3</td><td>rule-set comparison: 6100–5500 left; 5500–4900 right</td></tr>
+<tr><td>4</td><td>earlier interval: Rules A/B/C at 300 km above; 550 km below</td></tr>
+<tr><td>5</td><td>later interval: Rules A/B/C at 300 km above; 450 km below</td></tr>
+<tr><td>6</td><td>Lipari: earlier above, later below; map left, graph-only right</td></tr>
+<tr><td>7</td><td>Palmarola: same arrangement</td></tr>
+<tr><td>8</td><td>Monte Arci/Sardegna: same arrangement</td></tr></table>
+
+<h3>Current generated composites</h3>
+<img src="OUTPUTS/Figures/Figure_3.png" alt="Figure 3">
+<img src="OUTPUTS/Figures/Figure_4.png" alt="Figure 4">
+<img src="OUTPUTS/Figures/Figure_5.png" alt="Figure 5">
+<img src="OUTPUTS/Figures/Figure_6.png" alt="Figure 6">
+<img src="OUTPUTS/Figures/Figure_7.png" alt="Figure 7">
+<img src="OUTPUTS/Figures/Figure_8.png" alt="Figure 8">
+<p class="small">If an image is missing, regenerate the workflow and upload the current OUTPUTS folder while preserving this directory structure.</p>
+
+<h2 id="tables">8. Principal output files</h2>
+<h3>Global outputs</h3>
+<table>
+<tr><th>File</th><th>Contents</th></tr>
+<tr><td>production_contribution_PN_all_sites.csv</td><td>category-wise contribution matrix</td></tr>
+<tr><td>manhattan_dissimilarity_PN_all_sites.csv</td><td>primary Manhattan distance matrix</td></tr>
+<tr><td>production_score_all_sites.csv</td><td>contribution-based production score</td></tr>
+<tr><td>production_score_rank_thresholds_all_sites.csv</td><td>80th and 90th percentile thresholds</td></tr>
+<tr><td>site_production_score_ranking_all_sites.csv</td><td>primary score/rank assignment</td></tr>
+<tr><td>sensitivity_rank_comparison_all_sites.csv</td><td>primary versus square-root score/rank by site</td></tr>
+<tr><td>sensitivity_summary_all_sites.csv</td><td>Spearman, rank agreement, Jaccard and Mantel statistics</td></tr>
+<tr><td>composition_only_manhattan_dissimilarity_all_sites.csv</td><td>composition-only distance matrix</td></tr>
+<tr><td>ranked_sites_all_sites.csv</td><td>cleaned data with primary and square-root ranks</td></tr>
+<tr><td>adonis_Manhattan_dissimilarity_by_rank_all_sites.csv</td><td>PERMANOVA-style descriptive diagnostic</td></tr>
+<tr><td>pcoa_Manhattan_by_production_rank_all_sites.csv</td><td>PCoA coordinates</td></tr>
+</table>
+<h3>Interval outputs</h3>
+<p>Each interval folder contains the complete rule-distance edge lists and maps, global metrics, centrality tables, statistical rule comparisons, first-connected networks, source-filtered outputs, and the square-root network-sensitivity outputs:</p>
+<ul>
+<li><code>network_rank_sensitivity_sqrt_&lt;interval&gt;.csv</code></li>
+<li><code>first_connected_rank_sensitivity_sqrt_&lt;interval&gt;.csv</code></li>
+<li><code>source_confirmed_rule_selection_log_&lt;interval&gt;.csv</code></li>
+<li><code>source_confirmed_metrics_&lt;interval&gt;.csv</code></li>
+</ul>
+
+<h2 id="reproducibility">9. Reproducibility checklist</h2>
+<ol>
+<li>Run the complete <code>CHRONOS.R</code> workflow from the repository root.</li>
+<li>Confirm that the two unmatched-site tables contain no site records.</li>
+<li>Confirm sensitivity statistics from <code>sensitivity_summary_all_sites.csv</code>.</li>
+<li>Confirm primary and square-root first-connected thresholds from their respective interval tables.</li>
+<li>Confirm source-specific rule selection/fallbacks.</li>
+<li>Upload the complete regenerated OUTPUTS folders together so that tables and figures come from one run.</li>
+<li>Archive the exact repository commit and R/package environment used for publication.</li>
+</ol>
+<p>The R script, datasets, analytical pipelines and derived outputs are made openly available to enhance transparency, reproducibility and independent extension of the analysis.</p>
 </body>
 </html>

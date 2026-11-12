@@ -1,21 +1,14 @@
 # CHRONOS
 
-CHRONOS is an R workflow for modelling documented involvement in Neolithic obsidian production and potential circulation networks in the Central Mediterranean. It compares the intervals **6100–5500 cal BCE** and **5500–4900 cal BCE**.
+**CHRONOS – The Obsidian Route in the Central Mediterranean: DiaCHRONic Pathways and Cultural ConnectiOnS**
 
-The repository contains one analytical entry-point script, [`CHRONOS.R`](CHRONOS.R), the input datasets and map files, generated tables and individual figure panels, and an illustrated HTML report.
+This repository contains the reproducible analytical workflow supporting the study **“Modelling Obsidian Production and Circulation across the Central Mediterranean, 6100–4900 cal BCE.”** The workflow harmonises technological, chronological, provenance and spatial data for 74 archaeological contexts and explores how different assumptions about technological involvement, source access and distance affect potential obsidian-circulation networks.
 
-## Start here
+The analysis is exploratory. Site ranks are operational levels of **documented technological involvement**, not fixed functional categories, and network edges are modelling outcomes rather than demonstrated prehistoric journeys or exchange routes.
 
-- **Run the analyses:** follow [Reproducing the analyses](#reproducing-the-analyses).
-- **Find a manuscript figure:** use the [figure-to-code mapping](#manuscript-figures-and-their-generating-code), including the panel order for Figures 3–8.
-- **Browse the illustrated workflow:** [open the CHRONOS HTML report](https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html).
-- **Find an output table:** use the [output catalogue below](#output-table-catalogue) or the [catalogue in the HTML report](https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html#tables).
+## Repository contents
 
-The HTML report explains the workflow step by step, displays the analytical figures, provides interpretative commentary, and identifies the output files. It is a companion to the executable script. Its section numbers describe analytical stages and are not the manuscript's figure numbers.
-
-## Repository structure
-
-```text
+~~~text
 CHRONOS/
 ├── CHRONOS.R
 ├── CHRONOS_report.html
@@ -33,31 +26,23 @@ CHRONOS/
 └── OUTPUTS/
     ├── Obsidian_network_6100_5500/
     ├── Obsidian_network_5500_4900/
-    ├── PCoA_BR_by_production_rank_all_sites.png
-    ├── all_sites_numbered_black_white_map.png
-    └── global output tables
-```
+    ├── Figures/
+    └── global tables and figures
+~~~
 
-## Reproducing the analyses
+- **CHRONOS.R** is the single executable analytical workflow.
+- **RAWDATA/** contains the complete and chronological input datasets.
+- **MAP/** contains the shapefile used for geographical figures.
+- **OUTPUTS/** contains generated tables and figures. Re-run the script after any change to the inputs and replace these outputs together so that all files correspond to the same analytical run.
+- **CHRONOS_report.html** is a static explanatory companion to the script and outputs.
 
-### 1. Download the complete repository
+## Reproducing the analysis
 
-Clone the repository or download and extract its ZIP archive. Keep `CHRONOS.R`, `RAWDATA/`, and `MAP/` together in the repository root. The R script alone is not sufficient because it reads the three input workbooks and the map shapefile.
+### Requirements
 
-| Input | Role |
-|---|---|
-| [`RAWDATA/obs_data_corr.xlsx`](RAWDATA/obs_data_corr.xlsx) | Complete technological dataset used to calculate production scores and ranks |
-| [`RAWDATA/obs_data_corr_6100_5500.xlsx`](RAWDATA/obs_data_corr_6100_5500.xlsx) | Earlier chronological dataset, including coordinates and source-attribution fields |
-| [`RAWDATA/obs_data_corr_5500_4900.xlsx`](RAWDATA/obs_data_corr_5500_4900.xlsx) | Later chronological dataset, including coordinates and source-attribution fields |
-| [`MAP/map_shp.shp`](MAP/map_shp.shp), with `.dbf`, `.shx`, and `.prj` companions | Background map used in the geographical figures |
+R and the following packages are required:
 
-Keep the shapefile components together. `MAP/map_shp.qmd` is accompanying map metadata; it is not an analysis script or a required Quarto workflow.
-
-### 2. Install the R packages
-
-The analysis requires R and the following packages. RStudio is optional.
-
-```r
+~~~r
 install.packages(c(
   "openxlsx",
   "dplyr",
@@ -68,227 +53,215 @@ install.packages(c(
   "ggrepel",
   "ggspatial",
   "vegan",
-  "units"
+  "units",
+  "magick"
 ))
-```
+~~~
 
-The script checks for these packages before starting and reports any that are missing. Installation of spatial packages can require platform-specific system dependencies; follow the installation instructions for `sf` and `units` if their installation fails.
+RStudio is optional.
 
-### 3. Run the complete workflow
+### Run the complete workflow
 
-Set the working directory to the repository root, where `CHRONOS.R` is located. In R or RStudio, run:
+From the repository root:
 
-```r
+~~~r
 source("CHRONOS.R")
-```
+~~~
 
-Alternatively, from a terminal in the repository root:
+or from a terminal:
 
-```bash
+~~~bash
 Rscript CHRONOS.R
-```
+~~~
 
-Run the whole script so that input cleaning, ranking, chronological matching, network construction, and plotting use the same inputs. The script creates the output directories automatically and writes regenerated results to the same filenames.
+The script detects the project root automatically when it is placed either in the repository root or in a **SCRIPTS/** subfolder. It creates output folders when necessary.
 
-The executable sequence is:
+## Input datasets
 
-| Stage | Relevant part of `CHRONOS.R` | Result |
-|---|---|---|
-| Full-dataset ranking and diagnostics | Section 5, called by Section 7.1 | Contribution values, production scores, percentile ranks, PERMANOVA results, and PCoA |
-| Attach ranks to chronological records | Sections 7.2–7.5 | Two chronological datasets with the full-dataset ranks attached, plus unmatched-site lists |
-| Build and compare rule-distance networks | Sections 6.1–6.6, called by Section 7.6 | Complete rule-distance grid, maps, edge lists, metrics, and statistical comparisons |
-| Select backbones and build source-filtered networks | Sections 6.7–6.10, called by Section 7.6 | Selected models, source maps and graphs, source metrics, and selection logs |
-| Draw the numbered site-location map | Section 8 | Site map and number-to-site lookup table |
+| Input | Role |
+|---|---|
+| **RAWDATA/obs_data_corr.xlsx** | Complete technological dataset used to calculate contribution values, production scores, operational ranks and sensitivity diagnostics |
+| **RAWDATA/obs_data_corr_6100_5500.xlsx** | Earlier chronological subset used for network modelling |
+| **RAWDATA/obs_data_corr_5500_4900.xlsx** | Later chronological subset used for network modelling |
+| **MAP/map_shp.shp** and sidecars | Background geography for maps |
 
-### 4. Check that the run is ready to interpret
+The principal technological variables are **blade**, **flake**, **core**, and **by.products.waste**. The analytical denominator excludes technologically indeterminate pieces.
 
-For each interval, inspect `OUTPUTS/Obsidian_network_<interval>/unmatched_sites_no_rank_<interval>.csv`. Both files should contain a header and **no unmatched site records**. The console also prints the number of unmatched sites.
+### Missing information and genuine absence
 
-Ranks are transferred by matching normalised site names. Normalisation handles whitespace, accents, and case, but not spelling differences. An unmatched site has no assigned rank and cannot receive links under the rank-based connection rules. The current script warns and continues, so resolve any unmatched records in the input workbooks and rerun before interpreting the networks.
+The workflow distinguishes documented absence from unavailable information.
 
-Also check that the same archaeological context has consistent coordinates and technological counts across the complete and chronological inputs. Use the freshly generated CSV files to verify numbers quoted in the manuscript.
+- For the technological variables, **0 means documented absence**. Missing/unresolved counts must remain **NA** and the script stops before ranking if such values are present.
+- For source columns (**Sardegna**, **Lipari**, **Palmarola**), **1 means documented presence**, **0 documented absence**, and **NA unknown/not analysed**.
+- Source-confirmed networks retain only sites with explicit source presence (= 1).
 
-The script sets `set.seed(123)`. To record the R and package versions used for a run, execute the following in R after the analysis finishes:
+This prevents unpublished or unresolved information from being silently converted into archaeological absence.
 
-```r
-writeLines(capture.output(sessionInfo()), "OUTPUTS/sessionInfo.txt")
-```
+## Analytical workflow
 
-This version record is produced by the command above; it is not automatically written by `CHRONOS.R`.
+### 1. Contribution-based production score
 
-## Manuscript figures and their generating code
+For each technological category, each site is expressed as its percentage contribution to the total amount of that category across the complete dataset:
 
-**`CHRONOS.R` generates the analytical panels used for Figures 1 and 3–8.** The table below identifies the code sections, exact output-name patterns, and manuscript panel order. Figure 2 is a conceptual schematic prepared outside the R workflow.
-
-The current repository script exports **individual PNG panels**. Combining them into the final multi-panel publication figures is a separate preparation step; the public script does not currently write files named `Figure_3.tiff` through `Figure_8.tiff`. Arrange the regenerated panels as specified below.
-
-In this table:
-
-- `<interval>` means `6100_5500` or `5500_4900`.
-- Interval-specific files are in `OUTPUTS/Obsidian_network_<interval>/`.
-- `<rule>` means `A`, `B`, or `C`.
-
-| Manuscript figure | Generating code in `CHRONOS.R` | Output files and arrangement |
-|---|---|---|
-| **Figure 1 — Site locations** | Section 8, `plot_all_sites_numbered_map()` | [`OUTPUTS/all_sites_numbered_black_white_map.png`](OUTPUTS/all_sites_numbered_black_white_map.png). Site numbers are identified in [`OUTPUTS/all_sites_numbered_map_lookup.csv`](OUTPUTS/all_sites_numbered_map_lookup.csv). |
-| **Figure 2 — Connection rules** | Schematic prepared outside R; the model rules are implemented as `rule_sets` in Section 6.1 | Conceptual illustration of the permitted rank connections under Rules A–C. No Figure 2 image is exported by the script. See the [rule definitions below](#network-rules-and-threshold-selection). |
-| **Figure 3 — Rule-set comparison** | Section 6.3, `rule_comparison_plot` within `run_network_models()` | `rule_set_metric_comparison_6100_5500.png` on the **left** and `rule_set_metric_comparison_5500_4900.png` on the **right**, each from its interval folder. |
-| **Figure 4 — Earlier network configurations** | Section 6.2, `build_network()` and `plot_network_map()` | Earlier interval folder. **Top row:** `Rule_<rule>_300km_map_6100_5500.png`. **Bottom row:** `Rule_<rule>_550km_map_6100_5500.png`. Rules **A, B, C** run left to right in each row. |
-| **Figure 5 — Later network configurations** | Section 6.2, `build_network()` and `plot_network_map()` | Later interval folder. **Top row:** `Rule_<rule>_300km_map_5500_4900.png`. **Bottom row:** `Rule_<rule>_450km_map_5500_4900.png`. Rules **A, B, C** run left to right in each row. |
-| **Figure 6 — Lipari** | Section 6.10.6, `plot_network_map()` and `plot_network_graph_only()` | `Lipari_source_confirmed_map_<interval>.png` and `Lipari_source_confirmed_graph_only_<interval>.png`. **Earlier interval on top, later below; geographical map on the left, graph-only layout on the right.** |
-| **Figure 7 — Palmarola** | Section 6.10.6, the same plotting functions | `Palmarola_source_confirmed_map_<interval>.png` and `Palmarola_source_confirmed_graph_only_<interval>.png`. Same panel arrangement as Figure 6. |
-| **Figure 8 — Monte Arci/Sardinia** | Section 6.10.6, the same plotting functions | `Sardegna_source_confirmed_map_<interval>.png` and `Sardegna_source_confirmed_graph_only_<interval>.png`. Same panel arrangement as Figure 6. The internal source name and filename prefix are **`Sardegna`**. |
-
-For Figures 3–5, panel letters follow the order left to right, then top to bottom where applicable. For Figures 6–8, A is the earlier map, B the earlier graph-only layout, C the later map, and D the later graph-only layout.
-
-The thresholds illustrated in Figures 4 and 5 are selected views from the full sensitivity grid. For the source-filtered Figures 6–8, obtain the actual selected rule and distance threshold from `source_confirmed_rule_selection_log_<interval>.csv` and `source_confirmed_metrics_<interval>.csv` for that run. Report those parameters in the figure captions; they are selected from the input-dependent network results.
-
-### Additional diagnostic figures
-
-| Output | Generating code | Purpose |
-|---|---|---|
-| [`OUTPUTS/PCoA_BR_by_production_rank_all_sites.png`](OUTPUTS/PCoA_BR_by_production_rank_all_sites.png) | Section 5.7b | PCoA diagnostic of production ranks; this is not the conceptual Figure 2 |
-| `degree_by_rank_rule_distance_sweep_<interval>.png` | Section 6.9 | Degree centrality by rank across the rule-distance grid |
-| `Rule_<rule>_<distance>km_map_<interval>.png` | Section 6.2 | All tested geographical networks, including configurations not selected for the manuscript panels |
-
-The rule-comparison and network panels used for Figures 3–8 are exported at 6.8 × 5.5 inches and 300 dpi. Figure 1 is exported at 8.5 × 6.2 inches; the additional PCoA plot uses 7.6 × 5.8 inches, also at 300 dpi. Re-run the analytical workflow after changing inputs before assembling publication figures, so that panels and tables correspond to the same run.
-
-## Analytical definitions
-
-### Production-score ranks
-
-The four technological variables are `blade`, `flake`, `core`, and `by.products.waste`. For each category, the script calculates each site's percentage contribution to the category total across the complete dataset. These contribution values are not percentages within each site's assemblage and are not rescaled by row.
-
-```text
+~~~text
 Production_score =
   blade.PN + flake.PN + core.PN + by.products.waste.PN
-```
+~~~
 
-| Rank | Operational interpretation | Criterion |
+These are **not within-site percentages**. The contribution-based formulation intentionally retains both technological composition and the documented quantitative scale of obsidian working.
+
+### 2. Operational technological ranks
+
+Sites are assigned to three analytical ranks from the complete production-score distribution:
+
+| Rank | Criterion | Interpretation |
 |---|---|---|
-| 1 | Lower documented production involvement | Score below the 80th-percentile threshold |
-| 2 | Intermediate documented production involvement | Score at or above the 80th percentile and below the 90th percentile |
-| 3 | Higher documented production involvement | Score at or above the 90th percentile |
-| 4 | Geological source location | Manually added Monte Arci, Lipari, and Palmarola source nodes |
+| 1 | below 80th percentile | lower documented technological involvement |
+| 2 | 80th–90th percentile | intermediate documented technological involvement |
+| 3 | upper decile | highest documented technological involvement |
+| 4 | geological source node | Monte Arci, Lipari or Palmarola |
 
-Ranks are calculated once for the full dataset and then attached to the chronological records. Rank assignment uses the production score and percentile thresholds, not an unsupervised clustering procedure.
+The 90th percentile isolates the small upper tail of sites making the greatest contributions to the documented technological corpus; the 80th percentile defines an intermediate group immediately below it. These are reproducible analytical cut-offs, defined independently of subsequent network results, not archaeological boundaries.
 
-### Manhattan dissimilarity diagnostics
+Ranks are calculated once from the complete dataset and then joined to the two chronological subsets.
 
-The active diagnostic calculation uses `vegan::vegdist(..., method = "manhattan")` on the production-contribution matrix. The script's intermediate transformation yields **Manhattan distance divided by two** for the PERMANOVA and PCoA. Existing object and output names containing `BR` are retained in the code and filenames.
+### 3. Manhattan dissimilarity diagnostic
 
-These diagnostics describe the rank groups in the same contribution space from which their scores were calculated; they do not provide independent validation of the classification. See [HTML report, Step 3](https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html#step3) for the illustrated diagnostic.
+The script calculates pairwise Manhattan dissimilarities directly on the same category-wise contribution matrix used for the production score. PERMANOVA and PCoA are therefore descriptive diagnostics of the rank structure in contribution space, not independent validation of the classification.
 
-### Network rules and threshold selection
+Current output names use **Manhattan**, replacing the legacy **BR** naming used in earlier repository versions.
 
-| Rule | Permitted rank connections | Model distinction |
-|---|---|---|
-| A | `4-3`, `3-2`, `3-1`, `2-1` | Direct source connections restricted to Rank 3, with additional non-consecutive site connections |
-| B | `4-3`, `4-2`, `3-2`, `3-1`, `2-1` | Also permits direct source-to-Rank 2 connections |
-| C | `4-3`, `3-2`, `2-1` | Permits only consecutive-rank connections |
+### 4. Sensitivity to assemblage magnitude
 
-For each interval, the script evaluates the **complete grid from 100 to 650 km in 50 km steps**. Distances are calculated between site/source coordinates after projection to EPSG:3035. Edges require both an allowed rank pair and a distance within the selected threshold. Connectivity and centrality are evaluated on undirected, unweighted representations of the graphs.
+Two complementary checks assess the effect of assemblage size.
 
-After evaluating the grid, the script identifies the **lowest tested threshold achieving full connectivity for each rule**. Full connectivity means that all sites and source nodes in that general network belong to one connected component. This selection does not stop the sensitivity-grid calculations at the first connected threshold.
+**Square-root sensitivity ranking.** Raw technological counts are square-root transformed before the same contribution scaling, score calculation and percentile rank assignment. This reduces the leverage of very large assemblages while preserving quantitative differences.
 
-For the general backbone, the executable preference is Rule A, then B, then C among rules that achieve full connectivity. If none does, the maximum-distance Rule B graph is retained as a fallback. The selected model is recorded in `selected_backbone_network_<interval>.csv`.
+**Composition-only diagnostic.** Within-site relative frequencies are converted to a Manhattan distance matrix and compared with the primary contribution-based distance matrix using a Spearman Mantel test. This intentionally removes assemblage magnitude and therefore addresses a different question: similarity in internal technological composition irrespective of quantitative scale.
 
-### Source-confirmed networks
+For the analytical run reported in the manuscript, the square-root ranking strongly reproduced the primary classification (**Spearman ρ = 0.987; 97.3% exact rank agreement**). Only La Scola and Renaghju exchanged Rank 2/Rank 3 positions, while membership of the combined upper two ranks was unchanged. The composition-only structure corresponded only weakly with the primary contribution structure (**Mantel r = 0.163, p = 0.008**), showing that purely proportional standardisation removes information retained by the contribution-based approach.
 
-Source columns are `Sardegna` (Monte Arci), `Lipari`, and `Palmarola`: `1` means documented presence, `0` absence, and a blank/`NA` unknown or not analysed.
+The complete rule-distance grid is also rerun with the square-root ranks. Under preferred Rule A, the first full-connectivity threshold remains **550 km for 6100–5500 cal BCE** and **450 km for 5500–4900 cal BCE**. Thus reducing the influence of the largest assemblages does not alter the principal Rule A spatial result.
 
-Source filtering uses a separately selected Rule A backbone: its first fully connected configuration, or its maximum tested threshold if Rule A never achieves full connectivity. The script retains the selected source and sites with an explicit presence value of `1`, excluding other source nodes and sites with absent or unknown attribution. Ranks remain those calculated from the total obsidian assemblages.
+### 5. Rule-distance network models
 
-If that filtered Rule A graph is uninformative—empty, without edges, or with an isolated selected source—the workflow uses a Rule B fallback, selected at Rule B's first fully connected threshold or its maximum tested threshold if none is connected. Full connectivity is **not imposed again after source filtering**. The parameters and any fallback are recorded in `source_confirmed_rule_selection_log_<interval>.csv` and `source_confirmed_metrics_<interval>.csv`; the backbone name includes the distance threshold.
+The three rule sets are:
 
-## Output table catalogue
+| Rule | Permitted rank connections |
+|---|---|
+| A | 4–3, 3–2, 3–1, 2–1 |
+| B | 4–3, 4–2, 3–2, 3–1, 2–1 |
+| C | 4–3, 3–2, 2–1 |
 
-### Global outputs in `OUTPUTS/`
+The script evaluates every rule from **100 to 650 km in 50 km increments**. Distances are centre-to-centre geographical distances after transformation to EPSG:3035.
+
+Distance thresholds are **modelling parameters applied to individual potential links**. They are not direct measures of prehistoric journeys and do not incorporate coastlines, topography, currents, winds or social boundaries.
+
+For each rule the script records the first threshold at which all nodes belong to one connected component. Rule A is retained as the preferred parsimonious interpretative scenario when connected because it achieves connectivity without introducing the additional direct source-to-Rank 2 links allowed by Rule B. Network performance is not treated as independent proof that prehistoric circulation followed that structure.
+
+### 6. Source-confirmed networks
+
+Source-filtered networks retain the selected source and only sites where that source is explicitly documented. Ranks remain based on the total obsidian assemblage and therefore should not be interpreted as source-specific technological classifications.
+
+Rule A is attempted first. A Rule B fallback is used only when the Rule A source-filtered graph is empty, has no edges, lacks the source node or leaves the source isolated. The selected rule and fallback decision are exported for each source and interval.
+
+## Quality-control checks
+
+Before interpreting a run:
+
+1. Confirm that **unmatched_sites_no_rank_6100_5500.csv** and **unmatched_sites_no_rank_5500_4900.csv** contain no site records. The current script stops if rank matching fails.
+2. Verify that the input workbooks and generated outputs come from the same revision.
+3. Check the first-connected thresholds in **first_connected_network_by_rule_<interval>.csv**.
+4. Check source-specific model selection in **source_confirmed_rule_selection_log_<interval>.csv**.
+5. Use **sensitivity_summary_all_sites.csv** and the two **first_connected_rank_sensitivity_sqrt_<interval>.csv** files to reproduce the robustness statements reported in the manuscript.
+
+## Main outputs
+
+### Global outputs in OUTPUTS/
 
 | File | Contents |
 |---|---|
-| `production_contribution_PN_all_sites.csv` | Category-wise contribution matrix |
-| `obs_br_PN_all_sites.csv` | Legacy-named intermediate matrix, calculated as `1 - Manhattan_distance / 2` |
-| `production_score_all_sites.csv` | Production score for every site |
-| `production_score_rank_thresholds_all_sites.csv` | 80th- and 90th-percentile score thresholds |
-| `site_production_score_ranking_all_sites.csv` | Score and rank assignment |
-| `ranked_sites_all_sites.csv` | Full cleaned technological dataset with scores and ranks |
-| `rank_summary_all_sites.csv` | Number of sites in each rank |
-| `adonis_BR_dissimilarity_by_rank_all_sites.csv` | PERMANOVA-style diagnostic results |
-| `pcoa_BR_by_production_rank_all_sites.csv` | PCoA coordinates |
-| `pcoa_site_code_lookup_all_sites.csv` | Abbreviations used in the PCoA labels |
-| `all_sites_numbered_map_lookup.csv` | Figure 1 number-to-site and coordinate lookup |
+| **production_contribution_PN_all_sites.csv** | Category-wise site contributions |
+| **manhattan_dissimilarity_PN_all_sites.csv** | Pairwise Manhattan dissimilarity matrix on contribution values |
+| **production_score_all_sites.csv** | Contribution-based production score |
+| **production_score_rank_thresholds_all_sites.csv** | 80th/90th percentile thresholds |
+| **site_production_score_ranking_all_sites.csv** | Primary score and rank |
+| **sensitivity_rank_comparison_all_sites.csv** | Primary versus square-root score/rank for every site |
+| **sensitivity_summary_all_sites.csv** | Spearman, rank agreement, Jaccard overlap and Mantel statistics |
+| **composition_only_manhattan_dissimilarity_all_sites.csv** | Composition-only distance matrix |
+| **ranked_sites_all_sites.csv** | Cleaned site table with primary and square-root ranks |
+| **rank_summary_all_sites.csv** | Number of sites by primary rank |
+| **adonis_Manhattan_dissimilarity_by_rank_all_sites.csv** | PERMANOVA-style descriptive diagnostic |
+| **pcoa_Manhattan_by_production_rank_all_sites.csv** | PCoA coordinates |
+| **PCoA_Manhattan_by_production_rank_all_sites.png** | PCoA diagnostic plot |
+| **pcoa_site_code_lookup_all_sites.csv** | Site labels used in the PCoA |
+| **all_sites_numbered_black_white_map.png** | Figure 1 site-location map |
+| **all_sites_numbered_map_lookup.csv** | Figure 1 site-number lookup |
 
-### Chronological outputs in `OUTPUTS/Obsidian_network_<interval>/`
+### Interval-specific outputs
 
-| File | Contents |
+Files are written to **OUTPUTS/Obsidian_network_<interval>/**.
+
+| File/pattern | Contents |
 |---|---|
-| `ranked_sites_<interval>.csv` | Chronological records with full-dataset scores and ranks |
-| `unmatched_sites_no_rank_<interval>.csv` | Records that failed the rank lookup; verify that this contains no site rows |
-| `Rule_<rule>_<distance>km_edges_<interval>.csv` | Edge list for a rule-distance configuration |
-| `global_metrics_rule_distance_sweep_<interval>.csv` | Nodes, edges, components, isolates, largest-component size, and connectedness for the full grid |
-| `centrality_rule_distance_sweep_<interval>.csv` | Site-level centralities for the grid |
-| `centrality_by_rank_rule_distance_sweep_<interval>.csv` | Centrality summaries by rank |
-| `friedman_rule_comparison_<interval>.csv` | Blocked comparisons among the three rule sets |
-| `pairwise_rule_comparison_<interval>.csv` | Pairwise Wilcoxon comparisons with adjusted p-values |
-| `first_connected_network_by_rule_<interval>.csv` | Lowest fully connected threshold for each rule that reaches connectivity |
-| `selected_backbone_network_<interval>.csv` | Selected general backbone and its metrics |
-| `selected_rule_a_source_filter_backbone_<interval>.csv` | Rule A backbone selected for source filtering |
-| `source_confirmed_rule_selection_log_<interval>.csv` | Selected rule, backbone name (including its threshold), and fallback decision by source |
-| `source_confirmed_metrics_<interval>.csv` | Metrics and selected model parameters for each source-filtered graph |
-| `<source>_source_confirmed_edges_<interval>.csv` | Source-filtered edge list |
-| `<source>_source_confirmed_vertices_<interval>.csv` | Retained source-filtered vertices and their attributes |
+| **ranked_sites_<interval>.csv** | Chronological records with full-dataset ranks |
+| **unmatched_sites_no_rank_<interval>.csv** | Rank-join QC |
+| **Rule_<rule>_<distance>km_edges_<interval>.csv** | Edge list for each rule-distance model |
+| **Rule_<rule>_<distance>km_map_<interval>.png** | Geographical network panel |
+| **global_metrics_rule_distance_sweep_<interval>.csv** | Global metrics for the complete grid |
+| **centrality_rule_distance_sweep_<interval>.csv** | Node centralities |
+| **centrality_by_rank_rule_distance_sweep_<interval>.csv** | Centrality summaries by rank |
+| **friedman_rule_comparison_<interval>.csv** | Friedman comparisons across rule sets |
+| **pairwise_rule_comparison_<interval>.csv** | Pairwise Wilcoxon comparisons |
+| **first_connected_network_by_rule_<interval>.csv** | First full-connectivity threshold by rule |
+| **selected_backbone_network_<interval>.csv** | Selected general backbone |
+| **selected_rule_a_source_filter_backbone_<interval>.csv** | Rule A backbone used for source filtering |
+| **source_confirmed_rule_selection_log_<interval>.csv** | Source-filter rule/fallback log |
+| **source_confirmed_metrics_<interval>.csv** | Source-filtered metrics |
+| **<source>_source_confirmed_edges_<interval>.csv** | Source-filtered edges |
+| **<source>_source_confirmed_vertices_<interval>.csv** | Source-filtered vertices |
+| **network_rank_sensitivity_sqrt_<interval>.csv** | Complete rule-distance grid using square-root ranks |
+| **first_connected_rank_sensitivity_sqrt_<interval>.csv** | First full-connectivity threshold by rule under square-root ranks |
 
-Here `<source>` is `Lipari`, `Palmarola`, or `Sardegna`. The [HTML table catalogue](https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html#tables) lists the output filenames and explains their contents.
+Here **<source>** is **Lipari**, **Palmarola**, or **Sardegna** (the internal filename used for Monte Arci).
 
-## Using the HTML report
+## Manuscript figures
 
-Open [the online report](https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html), or open [`CHRONOS_report.html`](CHRONOS_report.html) locally in a browser. For local viewing, keep `OUTPUTS/` beside the HTML file because its images use relative paths.
+**Figure 1** is generated as **OUTPUTS/all_sites_numbered_black_white_map.png**.
 
-Useful report sections are:
+**Figure 2** is the conceptual schematic of rank-based connection rules and is prepared outside the R workflow.
 
-- [Input data](https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html#step1)
-- [Production scores and ranks](https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html#step2)
-- [Manhattan-dissimilarity diagnostic](https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html#step3)
-- [Rule-distance networks](https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html#step4)
-- [Source-filtered networks](https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html#step5)
-- [Site-location map](https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html#step6)
-- [Output table catalogue](https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html#tables)
-- [Reproduction instructions](https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html#reproducibility)
+The current script automatically assembles the publication composites for **Figures 3–8** in **OUTPUTS/Figures/**, exporting both PNG and LZW-compressed TIFF versions:
 
-The report is a static explanatory document. Re-running `CHRONOS.R` regenerates the referenced analytical outputs but does **not** rewrite the report's numerical commentary. After an input or analysis revision, update that commentary, manuscript values, and figure captions against the same regenerated CSV tables and upload the corresponding outputs together.
+- Figure 3: rule-set comparison, earlier interval left and later interval right.
+- Figure 4: earlier general networks; Rules A/B/C at 300 km above and 550 km below.
+- Figure 5: later general networks; Rules A/B/C at 300 km above and 450 km below.
+- Figure 6: Lipari source-confirmed networks, earlier above and later below; map left, graph-only view right.
+- Figure 7: Palmarola, same arrangement.
+- Figure 8: Monte Arci/Sardegna, same arrangement.
 
-## Reproducibility notes
+The individual panels remain available in the interval-specific output folders.
 
-The repository includes the analytical script, input datasets, map files, generated tables and figures, the illustrated HTML report, and this README. Preserve the repository revision and the R/package version record used for a reported analysis.
+## HTML report
 
-Recommended additional files before final publication:
+Open **CHRONOS_report.html** locally or through GitHub Pages:
 
-```text
-LICENSE
-CITATION.cff
-.gitignore
-```
+https://nmazzucco.github.io/CHRONOS/CHRONOS_report.html
 
-## Licence
+The report explains the analytical logic and expected outputs. It is intentionally static: running **CHRONOS.R** regenerates the analytical files but does not rewrite the report. If the analysis changes, update the script, outputs, README and HTML report together.
 
-Data, figures, documentation, and report are under Creative Commons Attribution 4.0 International (CC BY 4.0).
+## Transparency and reproducibility
 
-Suggested wording:
+The repository makes the R workflow, analytical pipelines, input datasets and derived outputs openly available so that the classification, sensitivity tests and network models can be independently reproduced, inspected and extended.
 
-```text
-Code in this repository is released under the MIT Licence.
-Data, figures, documentation, and the HTML report are released under Creative Commons Attribution 4.0 International (CC BY 4.0), unless otherwise stated.
-```
+When archiving a final analytical release, also preserve the exact R/package environment (for example, the output of **sessionInfo()**) and the repository commit used for the publication.
 
-## Suggested citation
+## Citation
 
-```text
-Mazzucco, N. CHRONOS: Reproducible workflow for modelling Neolithic obsidian production and circulation in the Central Mediterranean. GitHub repository.
-```
+Mazzucco N, et al. *Modelling Obsidian Production and Circulation across the Central Mediterranean, 6100–4900 cal BCE*. Associated CHRONOS analytical repository: https://github.com/nmazzucco/CHRONOS
 
 ## Author
 
 Niccolò Mazzucco  
 University of Pisa  
-GitHub: `@nmazzucco`
+GitHub: @nmazzucco
