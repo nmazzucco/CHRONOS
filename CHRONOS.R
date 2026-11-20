@@ -850,7 +850,7 @@ run_production_ranking <- function(input_file, output_folder, interval_label) {
   # (b) composition-only distance diagnostic: within-site percentages are compared
   #     with the primary PN Manhattan distance structure using a Mantel correlation.
   #     This asks whether pairwise technological relationships remain similar after
-  #     assemblage magnitude is removed, but it is not used to assign functional ranks.
+  #     assemblage magnitude is removed, but it is not used to assign operational technological ranks.
   
   sqrt_counts <- sqrt(as.matrix(obs_data[, categories]))
   colnames(sqrt_counts) <- categories
